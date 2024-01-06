@@ -35,7 +35,7 @@ aside.ion-icon {
   margin-right: 5px;
 }
 
-.mobile-nav-toggle {
+.mobile-aside-toggle {
   display: none;
 }
 @media (max-width: 35em) {
