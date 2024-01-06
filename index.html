@@ -6,14 +6,22 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="hi.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- Css Files -->
+    <link rel="stylesheet" href="hi.css" />
   </head>
   <body>
-    <aside>
+    <aside class="primary-aside" data-visible="false">
+      <button
+        class="mobile-aside-toggle"
+        aria-controls="primary-aside"
+        aria-expanded="flase"
+      >
+        <span class="sr-only">Menu</span>
+      </button>
       <div class="side-header">
         <div class="name">
           Nexus Ai<br /><span style="font-size: 11px; font-weight: normal"
@@ -70,6 +78,8 @@
         </div>
       </div>
     </aside>
+    <!-- Js Files -->
+    <script src="index.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script
       type="module"

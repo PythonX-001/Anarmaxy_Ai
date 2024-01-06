@@ -19,6 +19,7 @@ body {
   display: flex;
   flex: 1;
 }
+/* Start Aside */
 aside {
   height: 100%;
   display: flex;
@@ -28,11 +29,41 @@ aside {
   background-color: #1b262a;
   width: 300px;
   height: 100svh;
+  transition: .3s;
 }
 aside.ion-icon {
   margin-right: 5px;
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+@media (max-width: 35em) {
+  aside {
+    position: fixed;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+  aside[data-visible="true"] {
+    transform: translateX(0);
+  }
+  .mobile-aside-toggle {
+    position: absolute;
+    z-index: 9999;
+    background-color: transparent;
+    background: url("./assets/icon-hamburger.svg");
+    background-repeat: no-repeat;
+    width: 2rem;
+    border: 0;
+    aspect-ratio: 1;
+    top: 2rem;
+    right: -4rem;
+    display: block;
+  }
+  .mobile-aside-toggle[aria-expanded="true"] {
+    background-image: url("./assets/icon-close.svg");
+  }
+}
 .side-header {
   justify-content: space-between;
 
@@ -132,3 +163,4 @@ ion-icon {
   padding-right: 5px;
   font-size: 18px;
 }
+/* End Aside */
