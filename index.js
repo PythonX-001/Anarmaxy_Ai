@@ -13,7 +13,7 @@ asideToggle.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", function () {
   const chatbox = document.querySelector(".chatbox");
   const chatInput = document.querySelector(".chat-input textarea");
-  const sendChatBtn = document.querySelector(".chat-input span");
+  const sendChatBtn = document.querySelector(".chat-input .send-btn");
   const closeBtn = document.querySelector(".close-btn");
   const chatbotToggler = document.querySelector(".chatbot-toggler");
 
@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
     chatLi.classList.add("chat", className);
     let chatContent =
       className === "outgoing"
-        ? `<p>${message}</p>`
-        : `<span class="material-symbols-outlined">smart_toy</span><p>${message}</p>`;
+        ? `<p>${message}</p><box-icon name="bo" color="#ffff"></box-icon>`
+        : `<box-icon name="bo" color="#ffff"></box-icon><p>${message}</p>`;
     chatLi.innerHTML = chatContent;
     return chatLi;
   };
