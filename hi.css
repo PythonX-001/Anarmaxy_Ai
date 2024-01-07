@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
 :root {
-  --color--: #bbbbbb;
+  --main-color: #1e1e1e;
+  --secondary-color: #3b3b3b;
+  --primary-color: #1b262a;
+  --white-color: #bbbbbb;
   --avWidth--: -webkit-fill-available;
-  --butt-color--: #1e1e1e;
 }
 * {
   box-sizing: border-box;
@@ -11,13 +13,24 @@
   margin: 0;
   font-family: "Inter", sans-serif;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ff9900; /* Change this to the desired color */
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ffcc00; /* Change this to the desired hover color */
+}
 
 body {
-  background-color: #1e1e1e;
-  height: 100svh;
-  width: 100svw;
+  background-color: var(--main-color);
   display: flex;
   flex: 1;
+  overflow: hidden;
 }
 /* Start Aside */
 aside {
@@ -25,11 +38,11 @@ aside {
   display: flex;
   flex-flow: column;
   padding: 20px;
-  color: var(--color--);
-  background-color: #1b262a;
+  color: var(--white-color);
+  background-color: var(--primary-color);
   width: 300px;
   height: 100svh;
-  transition: .3s;
+  transition: 0.3s;
 }
 aside.ion-icon {
   margin-right: 5px;
@@ -77,7 +90,7 @@ aside.ion-icon {
 .side-header-logo {
   height: 48px;
   width: 48px;
-  background-color: var(--color--);
+  background-color: var(--white-color);
   border-radius: 50%;
 }
 .side-butt {
@@ -86,8 +99,8 @@ aside.ion-icon {
   margin-bottom: 20px;
 }
 .side-butt button {
-  color: var(--color--);
-  background-color: var(--butt-color--);
+  color: var(--white-color);
+  background-color: var(--main-color);
   border: none;
   border-radius: 10px;
   padding: 10px;
@@ -104,7 +117,7 @@ aside.ion-icon {
 .convs-conv {
   display: flex;
   flex-flow: column;
-  background-color: var(--butt-color--);
+  background-color: var(--main-color);
   padding: 11px 14px;
   border: 2px #1d93ab solid;
   border-radius: 8px;
@@ -121,7 +134,7 @@ aside.ion-icon {
 }
 .side-footer {
   padding-top: 20px;
-  color: var(--color--);
+  color: var(--white-color);
   font-size: 12px;
   font-weight: 500;
   flex: 0 1 0;
@@ -140,19 +153,19 @@ aside.ion-icon {
   border-radius: 10px;
   padding: 10px;
 
-  background-color: var(--butt-color--);
+  background-color: var(--main-color);
 }
 .bord button {
   border: 0;
   background-color: transparent;
-  color: var(--color--);
+  color: var(--white-color);
   cursor: pointer;
 }
 .new-conv button {
   display: flex;
   align-items: center;
-  background-color: var(--butt-color--);
-  color: var(--color--);
+  background-color: var(--main-color);
+  color: var(--white-color);
   border: 0;
   border-radius: 10px;
   font-size: 12px;
@@ -164,3 +177,83 @@ ion-icon {
   font-size: 18px;
 }
 /* End Aside */
+/* Start main */
+main {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 300px);
+  height: 100vh;
+  position: relative;
+}
+main header {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  background-color: var(--main-color);
+}
+main header .table {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+main header .table .convs-conv {
+  display: flex;
+  flex-flow: column;
+  padding: 11px 14px;
+  border: none;
+  margin: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+main header .table .convs-conv .conv-label {
+  color: var(--white-color);
+  font-weight: bold;
+  font-size: 20px;
+}
+main header .table .convs-conv .conv-date {
+  color: #777;
+}
+main .chat {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+}
+main .chat .input-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+}
+#chat-box {
+  overflow-y: scroll;
+  padding: 0;
+  border-bottom: 1px solid var(--secondary-color);
+}
+#chat-box p {
+  color: white;
+}
+#message-input {
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  outline: none;
+  font-size: 16px;
+  width: 90%;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  height: 60px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+@media (max-width: 35em) {
+  main header .table .convs-conv {
+    margin-top: 1rem;
+    margin-left: 6rem;
+    width: 100%;
+  }
+  main .chat {
+    width: 100vw;
+  }
+}
+/* End main */
