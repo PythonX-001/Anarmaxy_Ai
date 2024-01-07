@@ -33,38 +33,40 @@ body {
   display: flex;
   flex: 1;
   overflow: hidden;
+  width: 100svw;
 }
+
 li {
   list-style: none;
 }
+
 /* Start Aside */
 aside {
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-flow: column;
   padding: 20px;
   color: var(--white-color);
   background-color: var(--primary-color);
-  width: 300px;
-  height: 100svh;
+  width: 260px;
   transition: 0.3s;
-}
-aside.ion-icon {
-  margin-right: 5px;
 }
 
 .mobile-aside-toggle {
   display: none;
 }
+
 @media (max-width: 55em) {
   aside {
     position: fixed;
     transform: translateX(-100%);
     z-index: 1000;
   }
+
   aside[data-visible="true"] {
     transform: translateX(0);
   }
+
   .mobile-aside-toggle {
     position: absolute;
     z-index: 9999;
@@ -78,31 +80,36 @@ aside.ion-icon {
     right: -4rem;
     display: block;
   }
+
   .mobile-aside-toggle[aria-expanded="true"] {
     background-image: url("./assets/icon-close.svg");
   }
 }
+
 .side-header {
   justify-content: space-between;
-
   display: flex;
-
   padding-top: 20px;
   padding-bottom: 20px;
-  font-weight: bolder;
+  font-weight: bold;
   font-size: 20px;
+  zoom: .7;
 }
+
 .side-header-logo {
   height: 48px;
   width: 48px;
   background-color: var(--white-color);
   border-radius: 50%;
 }
+
 .side-butt {
   line-height: 16px;
   display: flex;
   margin-bottom: 20px;
+  zoom: .9;
 }
+
 .side-butt button {
   color: var(--white-color);
   background-color: var(--main-color);
@@ -114,11 +121,15 @@ aside.ion-icon {
   width: calc(100% + 10px);
   cursor: pointer;
 }
+
 .table {
   flex: 1 1 auto;
-
   flex-flow: column;
 }
+aside .table {
+  zoom: .8;
+}
+
 .convs-conv {
   display: flex;
   flex-flow: column;
@@ -128,15 +139,18 @@ aside.ion-icon {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
 .conv-label {
   font-weight: bold;
   font-size: 14.5px;
 }
+
 .conv-date {
   margin-top: 9px;
   font-size: 12px;
   font-weight: normal;
 }
+
 .side-footer {
   padding-top: 20px;
   color: var(--white-color);
@@ -145,11 +159,13 @@ aside.ion-icon {
   flex: 0 1 0;
   display: flex;
   justify-content: space-between;
+  zoom: .8;
 }
 
 .S-foot-butts {
   display: inline-flex;
 }
+
 .S-foot-butts .bord {
   align-items: center;
   height: auto;
@@ -157,15 +173,16 @@ aside.ion-icon {
   border: 0;
   border-radius: 10px;
   padding: 10px;
-
   background-color: var(--main-color);
 }
+
 .bord button {
   border: 0;
   background-color: transparent;
   color: var(--white-color);
   cursor: pointer;
 }
+
 .new-conv button {
   display: flex;
   align-items: center;
@@ -177,6 +194,7 @@ aside.ion-icon {
   padding: 10px;
   cursor: pointer;
 }
+
 ion-icon {
   padding-right: 5px;
   font-size: 18px;
@@ -235,7 +253,7 @@ main .chat .input-holder {
 .chatbot {
   position: relative;
   overflow: hidden;
-  width: calc(100% - 300px);
+  width: calc(100% - 260px);
   background: var(--main-color);
 }
 .chatbot .chatbox {
@@ -309,7 +327,7 @@ main .chat .input-holder {
   box-sizing: border-box;
   height: 60px;
   max-height: 200px;
-  width: 75%;
+  width: 78%;
   border: none;
   outline: none;
   font-size: 0.95rem;
@@ -320,7 +338,6 @@ main .chat .input-holder {
   padding: 16px;
   color: #fff;
   background: transparent;
-  margin-right: 100px;
 }
 .chat-input textarea:valid ~ .send-btn {
   visibility: visible;
