@@ -7,34 +7,40 @@ asideToggle.addEventListener("click", () => {
   aside.setAttribute("data-visible", !isVisible);
   asideToggle.setAttribute("aria-expanded", !isVisible);
 });
+
 //* Chat
-function sendMessage() {
+document.addEventListener("DOMContentLoaded", function () {
   const messageInput = document.getElementById("message-input");
-  const chatBox = document.getElementById("chat-box");
-  const message = messageInput.value.trim();
+  const sendButton = document.querySelector(".send-btn");
 
-  if (message !== "") {
-    displayMessage(message);
-    // Add logic to send the message to the server or perform other actions
+  function sendMessage() {
+    const messageText = messageInput.value.trim();
+    if (messageText !== "") {
+      appendOutgoingMessage(messageText);
+      messageInput.value = ""; // Clear the input field
+    }
   }
 
-  messageInput.value = "";
-}
-
-function displayMessage(message) {
-  const chatBox = document.getElementById("chat-box");
-  const messageDiv = document.createElement("p");
-  messageDiv.textContent = message;
-  chatBox.appendChild(messageDiv);
-}
-
-function handleKeyPress(event) {
-  if (event.key === "Enter") {
-    // If the Enter key is pressed, send the message
-    sendMessage();
-    event.preventDefault(); // Prevent a newline from being inserted into the input
+  function appendOutgoingMessage(text) {
+    const chatBox = document.getElementById("chat-box");
+    const outgoingMessage = document.createElement("li");
+    outgoingMessage.classList.add("chat", "outgoing");
+    outgoingMessage.innerHTML = `
+          <p>${text}</p>
+          <box-icon name="bo" color="#ffff"></box-icon>
+      `;
+    chatBox.appendChild(outgoingMessage);
   }
-}
+
+  sendButton.addEventListener("click", sendMessage);
+
+  messageInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault(); // Prevents the newline in the textarea
+      sendMessage();
+    }
+  });
+});
 
 //* test
 let convLab = document.querySelector("aside .table .convs-conv .conv-label");

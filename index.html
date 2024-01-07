@@ -72,25 +72,37 @@
     <!-- End Aside Bar -->
 
     <!-- Start Main -->
-    <main>
+    <main class="chatbot">
       <header>
         <div class="table">
-          <div class="convs-conv">
-            <div class="conv-label"></div>
-            <div class="conv-date"></div>
-          </div>
+          <ul class="convs-conv">
+            <li class="conv-label"></li>
+            <li class="conv-date"></li>
+          </ul>
         </div>
       </header>
-      <div class="chat">
-        <div id="chat-box"></div>
-        <div class="input-holder">
-          <input
-            type="text"
-            id="message-input"
-            placeholder="Type / To see commands"
-            onkeydown="handleKeyPress(event)"
-          />
-        </div>
+      <ul id="chat-box" class="chatbox">
+        <li class="chat incoming">
+          <box-icon name="bo" color="#ffff"></box-icon>
+          <p>
+            Hi there <br />
+            How can I help you today?
+          </p>
+        </li>
+        <li class="chat outgoing">
+          <p>Lorem ipsum dolor sit amet consectetur</p>
+          <box-icon name="bo" color="#ffff"></box-icon>
+        </li>
+      </ul>
+      <div class="chat-input">
+        <textarea
+          id="message-input"
+          placeholder="Type / to see commands"
+          required
+        ></textarea>
+        <button class="send-btn">
+          <box-icon name="send" color="#ffff"></box-icon>
+        </button>
       </div>
     </main>
     <!-- End Main -->
