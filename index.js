@@ -9,37 +9,63 @@ asideToggle.addEventListener("click", () => {
 });
 
 //* Chat
+
 document.addEventListener("DOMContentLoaded", function () {
-  const messageInput = document.getElementById("message-input");
-  const sendButton = document.querySelector(".send-btn");
+  const chatbox = document.querySelector(".chatbox");
+  const chatInput = document.querySelector(".chat-input textarea");
+  const sendChatBtn = document.querySelector(".chat-input span");
+  const closeBtn = document.querySelector(".close-btn");
+  const chatbotToggler = document.querySelector(".chatbot-toggler");
 
-  function sendMessage() {
-    const messageText = messageInput.value.trim();
-    if (messageText !== "") {
-      appendOutgoingMessage(messageText);
-      messageInput.value = ""; // Clear the input field
-    }
-  }
+  const inputInitHeight = chatInput.scrollHeight;
 
-  function appendOutgoingMessage(text) {
-    const chatBox = document.getElementById("chat-box");
-    const outgoingMessage = document.createElement("li");
-    outgoingMessage.classList.add("chat", "outgoing");
-    outgoingMessage.innerHTML = `
-          <p>${text}</p>
-          <box-icon name="bo" color="#ffff"></box-icon>
-      `;
-    chatBox.appendChild(outgoingMessage);
-  }
+  const createChatLi = (message, className) => {
+    const chatLi = document.createElement("li");
+    chatLi.classList.add("chat", className);
+    let chatContent =
+      className === "outgoing"
+        ? `<p>${message}</p>`
+        : `<span class="material-symbols-outlined">smart_toy</span><p>${message}</p>`;
+    chatLi.innerHTML = chatContent;
+    return chatLi;
+  };
 
-  sendButton.addEventListener("click", sendMessage);
+  const handleChat = () => {
+    const userMessage = chatInput.value.trim();
+    if (!userMessage) return;
 
-  messageInput.addEventListener("keydown", function (event) {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault(); // Prevents the newline in the textarea
-      sendMessage();
+    chatInput.value = "";
+    chatInput.style.height = `${inputInitHeight}px`;
+
+    chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+    chatbox.scrollTo(0, chatbox.scrollHeight);
+
+    setTimeout(() => {
+      const incomingChatLi = createChatLi("Thinking...", "incoming");
+      chatbox.appendChild(incomingChatLi);
+      chatbox.scrollTo(0, chatbox.scrollHeight);
+    }, 600);
+  };
+
+  chatInput.addEventListener("input", () => {
+    chatInput.style.height = `${inputInitHeight}px`;
+    chatInput.style.height = `${chatInput.scrollHeight}px`;
+  });
+
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
+      e.preventDefault();
+      handleChat();
     }
   });
+
+  sendChatBtn.addEventListener("click", handleChat);
+  closeBtn.addEventListener("click", () =>
+    document.body.classList.remove("show-chatbot")
+  );
+  chatbotToggler.addEventListener("click", () =>
+    document.body.classList.toggle("show-chatbot")
+  );
 });
 
 //* test
