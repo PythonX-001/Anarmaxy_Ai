@@ -320,6 +320,7 @@ main .chat .input-holder {
   padding: 16px;
   color: #fff;
   background: transparent;
+  margin-right: 100px;
 }
 .chat-input textarea:valid ~ .send-btn {
   visibility: visible;
@@ -345,6 +346,18 @@ main .chat .input-holder {
   }
   .chat-input textarea {
     width: 100%;
+  }
+} 
+@media (min-width: 880px) and (max-width: 1200px) {
+  .chat-input textarea {
+    width: 70%;
+  }
+}
+@media (min-width: 55em) {
+  .chat-input .send-btn {
+    top: 25px;
+    right: 28%;
+    width: fit-content;
   }
 }
 /* End chat */
