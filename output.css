@@ -560,16 +560,6 @@ video {
   display: table;
 }
 
-.bg-slate-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
-}
-
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 :root {
   --main-color: #1e1e1e;
   --secondary-color: #3b3b3b;
@@ -849,18 +839,22 @@ main .chat .input-holder {
 }
 
 .chatbot .chatbox {
-  padding: 15px 20px 70px;
-  max-height: calc(100vh - 100px);
+  padding: 15px 20px 45px;
+  height: calc(100vh - 195px);
   overflow-y: auto;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .chatbox .chat {
   display: flex;
 }
 
-.chatbox .incoming {
+.chatbox .incoming{
   flex-direction: column;
   margin: 10px 0;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .chatbox .incoming box-icon {
@@ -878,6 +872,8 @@ main .chat .input-holder {
   align-items: flex-end;
   margin: 10px 0;
   flex-direction: column-reverse;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .chatbox .outgoing box-icon {

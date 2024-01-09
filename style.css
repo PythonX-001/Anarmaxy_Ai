@@ -261,16 +261,18 @@ main .chat .input-holder {
   background: var(--main-color);
 }
 .chatbot .chatbox {
-  padding: 15px 20px 70px;
-  max-height: calc(100vh - 100px);
+  padding: 15px 20px 45px;
+  height: calc(100vh - 195px);
   overflow-y: auto;
+  width: fit-content;
 }
 .chatbox .chat {
   display: flex;
 }
-.chatbox .incoming {
+.chatbox .incoming{
   flex-direction: column;
   margin: 10px 0;
+  height: fit-content;
 }
 .chatbox .incoming box-icon {
   height: 32px;
@@ -286,6 +288,7 @@ main .chat .input-holder {
   align-items: flex-end;
   margin: 10px 0;
   flex-direction: column-reverse;
+  height: fit-content;
 }
 .chatbox .outgoing box-icon {
   height: 32px;

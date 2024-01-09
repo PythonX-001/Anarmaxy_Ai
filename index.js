@@ -14,15 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatbox = document.querySelector(".chatbox");
   const chatInput = document.querySelector(".chat-input textarea");
   const sendChatBtn = document.querySelector(".chat-input .send-btn");
-  const closeBtn = document.querySelector(".close-btn");
-  const chatbotToggler = document.querySelector(".chatbot-toggler");
-
-  // Initial height of the input textarea
-  const inputInitHeight = chatInput.scrollHeight;
 
   // Function to create chat messages
   const createChatLi = (message, className) => {
-    const chatLi = document.createElement("li");
+    const chatLi = document.createElement("div");
     chatLi.classList.add("chat", className);
     let chatContent =
       className === "outgoing"
@@ -37,27 +32,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const userMessage = chatInput.value.trim();
     if (!userMessage) return;
 
-    // Clear input and set initial height
+    // Clear input
     chatInput.value = "";
-    chatInput.style.height = `${inputInitHeight}px`;
 
     // Append outgoing message to chatbox
     chatbox.appendChild(createChatLi(userMessage, "outgoing"));
-    chatbox.scrollTo(0, chatbox.scrollHeight);
+    chatbox.scrollTo({
+      top: chatbox.scrollHeight,
+      left: 0,
+      behavior: "smooth",
+    });
 
     // Simulate "Thinking..." delay
     setTimeout(() => {
       const incomingChatLi = createChatLi("Thinking...", "incoming");
       chatbox.appendChild(incomingChatLi);
-      chatbox.scrollTo(0, chatbox.scrollHeight);
+      chatbox.scrollTo({
+        top: chatbox.scrollHeight,
+        left: 0,
+        behavior: "smooth",
+      });
     }, 600);
   };
-
-  // Adjust input textarea height as the user types
-  chatInput.addEventListener("input", () => {
-    chatInput.style.height = `${inputInitHeight}px`;
-    chatInput.style.height = `${chatInput.scrollHeight}px`;
-  });
 
   // Handle Enter key press to send message
   chatInput.addEventListener("keydown", (e) => {
@@ -69,16 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Handle click on Send button
   sendChatBtn.addEventListener("click", handleChat);
-
-  // Close chatbot
-  closeBtn.addEventListener("click", () =>
-    document.body.classList.remove("show-chatbot")
-  );
-
-  // Toggle chatbot visibility
-  chatbotToggler.addEventListener("click", () =>
-    document.body.classList.toggle("show-chatbot")
-  );
 });
 
 //* test
