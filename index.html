@@ -8,11 +8,9 @@
     <meta name="author" content="Your Name" />
 
     <!-- External Stylesheets -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="output.css">
+    <link rel="stylesheet" href="style/normalize.css" />
+    <link rel="stylesheet" href="style/all.min.css" />
+    <link rel="stylesheet" href="output.css" />
 
     <title>Your Page Title</title>
   </head>
@@ -20,12 +18,18 @@
   <body>
     <!-- Start Aside Bar -->
     <aside class="primary-aside" data-visible="false" data-visibleD="true">
-      <button class="mobile-aside-toggle" aria-controls="primary-aside" aria-expanded="false">
+      <button
+        class="mobile-aside-toggle"
+        aria-controls="primary-aside"
+        aria-expanded="false"
+      >
         <span class="sr-only">Menu</span>
       </button>
       <div class="side-header">
         <div class="name">
-          Nexus Ai<br /><span style="font-size: 11px; font-weight: normal">AI assistant.</span>
+          Nexus Ai<br /><span style="font-size: 11px; font-weight: normal"
+            >AI assistant.</span
+          >
         </div>
         <div class="side-header-logo"></div>
       </div>
@@ -33,12 +37,24 @@
         <button>Models</button>
         <button>Extension</button>
       </div>
-      <div class="table">
-        <div class="convs-conv">
-          <div class="conv-label">New conversation</div>
+      <ul class="table">
+        <li class="convs-conv active">
+          <div class="conv-label">New Chat</div>
           <div class="conv-date">21/12/2023 09:08:18</div>
-        </div>
-      </div>
+        </li>
+        <li class="convs-conv">
+          <div class="conv-label">last Chat</div>
+          <div class="conv-date">20/12/2023 11:03:53</div>
+        </li>
+        <li class="convs-conv">
+          <div class="conv-label">test Chat</div>
+          <div class="conv-date">20/12/2023 11:03:53</div>
+        </li>
+        <li class="convs-conv">
+          <div class="conv-label">test Chat</div>
+          <div class="conv-date">20/12/2023 11:03:53</div>
+        </li>
+      </ul>
       <div class="side-footer">
         <div class="S-foot-butts">
           <div class="bord" style="margin-right: 15px">
@@ -48,7 +64,11 @@
           </div>
           <div class="bord">
             <button aria-label="Support">
-              <box-icon name="support" color="#bbbbbb" style="height: 16px; width: 16px"></box-icon>
+              <i
+                class="fa-solid fa-headset"
+                color="#bbbbbb"
+                style="height: 16px; width: 16px"
+              ></i>
             </button>
           </div>
         </div>
@@ -59,7 +79,7 @@
         </div>
       </div>
     </aside>
-    
+
     <!-- End Aside Bar -->
 
     <!-- Start Main -->
@@ -92,24 +112,24 @@
           required
         ></textarea>
         <button class="send-btn">
-          <box-icon name="send" color="#ffff"></box-icon>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            style="transform: msfilter"
+          >
+            <path
+              d="m21.426 11.095-17-8A1 1 0 0 0 3.03 4.242l1.212 4.849L12 12l-7.758 2.909-1.212 4.849a.998.998 0 0 0 1.396 1.147l17-8a1 1 0 0 0 0-1.81z"
+            ></path>
+          </svg>
         </button>
       </div>
     </main>
     <!-- End Main -->
 
-    <!-- External Scripts -->
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
-
     <!-- Your Custom Scripts -->
-    <script src="index.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>
