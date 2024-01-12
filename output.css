@@ -642,7 +642,7 @@ aside {
     position: absolute;
     z-index: 9999;
     background-color: transparent;
-    background: url("./assets/icon-hamburger.svg");
+    background: url("../assets/icon-hamburger.svg");
     background-repeat: no-repeat;
     width: 2rem;
     border: 0;
@@ -650,10 +650,12 @@ aside {
     top: 2rem;
     right: -4rem;
     display: block;
+    opacity: .3;
   }
 
   .mobile-aside-toggle[aria-expanded="true"] {
-    background-image: url("./assets/icon-close.svg");
+    background-image: url("../assets/icon-close.svg");
+    opacity: .3;
   }
 }
 
