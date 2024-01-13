@@ -32,7 +32,6 @@
 }
 
 body {
-  background-color: var(--main-color);
   display: flex;
   flex: 1;
   overflow: hidden;
@@ -213,7 +212,6 @@ main header {
   display: flex;
   gap: 40px;
   width: 100%;
-  background-color: var(--main-color);
 }
 main header .table {
   margin: 0;
@@ -262,7 +260,6 @@ main .chat .input-holder {
   position: relative;
   overflow: hidden;
   width: calc(100% - 260px);
-  background: var(--main-color);
   height: 100vh;
 }
 .chatbot .chatbox {
