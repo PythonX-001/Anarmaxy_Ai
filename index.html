@@ -84,8 +84,8 @@
     <!-- End Aside Bar -->
 
     <!-- Start Main -->
-    <main class="chatbot bg-woodsmoke-950">
-      <header class="bg-woodsmoke-950">
+    <main class="chatbot bg-background">
+      <header class="bg-background">
         <div class="table">
           <ul class="convs-conv">
             <li class="conv-label"></li>
@@ -93,7 +93,7 @@
           </ul>
         </div>
       </header>
-      <div id="chat-box" class="chatbox bg-woodsmoke-950">
+      <div id="chat-box" class="chatbox bg-background">
         <div class="chat incoming">
           <box-icon name="bo" color="#ffff"></box-icon>
           <p>
@@ -106,7 +106,37 @@
           <box-icon name="bo" color="#ffff"></box-icon>
         </div>
       </div>
-      <div class="chat-input mb-5 mt-5 bg-slate-50">
+      <div
+        class="typing-container fixed bottom-0 flex justify-center bg-background px-[10px] py-[20px]"
+      >
+        <div class="typing-content flex w-full max-w-[950px] items-end">
+          <div class="typing-textarea relative flex w-full items-end">
+            <textarea
+              id="chat-input"
+              placeholder="'/' to see commands"
+              class="h-[55px] w-full resize-none border-[1px] border-border bg-background py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:text-holderText"
+              required
+            ></textarea>
+            <span
+              id="send-btn"
+              class="absolute right-0 z-10 flex h-[55px] w-[55px] items-center justify-center fill-woodsmoke-500 opacity-50 duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                style="transform: msfilter"
+              >
+                <path
+                  d="m21.426 11.095-17-8A1 1 0 0 0 3.03 4.242l1.212 4.849L12 12l-7.758 2.909-1.212 4.849a.998.998 0 0 0 1.396 1.147l17-8a1 1 0 0 0 0-1.81z"
+                ></path>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="chat-input mb-5 mt-5 bg-slate-50">
         <textarea
           id="message-input"
           placeholder="Type / to see commands"
@@ -125,12 +155,12 @@
             ></path>
           </svg>
         </button>
-      </div>
+      </div> -->
     </main>
     <!-- End Main -->
 
     <!-- Your Custom Scripts -->
-    <script src="js/all.min.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/all.min.js"></script>
   </body>
 </html>

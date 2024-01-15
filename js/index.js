@@ -12,8 +12,8 @@ asideToggle.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", function () {
   // DOM elements
   const chatbox = document.querySelector(".chatbox");
-  const chatInput = document.querySelector(".chat-input textarea");
-  const sendChatBtn = document.querySelector(".chat-input .send-btn");
+  const chatInput = document.getElementById("chat-input");
+  const sendChatBtn = document.getElementById("send-btn");
 
   // Function to create chat messages
   const createChatLi = (message, className) => {
@@ -36,7 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
     chatInput.value = "";
 
     // Append outgoing message to chatbox
-    chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+    const outgoingChatLi = createChatLi(userMessage, "outgoing");
+    chatbox.appendChild(outgoingChatLi);
+
+    // Scroll to the bottom of the chatbox
     chatbox.scrollTo({
       top: chatbox.scrollHeight,
       left: 0,
@@ -58,32 +61,39 @@ document.addEventListener("DOMContentLoaded", function () {
   // Handle Enter key press to send message
   chatInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
+      chatInput.style.height = "55px";
       e.preventDefault();
       handleChat();
     }
   });
 
   // Handle click on Send button
-  sendChatBtn.addEventListener("click", handleChat);
+  sendChatBtn.addEventListener("click", () => {
+    chatInput.style.height = "55px";
+    handleChat()
+  });
 });
 
 //* test
 let convLab = document.querySelector("aside .table .convs-conv .conv-label");
 let convDate = document.querySelector("aside .table .convs-conv .conv-date");
 let convLabHeader = document.querySelector(
-  "main header .table .convs-conv .conv-label"
+  "main header .table .convs-conv .conv-label",
 );
 let convDateHeader = document.querySelector(
-  "main header .table .convs-conv .conv-date"
+  "main header .table .convs-conv .conv-date",
 );
 
 convLabHeader.innerHTML = convLab.innerHTML;
 convDateHeader.innerHTML = convDate.innerHTML;
 
 //* Auto-Resizing Textarea
-// const textarea = document.querySelector(".chat-input textarea");
+const textarea = document.getElementById("chat-input");
+const initialInputHeight = textarea.scrollHeight;
 
-// textarea.addEventListener("input", function () {
-//   this.style.height = "auto";
-//   this.style.height = this.scrollHeight + "px";
-// });
+textarea.addEventListener("input", () => {
+  textarea.style.maxHeight = "200px";
+  // Adjust the height of the input field dynamically based on its content
+  textarea.style.height = `${initialInputHeight}px`;
+  textarea.style.height = `${textarea.scrollHeight + 1}px`;
+});

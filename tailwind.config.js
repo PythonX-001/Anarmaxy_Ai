@@ -4,6 +4,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        text: "#d1d1d1",
+        holderText: "#888888",
+        background: "#181818",
+        border: "#4f4f4f",
         woodsmoke: {
           50: "#f6f6f6",
           100: "#e7e7e7",
