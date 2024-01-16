@@ -10,68 +10,64 @@ asideToggle.addEventListener("click", () => {
 
 //* Chat
 document.addEventListener("DOMContentLoaded", function () {
-  // DOM elements
   const chatbox = document.querySelector(".chatbox");
   const chatInput = document.getElementById("chat-input");
   const sendChatBtn = document.getElementById("send-btn");
 
-  // Function to create chat messages
-  const createChatLi = (message, className) => {
+  const createChatLi = (message, type) => {
     const chatLi = document.createElement("div");
-    chatLi.classList.add("chat", className);
+    chatLi.classList.add("chat", type);
+
     let chatContent =
-      className === "outgoing"
-        ? `<p>${message}</p><box-icon name="bo" color="#ffff"></box-icon>`
-        : `<box-icon name="bo" color="#ffff"></box-icon><p>${message}</p>`;
+      type === "outgoing"
+        ? `<div class="whitespace-pre-wrap h-fit break-words max-w-[80%] border-[1px] border-solid border-border px-[16px] py-[12px] text-text">${message}</div><span class="icon icon icon h-8 w-8 self-start bg-border leading-8 rounded-md bg-cover"></span>`
+        : `<span class="icon h-8 w-8 self-start border-2 border-solid border-border leading-8"></span><div class="h-fit text-text max-w-full w-fit">${message}</div>`;
+
     chatLi.innerHTML = chatContent;
     return chatLi;
   };
 
-  // Function to handle user input and display messages
-  const handleChat = () => {
-    const userMessage = chatInput.value.trim();
-    if (!userMessage) return;
-
-    // Clear input
-    chatInput.value = "";
-
-    // Append outgoing message to chatbox
-    const outgoingChatLi = createChatLi(userMessage, "outgoing");
-    chatbox.appendChild(outgoingChatLi);
-
-    // Scroll to the bottom of the chatbox
+  const addMessageToChatbox = (message, type) => {
+    const chatLi = createChatLi(message, type);
+    chatbox.appendChild(chatLi);
     chatbox.scrollTo({
       top: chatbox.scrollHeight,
       left: 0,
       behavior: "smooth",
     });
+  };
 
-    // Simulate "Thinking..." delay
+  const handleUserMessage = () => {
+    const userMessage = chatInput.value.trim();
+    if (!userMessage) return;
+    chatInput.value = "";
+
+    addMessageToChatbox(userMessage, "outgoing");
+
     setTimeout(() => {
-      const incomingChatLi = createChatLi("Thinking...", "incoming");
-      chatbox.appendChild(incomingChatLi);
-      chatbox.scrollTo({
-        top: chatbox.scrollHeight,
-        left: 0,
-        behavior: "smooth",
-      });
+      handleIncomingMessage("Thinking...");
     }, 600);
   };
 
-  // Handle Enter key press to send message
-  chatInput.addEventListener("keydown", (e) => {
+  const handleIncomingMessage = (message) => {
+    addMessageToChatbox(message, "incoming");
+  };
+
+  const handleEnterKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
       chatInput.style.height = "55px";
       e.preventDefault();
-      handleChat();
+      handleUserMessage();
     }
-  });
+  };
 
-  // Handle click on Send button
-  sendChatBtn.addEventListener("click", () => {
+  const handleSendButtonClick = () => {
     chatInput.style.height = "55px";
-    handleChat()
-  });
+    handleUserMessage();
+  };
+
+  chatInput.addEventListener("keydown", handleEnterKeyPress);
+  sendChatBtn.addEventListener("click", handleSendButtonClick);
 });
 
 //* test

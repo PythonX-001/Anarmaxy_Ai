@@ -84,7 +84,7 @@
     <!-- End Aside Bar -->
 
     <!-- Start Main -->
-    <main class="chatbot bg-background">
+    <main class="chatbot relative h-full overflow-hidden bg-background">
       <header class="bg-background">
         <div class="table">
           <ul class="convs-conv">
@@ -93,18 +93,10 @@
           </ul>
         </div>
       </header>
-      <div id="chat-box" class="chatbox bg-background">
-        <div class="chat incoming">
-          <box-icon name="bo" color="#ffff"></box-icon>
-          <p>
-            Hi there <br />
-            How can I help you today?
-          </p>
-        </div>
-        <div class="chat outgoing">
-          <p>Lorem ipsum dolor sit amet consectetur</p>
-          <box-icon name="bo" color="#ffff"></box-icon>
-        </div>
+      <div
+        id="chat-box"
+        class="chatbox container overflow-y-auto overflow-x-hidden bg-background px-4"
+      >
       </div>
       <div
         class="typing-container fixed bottom-0 flex justify-center bg-background px-[10px] py-[20px]"
@@ -114,7 +106,7 @@
             <textarea
               id="chat-input"
               placeholder="'/' to see commands"
-              class="h-[55px] w-full resize-none border-[1px] border-border bg-background py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:text-holderText"
+              class="h-[55px] w-full resize-none border-[1px] border-border bg-background py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:font-mono placeholder:text-holderText"
               required
             ></textarea>
             <span
@@ -136,26 +128,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="chat-input mb-5 mt-5 bg-slate-50">
-        <textarea
-          id="message-input"
-          placeholder="Type / to see commands"
-          required
-        ></textarea>
-        <button class="send-btn">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            style="transform: msfilter"
-          >
-            <path
-              d="m21.426 11.095-17-8A1 1 0 0 0 3.03 4.242l1.212 4.849L12 12l-7.758 2.909-1.212 4.849a.998.998 0 0 0 1.396 1.147l17-8a1 1 0 0 0 0-1.81z"
-            ></path>
-          </svg>
-        </button>
-      </div> -->
     </main>
     <!-- End Main -->
 

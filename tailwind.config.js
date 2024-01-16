@@ -1,13 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["*.html"],
+  content: ["*.html", "./js/*.js"],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       colors: {
         text: "#d1d1d1",
         holderText: "#888888",
         background: "#181818",
-        border: "#4f4f4f",
+        border: "#454545",
         woodsmoke: {
           50: "#f6f6f6",
           100: "#e7e7e7",
