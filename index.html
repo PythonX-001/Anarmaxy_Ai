@@ -18,7 +18,7 @@
 
   <body>
     <!-- Start Aside Bar -->
-    <aside class="primary-aside" data-visible="false" data-visibleD="true">
+    <aside class="primary-aside flex-shrink-0" data-visible="false" data-visibleD="true">
       <button
         class="mobile-aside-toggle"
         aria-controls="primary-aside"
@@ -84,7 +84,7 @@
     <!-- End Aside Bar -->
 
     <!-- Start Main -->
-    <main class="chatbot relative h-full overflow-hidden bg-background">
+    <main class="chatbot relative h-full overflow-hidden bg-background flex flex-col flex-1">
       <header class="bg-background">
         <div class="table">
           <ul class="convs-conv">
@@ -95,11 +95,11 @@
       </header>
       <div
         id="chat-box"
-        class="chatbox container overflow-y-auto overflow-x-hidden bg-background px-4"
+        class="chatbox container overflow-y-auto overflow-x-hidden bg-background px-4 h-full"
       >
       </div>
       <div
-        class="typing-container fixed bottom-0 flex justify-center bg-background px-[10px] py-[20px]"
+        class="typing-container flex justify-center bg-background px-[10px] py-[20px] w-full"
       >
         <div class="typing-content flex w-full max-w-[950px] items-end">
           <div class="typing-textarea relative flex w-full items-end">

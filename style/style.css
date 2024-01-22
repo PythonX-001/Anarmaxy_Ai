@@ -260,13 +260,7 @@ main .chat .input-holder {
 /* End main */
 /* Start chat */
 
-.chatbot {
-  width: calc(100% - 260px);
-}
 /* Chat box */
-.chatbot .chatbox {
-  height: calc(100vh - 195px);
-}
 .chatbox .chat {
   gap: 16px;
   display: flex;
@@ -281,9 +275,6 @@ main .chat .input-holder {
   background-image: url("../assets/Johan Liebert.jpeg");
 }
 /* Typing area */
-.typing-container {
-  width: calc(100% - 260px);
-}
 #chat-input:valid ~ #send-btn {
   opacity: 1;
   cursor: pointer;
