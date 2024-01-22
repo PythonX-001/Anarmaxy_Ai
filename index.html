@@ -89,23 +89,22 @@
 
     <!-- Start Main -->
     <main
-      class="chatbot relative flex h-full flex-1 flex-col overflow-hidden bg-background"
+      class="chatbot relative flex h-full flex-1 flex-col overflow-hidden bg-background "
     >
-      <header class="bg-background z-10">
-        <div class="table">
-          <ul class="convs-conv">
-            <li class="conv-label"></li>
-            <li class="conv-date"></li>
+      <header class="z-10 bg-background flex w-full gap-[40px]">
+        <div class="table flex-[1_1_auto] w-full h-full border-none m-0">
+          <ul class="convs-conv flex flex-col py-[11px] px-[14px] bg-transparent m-0 border-none gap-[0.5rem]">
+            <li class="conv-label text-text font-bold text-xl"></li>
+            <li class="conv-date text-holderText text-xs font-normal"></li>
           </ul>
         </div>
       </header>
       <div
         id="chat-box"
-        class="chatbox container h-full overflow-y-auto overflow-x-hidden px-4 bg-background bg-grid"
-      >
-      </div>
+        class="chatbox bg-grid container h-full overflow-y-auto overflow-x-hidden bg-background px-4"
+      ></div>
       <div
-        class="typing-container bg-grid flex justify-center bg-background px-[10px] py-[20px] z-10"
+        class="typing-container bg-grid z-10 flex justify-center bg-background px-[10px] py-[20px]"
       >
         <div class="typing-content flex w-full max-w-[950px] items-end">
           <div class="typing-textarea relative flex w-full items-end">

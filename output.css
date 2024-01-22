@@ -581,7 +581,7 @@ video {
 }
 
 .bg-grid {
-  background-image: linear-gradient(to right,#80808008 1px,transparent 1px),linear-gradient(to bottom,#80808008 1px,transparent 1px);
+  background-image: linear-gradient(to right,#80808010 1px,transparent 1px),linear-gradient(to bottom,#80808010 1px,transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -611,6 +611,10 @@ video {
 
 .z-10 {
   z-index: 10;
+}
+
+.m-0 {
+  margin: 0px;
 }
 
 .flex {
@@ -671,6 +675,10 @@ video {
   flex: 1 1 0%;
 }
 
+.flex-\[1_1_auto\] {
+  flex: 1 1 auto;
+}
+
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -715,6 +723,14 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.gap-\[0\.5rem\] {
+  gap: 0.5rem;
+}
+
+.gap-\[40px\] {
+  gap: 40px;
 }
 
 .self-start {
@@ -780,6 +796,10 @@ video {
   background-color: rgb(69 69 69 / var(--tw-bg-opacity));
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -798,9 +818,19 @@ video {
   padding-right: 10px;
 }
 
+.px-\[14px\] {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
 .px-\[16px\] {
   padding-left: 16px;
   padding-right: 16px;
+}
+
+.py-\[11px\] {
+  padding-top: 11px;
+  padding-bottom: 11px;
 }
 
 .py-\[12px\] {
@@ -831,12 +861,35 @@ video {
   line-height: 1.5rem;
 }
 
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
 .italic {
   font-style: italic;
 }
 
 .leading-8 {
   line-height: 2rem;
+}
+
+.text-holderText {
+  --tw-text-opacity: 1;
+  color: rgb(136 136 136 / var(--tw-text-opacity));
 }
 
 .text-text {
@@ -1008,17 +1061,14 @@ aside {
   cursor: pointer;
 }
 
-.table {
+aside .table {
+  zoom: 0.8;
+  border: 4px var(--primary-secondary) solid;
   flex: 1 1 auto;
   flex-flow: column;
 }
 
-aside .table {
-  zoom: 0.8;
-  border: 4px var(--primary-secondary) solid;
-}
-
-.convs-conv {
+aside .convs-conv {
   display: flex;
   flex-flow: column;
   background-color: var(--primary-color);
@@ -1026,16 +1076,16 @@ aside .table {
   margin-bottom: 10px;
 }
 
-.convs-conv.active {
+aside .convs-conv.active {
   border: 2px var(--primary-secondary) solid;
 }
 
-.conv-label {
+aside .conv-label {
   font-weight: bold;
   font-size: 14.5px;
 }
 
-.conv-date {
+aside .conv-date {
   margin-top: 9px;
   font-size: 12px;
   font-weight: normal;
@@ -1094,63 +1144,15 @@ ion-icon {
 
 /* Start main */
 
-main header {
-  display: flex;
-  gap: 40px;
-  width: 100%;
-}
-
-main header .table {
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-main header .table .convs-conv {
-  display: flex;
-  flex-flow: column;
-  padding: 11px 14px;
-  border: none;
-  margin: 0;
-  border-radius: 0;
-  background-color: transparent;
-}
-
-main header .table .convs-conv .conv-label {
-  color: var(--white-color);
-  font-weight: bold;
-  font-size: 20px;
-}
-
-main header .table .convs-conv .conv-date {
-  color: #777;
-}
-
-main .chat {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  height: 100%;
-}
-
-main .chat .input-holder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-}
-
 @media (max-width: 55em) {
   main header .table .convs-conv {
-    margin-top: 1rem;
+    margin-top: 1.3rem;
     margin-left: 6rem;
     width: 100%;
+    padding: 0;
+    padding-bottom: 15px;
   }
 }
-
-/* End main */
-
-/* Start chat */
 
 /* Chat box */
 
@@ -1187,16 +1189,7 @@ main .chat .input-holder {
   width: 5px;
 }
 
-@media (max-width: 55em) {
-  .chatbot {
-    width: 100%;
-    height: 100vh;
-  }
-
-  .typing-container {
-    width: 100%;
-  }
-}
+/* End main */
 
 .placeholder\:font-mono::-moz-placeholder {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
