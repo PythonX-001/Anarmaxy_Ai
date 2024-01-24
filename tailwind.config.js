@@ -8,8 +8,12 @@ module.exports = {
     extend: {
       colors: {
         text: "#d1d1d1",
-        holderText: "#888888",
         background: "#181818",
+        primary: "#7c3aed",
+        secondary: "#ff52d9",
+        accent: "#00cdb8",
+        //
+        textDim: "#888888",
         border: "#454545",
         woodsmoke: {
           50: "#f6f6f6",
@@ -25,6 +29,12 @@ module.exports = {
           950: "#181818",
         },
       },
+      borderRadius: {
+        main: "6px",
+      },
+      fontSize: {
+        'xxs': "10px",
+      }
     },
   },
   plugins: [],

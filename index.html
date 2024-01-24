@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Your website description" />
     <meta name="author" content="Your Name" />
-
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="style/normalize.css" />
     <link rel="stylesheet" href="style/all.min.css" />
@@ -19,9 +18,8 @@
   <body>
     <!-- Start Aside Bar -->
     <aside
-      class="primary-aside flex-shrink-0"
+      class="primary-aside z-[100] flex h-full w-[260px] flex-shrink-0 flex-col bg-black px-5 py-2 text-text duration-300"
       data-visible="false"
-      data-visibleD="true"
     >
       <button
         class="mobile-aside-toggle"
@@ -30,56 +28,72 @@
       >
         <span class="sr-only">Menu</span>
       </button>
-      <div class="side-header">
-        <div class="name">
-          Nexus Ai<br /><span style="font-size: 11px; font-weight: normal"
-            >AI assistant.</span
+      <div
+        class="s-header flex items-center justify-between py-4 pb-6 text-[20px] font-bold"
+      >
+        <div class="name text-base text-text">
+          Nexus Ai<span class="text-xxs block font-normal text-textDim"
+            >Ai Asistant</span
           >
         </div>
-        <div class="side-header-logo"></div>
+        <div class="s-headerLogo bg-gr h-9 w-9 rounded-main"></div>
       </div>
-      <div class="side-butt">
-        <button>Models</button>
-        <button>Extension</button>
+      <div class="s-btn flex justify-evenly leading-4">
+        <button class="btn text-xs">Models</button>
+        <button class="btn text-xs">Extension</button>
       </div>
-      <ul class="table">
-        <li class="convs-conv active">
-          <div class="conv-label">New Chat</div>
-          <div class="conv-date">21/12/2023 09:08:18</div>
-        </li>
-        <li class="convs-conv">
-          <div class="conv-label">last Chat</div>
-          <div class="conv-date">20/12/2023 11:03:53</div>
-        </li>
-        <li class="convs-conv">
-          <div class="conv-label">test Chat</div>
-          <div class="conv-date">20/12/2023 11:03:53</div>
-        </li>
-        <li class="convs-conv">
-          <div class="conv-label">test Chat</div>
-          <div class="conv-date">20/12/2023 11:03:53</div>
-        </li>
-      </ul>
-      <div class="side-footer">
-        <div class="S-foot-butts">
-          <div class="bord" style="margin-right: 15px">
-            <button aria-label="Settings">
-              <i class="fas fa-cog"></i>
-            </button>
-          </div>
-          <div class="bord">
-            <button aria-label="Support">
-              <i
-                class="fa-solid fa-headset"
-                color="#bbbbbb"
-                style="height: 16px; width: 16px"
-              ></i>
-            </button>
-          </div>
+      <div class="history-holder flex-[1_1_auto] overflow-y-auto pt-4">
+        <ul class="history h-full">
+          <li class="convs-conv active">
+            <div class="conv-label">New Chat</div>
+          </li>
+          <li class="convs-conv">
+            <div class="conv-label">last Chat</div>
+          </li>
+          <li class="convs-conv active">
+            <div class="conv-label">hello</div>
+          </li>
+          <li class="convs-conv">
+            <div class="conv-label">how to learn python</div>
+          </li>
+          <li class="convs-conv active">
+            <div class="conv-label">how to learn c++</div>
+          </li>
+          <li class="convs-conv">
+            <div class="conv-label">how to get freinds</div>
+          </li>
+          <li class="convs-conv active">
+            <div class="conv-label">how to fix wall</div>
+          </li>
+          <li class="convs-conv">
+            <div class="conv-label">how to break nokia</div>
+          </li>
+          <li class="convs-conv active">
+            <div class="conv-label">how to forget programming</div>
+          </li>
+          <li class="convs-conv">
+            <div class="conv-label">why i am alone</div>
+          </li>
+          <li class="convs-conv active">
+            <div class="conv-label">i am board</div>
+          </li>
+          <li class="convs-conv">
+            <div class="conv-label">is am i sick</div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="s-footer mt-[40px] flex flex-[0_1_0] justify-between pb-5 text-xs text-text"
+      >
+        <div class="foot-btn inline-flex gap-3">
+          <button class="btn px-2 py-2"><i class="fas fa-cog w-4"></i></button>
+          <button class="btn px-2 py-2">
+            <i class="fa-solid fa-headset w-4"></i>
+          </button>
         </div>
-        <div class="new-conv">
-          <button>
-            <ion-icon name="add-circle-outline"></ion-icon>Nouvelle conversation
+        <div class="n-conv">
+          <button class="btn h-full border-none bg-primary">
+            <i class="fa-solid fa-plus"></i>
           </button>
         </div>
       </div>
@@ -89,13 +103,17 @@
 
     <!-- Start Main -->
     <main
-      class="chatbot relative flex h-full flex-1 flex-col overflow-hidden bg-background "
+      class="chatbot relative flex h-full flex-1 flex-col overflow-hidden bg-background"
     >
-      <header class="z-10 bg-background flex w-full gap-[40px]">
-        <div class="table flex-[1_1_auto] w-full h-full border-none m-0">
-          <ul class="convs-conv flex flex-col py-[11px] px-[14px] bg-transparent m-0 border-none gap-[0.5rem]">
-            <li class="conv-label text-text font-bold text-xl"></li>
-            <li class="conv-date text-holderText text-xs font-normal"></li>
+      <header class="z-10 flex w-full gap-[40px] bg-background">
+        <div class="m-0 table h-full w-full flex-[1_1_auto] border-none">
+          <ul
+            class="convs-conv m-0 flex flex-col gap-[0.5rem] border-none bg-transparent px-[20px] py-[11px]"
+          >
+            <li class="conv-label text-xl font-bold text-text">New Chat</li>
+            <li class="conv-date text-xs font-normal text-textDim">
+              01/24/2024
+            </li>
           </ul>
         </div>
       </header>
@@ -111,7 +129,7 @@
             <textarea
               id="chat-input"
               placeholder="'/' to see commands"
-              class="h-[55px] w-full resize-none border-[1px] border-border bg-background py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:font-mono placeholder:text-holderText"
+              class="h-[55px] w-full resize-none border-[1px] border-border bg-background py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:font-mono placeholder:text-textDim"
               required
             ></textarea>
             <span

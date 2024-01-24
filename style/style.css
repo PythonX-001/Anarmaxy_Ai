@@ -7,6 +7,12 @@
   .bg-grid {
     @apply bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-[size:24px_24px];
   }
+  .bg-gr {
+    @apply bg-gradient-to-b from-gray-900 via-purple-900 to-primary;
+  }
+  .btn {
+    @apply border-[1px] border-solid border-neutral-100 bg-transparent px-4 py-[8px] font-mono text-text transition duration-200 hover:bg-[#7c3aed50];
+  }
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
@@ -28,9 +34,6 @@
 ::-webkit-scrollbar {
   width: 7px;
 }
-/* ::-webkit-scrollbar-track {
-  @apply
-} */
 ::-webkit-scrollbar-thumb {
   @apply bg-woodsmoke-900;
 }
@@ -53,23 +56,11 @@ li {
 }
 
 /* Start Aside */
-aside {
-  height: 100vh;
-  display: flex;
-  flex-flow: column;
-  padding: 20px;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-  width: 260px;
-  transition: 0.3s;
-  z-index: 100;
-}
-
 .mobile-aside-toggle {
   display: none;
 }
 
-@media (max-width: 55em) {
+@media (max-width: 800px) {
   aside {
     position: fixed;
     transform: translateX(-100%);
@@ -78,6 +69,7 @@ aside {
   }
   aside[data-visible="true"] {
     transform: translateX(0);
+    width: 300px;
   }
 
   .mobile-aside-toggle {
@@ -101,118 +93,23 @@ aside {
   }
 }
 
-.side-header {
-  justify-content: space-between;
-  display: flex;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-weight: bold;
-  font-size: 20px;
-  zoom: 0.7;
-}
-
-.side-header-logo {
-  height: 48px;
-  width: 48px;
-  background-color: var(--white-color);
-  border-radius: 50%;
-}
-
-.side-butt {
-  line-height: 16px;
-  display: flex;
-  margin-bottom: 20px;
-  zoom: 0.9;
-}
-
-.side-butt button {
-  color: var(--white-color);
-  background-color: var(--main-color);
-  border: none;
-  border-radius: 10px;
-  padding: 10px;
-  margin-right: 10px;
-  font-size: 12px;
-  width: calc(100% + 10px);
-  cursor: pointer;
-}
-
-aside .table {
-  zoom: 0.8;
-  border: 4px var(--primary-secondary) solid;
-  flex: 1 1 auto;
-  flex-flow: column;
-}
-
 aside .convs-conv {
-  display: flex;
-  flex-flow: column;
-  background-color: var(--primary-color);
-  padding: 11px 14px;
-  margin-bottom: 10px;
-}
-aside .convs-conv.active {
-  border: 2px var(--primary-secondary) solid;
+  @apply flex flex-col justify-between bg-transparent px-[14px] py-[11px] transition duration-200 hover:bg-woodsmoke-950;
 }
 
 aside .conv-label {
-  font-weight: bold;
-  font-size: 14.5px;
+  @apply text-sm font-bold text-text;
 }
 
 aside .conv-date {
-  margin-top: 9px;
-  font-size: 12px;
-  font-weight: normal;
+  @apply text-xxs font-normal text-textDim;
 }
 
-.side-footer {
-  padding-top: 20px;
-  color: var(--white-color);
-  font-size: 12px;
-  font-weight: 500;
-  flex: 0 1 0;
-  display: flex;
-  justify-content: space-between;
-  zoom: 0.8;
+aside .history-holder::-webkit-scrollbar {
+  @apply w-1;
 }
-
-.S-foot-butts {
-  display: inline-flex;
-}
-
-.S-foot-butts .bord {
-  align-items: center;
-  height: auto;
-  width: auto;
-  border: 0;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: var(--main-color);
-}
-
-.bord button {
-  border: 0;
-  background-color: transparent;
-  color: var(--white-color);
-  cursor: pointer;
-}
-
-.new-conv button {
-  display: flex;
-  align-items: center;
-  background-color: var(--main-color);
-  color: var(--white-color);
-  border: 0;
-  border-radius: 10px;
-  font-size: 12px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-ion-icon {
-  padding-right: 5px;
-  font-size: 18px;
+aside .history-holder::-webkit-scrollbar-thumb {
+  @apply bg-woodsmoke-950;
 }
 /* End Aside */
 /* Start main */
@@ -246,7 +143,7 @@ ion-icon {
   cursor: pointer;
 }
 #chat-input:valid ~ #send-btn:hover {
-  @apply fill-holderText;
+  @apply fill-textDim;
 }
 #chat-input::-webkit-scrollbar,
 .chatbot .chatbox::-webkit-scrollbar {

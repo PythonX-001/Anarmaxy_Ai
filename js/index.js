@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let chatContent =
       type === "outgoing"
-        ? `<div class="whitespace-pre-wrap h-fit break-words max-w-[80%] border-[1px] border-solid border-border px-[16px] py-[12px] text-text">${message}</div><span class="icon icon icon h-8 w-8 self-start bg-border leading-8 rounded-md bg-cover"></span>`
+        ? `<div class="whitespace-pre-wrap h-fit break-words max-w-[80%] border-[1px] border-solid border-border px-[16px] py-[12px] text-text">${message}</div><span class="icon icon icon h-8 w-8 self-start bg-border leading-8 rounded-main bg-cover"></span>`
         : `<span class="icon h-8 w-8 self-start border-2 border-solid border-border leading-8"></span><div class="h-fit text-text max-w-full w-fit">${message}</div>`;
 
     chatLi.innerHTML = chatContent;
@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //* test
-let convLab = document.querySelector("aside .table .convs-conv .conv-label");
-let convDate = document.querySelector("aside .table .convs-conv .conv-date");
+let convLab = document.querySelector("aside .history .convs-conv .conv-label");
+let convDate = document.querySelector("aside .history .convs-conv .conv-date");
 let convLabHeader = document.querySelector(
   "main header .table .convs-conv .conv-label",
 );
@@ -81,7 +81,6 @@ let convDateHeader = document.querySelector(
 );
 
 convLabHeader.innerHTML = convLab.innerHTML;
-convDateHeader.innerHTML = convDate.innerHTML;
 
 //* Auto-Resizing Textarea
 const textarea = document.getElementById("chat-input");
