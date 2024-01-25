@@ -6,6 +6,7 @@ module.exports = {
       center: true,
     },
     extend: {
+      //* Colors
       colors: {
         text: "#d1d1d1",
         background: "#181818",
@@ -29,12 +30,17 @@ module.exports = {
           950: "#181818",
         },
       },
+      //*
+      
       borderRadius: {
         main: "6px",
       },
       fontSize: {
         'xxs': "10px",
-      }
+      },
+      fontFamily: {
+        inter: "'Inter', sans-serif",
+      },
     },
   },
   plugins: [],

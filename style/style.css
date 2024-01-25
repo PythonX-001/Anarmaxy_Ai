@@ -1,9 +1,13 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Tailwind */
 @layer base {
+  /* colors */
   :root {
     --main-color: #181818;
     --secondary-color: #4f4f4f;
@@ -12,6 +16,82 @@
     --white-color: #bbbbbb;
     --avWidth--: -webkit-fill-available;
   }
+
+  /* base */
+  * {
+    @apply box-border p-0 m-0 font-inter
+  }
+  ::-webkit-scrollbar {
+    @apply w-[7px]
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-woodsmoke-900;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-woodsmoke-800;
+  }
+  body {
+    @apply flex flex-1 overflow-hidden w-screen h-screen
+  }
+  li {
+    @apply list-none
+  }
+  /* start aside */
+  aside .convs-conv {
+    @apply flex flex-col justify-between bg-transparent px-[14px] py-[11px] transition duration-200 hover:bg-woodsmoke-950;
+  }
+
+  aside .conv-label {
+    @apply text-sm font-bold text-text;
+  }
+
+  aside .conv-date {
+    @apply text-xxs font-normal text-textDim;
+  }
+
+  aside .history-holder::-webkit-scrollbar {
+    @apply w-1;
+  }
+  aside .history-holder::-webkit-scrollbar-thumb {
+    @apply bg-woodsmoke-950;
+  }
+  .mobile-aside-toggle {
+    display: none;
+  }
+  @media (max-width: 55em) {
+    .mobile-aside-toggle {
+      @apply absolute z-[9999] bg-transparent bg-[url("../assets/icon-hamburger.svg")] bg-no-repeat w-8 aspect-square border-none top-8 -right-16 block opacity-30
+    }
+
+    .mobile-aside-toggle[aria-expanded="true"] {
+      @apply bg-[url("../assets/icon-close.svg")] opacity-30
+    }
+  }
+  /* End aside */
+  /* Start main */
+  .chatbox .chat {
+    @apply gap-4 flex my-10 mx-0 flex-row h-fit
+  }
+  .chatbox .outgoing {
+    @apply justify-end
+  }
+  /* Typing area */
+  @media (max-width: 55em) {
+    main header .table .convs-conv {
+      @apply mt-[1.3rem] ml-[6rem] w-full p-0 pb-[15px]
+    }
+  }
+  #chat-input:valid ~ #send-btn {
+    @apply opacity-100 cursor-pointer
+  }
+  #chat-input:valid ~ #send-btn:hover {
+    @apply fill-textDim;
+  }
+  #chat-input::-webkit-scrollbar,
+  .chatbot .chatbox::-webkit-scrollbar {
+    @apply w-[5px]
+  }
+  /* End main */
 }
 @layer components {
   .bg-grid {
@@ -24,117 +104,3 @@
     @apply border-[1px] border-solid border-neutral-100 bg-transparent px-4 py-[8px] font-mono text-text transition duration-200 hover:bg-[#7c3aed50];
   }
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  font-family: "Inter", sans-serif;
-}
-::-webkit-scrollbar {
-  width: 7px;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-woodsmoke-900;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-woodsmoke-800;
-}
-
-body {
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-  width: 100svw;
-  height: 100svh;
-}
-
-li {
-  list-style: none;
-}
-
-/* Start Aside */
-
-@media (max-width: 800px) {
-  .mobile-aside-toggle {
-    position: absolute;
-    z-index: 9999;
-    background-color: transparent;
-    background: url("../assets/icon-hamburger.svg");
-    background-repeat: no-repeat;
-    width: 2rem;
-    border: 0;
-    aspect-ratio: 1;
-    top: 2rem;
-    right: -4rem;
-    display: block;
-    opacity: 0.3;
-  }
-
-  .mobile-aside-toggle[aria-expanded="true"] {
-    background-image: url("../assets/icon-close.svg");
-    opacity: 0.3;
-  }
-}
-
-aside .convs-conv {
-  @apply flex flex-col justify-between bg-transparent px-[14px] py-[11px] transition duration-200 hover:bg-woodsmoke-950;
-}
-
-aside .conv-label {
-  @apply text-sm font-bold text-text;
-}
-
-aside .conv-date {
-  @apply text-xxs font-normal text-textDim;
-}
-
-aside .history-holder::-webkit-scrollbar {
-  @apply w-1;
-}
-aside .history-holder::-webkit-scrollbar-thumb {
-  @apply bg-woodsmoke-950;
-}
-/* End Aside */
-/* Start main */
-@media (max-width: 55em) {
-  main header .table .convs-conv {
-    margin-top: 1.3rem;
-    margin-left: 6rem;
-    width: 100%;
-    padding: 0;
-    padding-bottom: 15px;
-  }
-}
-
-/* Chat box */
-.chatbox .chat {
-  gap: 16px;
-  display: flex;
-  margin: 40px 0;
-  flex-direction: row;
-  height: fit-content;
-}
-.chatbox .outgoing {
-  justify-content: flex-end;
-}
-.chatbox .outgoing .icon {
-  background-image: url("../assets/Johan Liebert.jpeg");
-}
-/* Typing area */
-#chat-input:valid ~ #send-btn {
-  opacity: 1;
-  cursor: pointer;
-}
-#chat-input:valid ~ #send-btn:hover {
-  @apply fill-textDim;
-}
-#chat-input::-webkit-scrollbar,
-.chatbot .chatbox::-webkit-scrollbar {
-  width: 5px;
-}
-/* End main */
