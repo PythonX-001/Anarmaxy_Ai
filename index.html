@@ -18,11 +18,11 @@
   <body>
     <!-- Start Aside Bar -->
     <aside
-      class="primary-aside z-[100] flex h-full w-[260px] flex-shrink-0 flex-col bg-black px-5 py-2 text-text duration-300"
+      class="primary-aside z-[100] flex h-full w-[260px] flex-shrink-0 flex-col bg-black px-5 py-2 text-text duration-300 data-[visible=true]:w-[300px] data-[visible=true]:translate-x-0 max-[880px]:fixed max-[880px]:z-[1000] max-[880px]:w-[300px] max-[880px]:-translate-x-full"
       data-visible="false"
     >
       <button
-        class="mobile-aside-toggle"
+        class="mobile-aside-toggle hidden max-[880px]:bg-rose-500"
         aria-controls="primary-aside"
         aria-expanded="false"
       >
@@ -32,7 +32,7 @@
         class="s-header flex items-center justify-between py-4 pb-6 text-[20px] font-bold"
       >
         <div class="name text-base text-text">
-          Nexus Ai<span class="text-xxs block font-normal text-textDim"
+          Nexus Ai<span class="block text-xxs font-normal text-textDim"
             >Ai Asistant</span
           >
         </div>

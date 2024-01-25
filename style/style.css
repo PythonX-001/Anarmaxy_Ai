@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 /* Tailwind */
+@layer base {
+  :root {
+    --main-color: #181818;
+    --secondary-color: #4f4f4f;
+    --primary-color: #000000;
+    --primary-secondary: #171717;
+    --white-color: #bbbbbb;
+    --avWidth--: -webkit-fill-available;
+  }
+}
 @layer components {
   .bg-grid {
     @apply bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-[size:24px_24px];
@@ -17,14 +27,6 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
-:root {
-  --main-color: #181818;
-  --secondary-color: #4f4f4f;
-  --primary-color: #000000;
-  --primary-secondary: #171717;
-  --white-color: #bbbbbb;
-  --avWidth--: -webkit-fill-available;
-}
 * {
   box-sizing: border-box;
   padding: 0;
@@ -56,22 +58,8 @@ li {
 }
 
 /* Start Aside */
-.mobile-aside-toggle {
-  display: none;
-}
 
 @media (max-width: 800px) {
-  aside {
-    position: fixed;
-    transform: translateX(-100%);
-    z-index: 1000;
-    width: 300px;
-  }
-  aside[data-visible="true"] {
-    transform: translateX(0);
-    width: 300px;
-  }
-
   .mobile-aside-toggle {
     position: absolute;
     z-index: 9999;

@@ -444,6 +444,15 @@ video {
   display: none;
 }
 
+:root {
+  --main-color: #181818;
+  --secondary-color: #4f4f4f;
+  --primary-color: #000000;
+  --primary-secondary: #171717;
+  --white-color: #bbbbbb;
+  --avWidth--: -webkit-fill-available;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -631,6 +640,10 @@ video {
   border-width: 0;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .absolute {
   position: absolute;
 }
@@ -673,6 +686,10 @@ video {
 
 .table {
   display: table;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-8 {
@@ -1062,15 +1079,6 @@ video {
 
 /* Tailwind */
 
-:root {
-  --main-color: #181818;
-  --secondary-color: #4f4f4f;
-  --primary-color: #000000;
-  --primary-secondary: #171717;
-  --white-color: #bbbbbb;
-  --avWidth--: -webkit-fill-available;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -1108,23 +1116,7 @@ li {
 
 /* Start Aside */
 
-.mobile-aside-toggle {
-  display: none;
-}
-
 @media (max-width: 800px) {
-  aside {
-    position: fixed;
-    transform: translateX(-100%);
-    z-index: 1000;
-    width: 300px;
-  }
-
-  aside[data-visible="true"] {
-    transform: translateX(0);
-    width: 300px;
-  }
-
   .mobile-aside-toggle {
     position: absolute;
     z-index: 9999;
@@ -1258,4 +1250,37 @@ aside .history-holder::-webkit-scrollbar-thumb {
 .placeholder\:text-textDim::placeholder {
   --tw-text-opacity: 1;
   color: rgb(136 136 136 / var(--tw-text-opacity));
+}
+
+.data-\[visible\=true\]\:w-\[300px\][data-visible=true] {
+  width: 300px;
+}
+
+.data-\[visible\=true\]\:translate-x-0[data-visible=true] {
+  --tw-translate-x: 0px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+@media (max-width: 880px) {
+  .max-\[880px\]\:fixed {
+    position: fixed;
+  }
+
+  .max-\[880px\]\:z-\[1000\] {
+    z-index: 1000;
+  }
+
+  .max-\[880px\]\:w-\[300px\] {
+    width: 300px;
+  }
+
+  .max-\[880px\]\:-translate-x-full {
+    --tw-translate-x: -100%;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .max-\[880px\]\:bg-rose-500 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(244 63 94 / var(--tw-bg-opacity));
+  }
 }
