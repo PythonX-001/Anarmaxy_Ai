@@ -1,5 +1,9 @@
 /* fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+/* space mono */
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+/* azert mono */
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -9,98 +13,125 @@
 @layer base {
   /* colors */
   :root {
-    --main-color: #181818;
-    --secondary-color: #4f4f4f;
-    --primary-color: #000000;
-    --primary-secondary: #171717;
-    --white-color: #bbbbbb;
-    --avWidth--: -webkit-fill-available;
+    /* text */
+    --text: #aab2aa;
+    /* text Dim */
+    --textDim: #7b7b7b;
+    /* border */
+    --border: #454545;
+    /* Background */
+    --background: #0c0e0c;
+    --background-50: #f6f7f6;
+    --background-100: #e2e6e1;
+    --background-200: #c5ccc3;
+    --background-300: #a0aa9e;
+    --background-400: #7b8879;
+    --background-500: #606d5f;
+    --background-600: #4b574a;
+    --background-700: #3f473e;
+    --background-800: #343b34;
+    --background-900: #2e332e;
+    --background-950: #0c0e0c;
+    /* primary */  
+    --primary: #475a54;
+    --primary-50: #f6f7f7;
+    --primary-100: #e0e7e3;
+    --primary-200: #c1cec9;
+    --primary-300: #9aaea6;
+    --primary-400: #758c84;
+    --primary-500: #5a726a;
+    --primary-600: #475a54;
+    --primary-700: #3b4a46;
+    --primary-800: #323d3a;
+    --primary-900: #2c3532;
+    --primary-950: #161d1a;
   }
 
   /* base */
   * {
-    @apply box-border p-0 m-0 font-inter
+    @apply m-0 box-border p-0 font-inter;
   }
   ::-webkit-scrollbar {
-    @apply w-[7px]
+    @apply w-[7px];
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-woodsmoke-900;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-woodsmoke-800;
+    @apply bg-background-900 hover:bg-background-800;
   }
   body {
-    @apply flex flex-1 overflow-hidden w-screen h-screen
+    @apply flex h-screen w-screen flex-1 overflow-hidden;
   }
   li {
-    @apply list-none
+    @apply list-none;
   }
-  /* start aside */
-  aside .convs-conv {
-    @apply flex flex-col justify-between bg-transparent px-[14px] py-[11px] transition duration-200 hover:bg-woodsmoke-950;
-  }
-
-  aside .conv-label {
-    @apply text-sm font-bold text-text;
-  }
-
-  aside .conv-date {
-    @apply text-xxs font-normal text-textDim;
-  }
-
-  aside .history-holder::-webkit-scrollbar {
-    @apply w-1;
-  }
-  aside .history-holder::-webkit-scrollbar-thumb {
-    @apply bg-woodsmoke-950;
-  }
-  .mobile-aside-toggle {
-    display: none;
-  }
-  @media (max-width: 55em) {
-    .mobile-aside-toggle {
-      @apply absolute z-[9999] bg-transparent bg-[url("../assets/icon-hamburger.svg")] bg-no-repeat w-8 aspect-square border-none top-8 -right-16 block opacity-30
-    }
-
-    .mobile-aside-toggle[aria-expanded="true"] {
-      @apply bg-[url("../assets/icon-close.svg")] opacity-30
-    }
-  }
-  /* End aside */
-  /* Start main */
-  .chatbox .chat {
-    @apply gap-4 flex my-10 mx-0 flex-row h-fit
-  }
-  .chatbox .outgoing {
-    @apply justify-end
-  }
-  /* Typing area */
-  @media (max-width: 55em) {
-    main header .table .convs-conv {
-      @apply mt-[1.3rem] ml-[6rem] w-full p-0 pb-[15px]
-    }
-  }
-  #chat-input:valid ~ #send-btn {
-    @apply opacity-100 cursor-pointer
-  }
-  #chat-input:valid ~ #send-btn:hover {
-    @apply fill-textDim;
-  }
-  #chat-input::-webkit-scrollbar,
-  .chatbot .chatbox::-webkit-scrollbar {
-    @apply w-[5px]
-  }
-  /* End main */
 }
 @layer components {
   .bg-grid {
     @apply bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-[size:24px_24px];
   }
   .bg-gr {
-    @apply bg-gradient-to-b from-gray-900 via-purple-900 to-primary;
+    @apply bg-gradient-to-r from-primary-400 to-primary-600;
   }
   .btn {
-    @apply border-[1px] border-solid border-neutral-100 bg-transparent px-4 py-[8px] font-mono text-text transition duration-200 hover:bg-[#7c3aed50];
+    @apply border-[1px] border-solid border-textDim bg-transparent px-4 py-[8px] font-mono text-text transition duration-200 hover:bg-primary-800;
   }
 }
+
+/* start aside */
+aside .convs-conv {
+  @apply flex cursor-pointer flex-col justify-between overflow-x-hidden text-nowrap bg-transparent py-[11px] pl-5 pr-[14px] hover:bg-primary-default;
+}
+aside .convs-conv.active {
+  @apply bg-primary-700;
+}
+aside .conv-label {
+  @apply relative overflow-x-hidden text-nowrap font-azeret text-[13px] text-textDim md:text-[12px];
+}
+aside .text-shadow {
+  @apply absolute bottom-0 right-0 top-0 w-8 bg-gradient-to-l from-background-default from-0% to-transparent;
+}
+aside .convs-conv.active .text-shadow {
+  @apply from-primary-700;
+}
+aside .history-holder::-webkit-scrollbar {
+  @apply w-1;
+}
+aside .history-holder::-webkit-scrollbar-thumb {
+  @apply bg-background-900 opacity-10 hover:bg-background-800;
+}
+.mobile-aside-toggle {
+  @apply hidden;
+}
+@media (max-width: 55em) {
+  .mobile-aside-toggle {
+    @apply absolute -right-16 top-8 z-[9999] block aspect-square w-8 border-none bg-transparent bg-[url("../assets/icon-hamburger.svg")] bg-no-repeat opacity-30;
+  }
+
+  .mobile-aside-toggle[aria-expanded="true"] {
+    @apply bg-[url("../assets/icon-close.svg")] opacity-30;
+  }
+}
+/* End aside */
+/* Start main */
+.chatbox .chat {
+  @apply mx-0 my-10 flex h-fit flex-row gap-4;
+}
+.chatbox .outgoing {
+  @apply justify-end;
+}
+/* Typing area */
+@media (max-width: 55em) {
+  main header .table .convs-conv {
+    @apply ml-[6rem] mt-[1.3rem] w-full p-0 pb-[15px];
+  }
+}
+#chat-input:valid ~ #send-btn {
+  @apply cursor-pointer opacity-100;
+}
+#chat-input:valid ~ #send-btn:hover {
+  @apply fill-background-600;
+}
+#chat-input::-webkit-scrollbar,
+.chatbot .chatbox::-webkit-scrollbar {
+  @apply w-[5px];
+}
+/* End main */

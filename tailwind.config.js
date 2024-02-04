@@ -8,38 +8,50 @@ module.exports = {
     extend: {
       //* Colors
       colors: {
-        text: "#d1d1d1",
-        background: "#181818",
-        primary: "#7c3aed",
-        secondary: "#ff52d9",
-        accent: "#00cdb8",
-        //
-        textDim: "#888888",
-        border: "#454545",
-        woodsmoke: {
-          50: "#f6f6f6",
-          100: "#e7e7e7",
-          200: "#d1d1d1",
-          300: "#b0b0b0",
-          400: "#888888",
-          500: "#6d6d6d",
-          600: "#5d5d5d",
-          700: "#4f4f4f",
-          800: "#454545",
-          900: "#3d3d3d",
-          950: "#181818",
+        textDim: "var(--textDim)",
+        border: "var(--border)",
+        text: "var(--text)",
+        background: {
+          50: "var(--background-50)",
+          100: "var(--background-100)",
+          300: "var(--background-200)",
+          200: "var(--background-300)",
+          400: "var(--background-400)",
+          500: "var(--background-500)",
+          600: "var(--background-600)",
+          700: "var(--background-700)",
+          800: "var(--background-800)",
+          900: "var(--background-900)",
+          950: "var(--background-950)",
+          default: "var(--background)",
+        },
+        primary: {
+          50: "var(--primary-50)",
+          100: "var(--primary-100)",
+          200: "var(--primary-200)",
+          300: "var(--primary-300)",
+          400: "var(--primary-400)",
+          500: "var(--primary-500)",
+          600: "var(--primary-600)",
+          700: "var(--primary-700)",
+          800: "var(--primary-800)",
+          900: "var(--primary-900)",
+          950: "var(--primary-950)",
+          default: "var(--primary)",
         },
       },
       //*
-      
+
       borderRadius: {
         main: "6px",
       },
       fontSize: {
-        'xxs': "10px",
+        xxs: "10px",
       },
       fontFamily: {
         inter: "'Inter', sans-serif",
+        space: "'Space Mono', monospace",
+        azeret: "'Azeret Mono', monospace",
       },
     },
   },

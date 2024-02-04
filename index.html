@@ -18,8 +18,7 @@
   <body>
     <!-- Start Aside Bar -->
     <aside
-      class="primary-aside z-[100] flex h-full w-[260px] flex-shrink-0 flex-col bg-black px-5 py-2 text-text duration-300 data-[visible=true]:w-[300px] data-[visible=true]:translate-x-0 max-[880px]:fixed max-[880px]:z-[1000] max-[880px]:w-[300px] max-[880px]:-translate-x-full"
-      data-visible="false"
+      class="primary-aside z-[100] flex h-screen w-[260px] flex-shrink-0 flex-col bg-background-default text-text duration-300 data-[visible=true]:w-[300px] data-[visible=true]:translate-x-0 max-[880px]:fixed max-[880px]:z-[1000] max-[880px]:w-[300px] max-[880px]:-translate-x-full"
     >
       <button
         class="mobile-aside-toggle"
@@ -29,71 +28,138 @@
         <span class="sr-only">Menu</span>
       </button>
       <div
-        class="s-header flex items-center justify-between py-4 pb-6 text-[20px] font-bold"
+        class="s-header flex items-center justify-between px-5 py-6 pb-7 text-[20px] font-bold"
       >
-        <div class="name text-base text-text">
-          Nexus Ai<span class="block text-xxs font-normal text-textDim"
-            >Ai Asistant</span
+        <div class="name font-azeret text-base tracking-wide text-text">
+          Nexus Ai
+          <span class="block text-xxs font-normal tracking-normal text-textDim"
+            >Ai Assistant</span
           >
         </div>
         <div class="s-headerLogo bg-gr h-9 w-9 rounded-main"></div>
       </div>
-      <div class="s-btn flex justify-evenly leading-4">
-        <button class="btn text-xs">Models</button>
-        <button class="btn text-xs">Extension</button>
-      </div>
-      <div class="history-holder flex-[1_1_auto] overflow-y-auto pt-4">
-        <ul class="history h-full">
-          <li class="convs-conv active">
-            <div class="conv-label">New Chat</div>
+
+      <div
+        class="history-holder flex-[1_1_auto] overflow-y-hidden hover:overflow-y-scroll"
+      >
+        <ul class="history h-full w-[98%]">
+          <li class="convs-conv active group">
+            <div class="conv-label">
+              New Chat
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv">
-            <div class="conv-label">last Chat</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              last Chat
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv active">
-            <div class="conv-label">hello</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              hello
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv">
-            <div class="conv-label">how to learn python</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              how to learn python
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv active">
-            <div class="conv-label">how to learn c++</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              how to learn c++
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv">
-            <div class="conv-label">how to get freinds</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              how to get freinds
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv active">
-            <div class="conv-label">how to fix wall</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              how to fix wall
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv">
-            <div class="conv-label">how to break nokia</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              how to break nokia
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv active">
-            <div class="conv-label">how to forget programming</div>
+          <li class="convs-conv group">
+            <div class="conv-label relative">
+              how to forget programming bla bla bla
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv">
-            <div class="conv-label">why i am alone</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              why i am alone, some random long text
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv active">
-            <div class="conv-label">i am board</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              i am board, me to, who are you?
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
-          <li class="convs-conv">
-            <div class="conv-label">is am i sick</div>
+          <li class="convs-conv group">
+            <div class="conv-label">
+              is am i sick
+              <div
+                class="text-shadow group-hover:w-20 group-hover:from-primary-default"
+              ></div>
+            </div>
           </li>
+          <div
+            class="sticky bottom-0 h-[14px] w-full bg-gradient-to-t from-background-default from-0% to-transparent"
+          ></div>
         </ul>
       </div>
       <div
-        class="s-footer mt-[40px] flex flex-[0_1_0] justify-between pb-5 text-xs text-text"
+        class="s-footer mb-4 mt-16 flex flex-[0_1_0] justify-between px-5 pb-5 text-xs text-text"
       >
         <div class="foot-btn inline-flex gap-3">
-          <button class="btn px-2 py-2"><i class="fas fa-cog w-4"></i></button>
-          <button class="btn px-2 py-2">
-            <i class="fa-solid fa-headset w-4"></i>
+          <button class="btn flex size-7 items-center justify-center px-2 py-2">
+            <i class="fas fa-cog size-2"></i>
+          </button>
+          <button class="btn flex size-7 items-center justify-center px-2 py-2">
+            <i class="fa-solid fa-headset size-2"></i>
           </button>
         </div>
         <div class="n-conv">
-          <button class="btn h-full border-none bg-primary">
-            <i class="fa-solid fa-plus"></i>
+          <button
+            class="btn flex size-7 h-full items-center justify-center border-none bg-primary-default"
+          >
+            <i class="fa-solid fa-plus size-3"></i>
           </button>
         </div>
       </div>
@@ -103,14 +169,18 @@
 
     <!-- Start Main -->
     <main
-      class="chatbot relative flex h-full flex-1 flex-col overflow-hidden bg-background"
+      class="chatbot bg-grid relative flex h-full flex-1 flex-col overflow-hidden bg-background-default"
     >
-      <header class="z-10 flex w-full gap-[40px] bg-background">
+      <header class="z-10 flex w-full gap-[40px] bg-background-default">
         <div class="m-0 table h-full w-full flex-[1_1_auto] border-none">
           <ul
             class="convs-conv m-0 flex flex-col gap-[0.5rem] border-none bg-transparent px-[20px] py-[11px]"
           >
-            <li class="conv-label text-xl font-bold text-text">New Chat</li>
+            <li
+              class="conv-label font-azeret text-xl font-bold tracking-wide text-text"
+            >
+              New Chat
+            </li>
             <li class="conv-date text-xs font-normal text-textDim">
               01/24/2024
             </li>
@@ -119,22 +189,22 @@
       </header>
       <div
         id="chat-box"
-        class="chatbox bg-grid container h-full overflow-y-auto overflow-x-hidden bg-background px-4"
+        class="chatbox container h-full overflow-y-auto overflow-x-hidden px-4"
       ></div>
       <div
-        class="typing-container bg-grid z-10 flex justify-center bg-background px-[10px] py-[20px]"
+        class="typing-container z-10 flex justify-center px-[10px] py-[20px]"
       >
         <div class="typing-content flex w-full max-w-[950px] items-end">
           <div class="typing-textarea relative flex w-full items-end">
             <textarea
               id="chat-input"
               placeholder="'/' to see commands"
-              class="h-[55px] w-full resize-none border-[1px] border-border bg-background py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:font-mono placeholder:text-textDim"
+              class="h-[55px] w-full resize-none border-[1px] border-border bg-background-default py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:font-mono placeholder:text-background-700"
               required
             ></textarea>
             <span
               id="send-btn"
-              class="absolute right-0 z-10 flex h-[55px] w-[55px] items-center justify-center fill-woodsmoke-500 opacity-50 duration-300"
+              class="absolute right-0 z-10 flex h-[55px] w-[55px] items-center justify-center fill-background-700 opacity-50 duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

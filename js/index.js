@@ -8,6 +8,29 @@ asideToggle.addEventListener("click", () => {
   asideToggle.setAttribute("aria-expanded", !isVisible);
 });
 
+//* test
+let convLab = document.querySelector("aside .history .convs-conv .conv-label");
+let convDate = document.querySelector("aside .history .convs-conv .conv-date");
+let convLabHeader = document.querySelector(
+  "main header .table .convs-conv .conv-label",
+);
+let convDateHeader = document.querySelector(
+  "main header .table .convs-conv .conv-date",
+);
+
+convLabHeader.innerHTML = convLab.innerHTML;
+
+//* Auto-Resizing Textarea
+const textarea = document.getElementById("chat-input");
+const initialInputHeight = textarea.scrollHeight;
+
+textarea.addEventListener("input", () => {
+  textarea.style.maxHeight = "200px";
+  // Adjust the height of the input field dynamically based on its content
+  textarea.style.height = `${initialInputHeight}px`;
+  textarea.style.height = `${textarea.scrollHeight + 1}px`;
+});
+
 //* Chat
 document.addEventListener("DOMContentLoaded", function () {
   const chatbox = document.querySelector(".chatbox");
@@ -20,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let chatContent =
       type === "outgoing"
-        ? `<div class="whitespace-pre-wrap h-fit break-words max-w-[80%] border-[1px] border-solid border-border px-[16px] py-[12px] text-text">${message}</div><span class="icon icon icon h-8 w-8 self-start bg-border leading-8 rounded-main bg-cover"></span>`
+        ? `<div class="whitespace-pre-wrap h-fit break-words max-w-[80%] border-[1px] border-solid border-border px-[16px] py-[12px] text-text">${message}</div><span class="icon icon icon h-8 w-8 self-start bg-gr leading-8 rounded-main bg-cover"></span>`
         : `<span class="icon h-8 w-8 self-start border-2 border-solid border-border leading-8"></span><div class="h-fit text-text max-w-full w-fit">${message}</div>`;
 
     chatLi.innerHTML = chatContent;
@@ -68,27 +91,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   chatInput.addEventListener("keydown", handleEnterKeyPress);
   sendChatBtn.addEventListener("click", handleSendButtonClick);
-});
-
-//* test
-let convLab = document.querySelector("aside .history .convs-conv .conv-label");
-let convDate = document.querySelector("aside .history .convs-conv .conv-date");
-let convLabHeader = document.querySelector(
-  "main header .table .convs-conv .conv-label",
-);
-let convDateHeader = document.querySelector(
-  "main header .table .convs-conv .conv-date",
-);
-
-convLabHeader.innerHTML = convLab.innerHTML;
-
-//* Auto-Resizing Textarea
-const textarea = document.getElementById("chat-input");
-const initialInputHeight = textarea.scrollHeight;
-
-textarea.addEventListener("input", () => {
-  textarea.style.maxHeight = "200px";
-  // Adjust the height of the input field dynamically based on its content
-  textarea.style.height = `${initialInputHeight}px`;
-  textarea.style.height = `${textarea.scrollHeight + 1}px`;
 });
