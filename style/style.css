@@ -18,7 +18,7 @@
     /* text Dim */
     --textDim: #7b7b7b;
     /* border */
-    --border: #454545;
+    --border: #2e332e;
     /* Background */
     --background: #0c0e0c;
     --background-50: #f6f7f6;
@@ -32,7 +32,7 @@
     --background-800: #343b34;
     --background-900: #2e332e;
     --background-950: #0c0e0c;
-    /* primary */  
+    /* primary */
     --primary: #475a54;
     --primary-50: #f6f7f7;
     --primary-100: #e0e7e3;
@@ -55,10 +55,10 @@
     @apply w-[7px];
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-background-900 hover:bg-background-800;
+    @apply bg-neutral-900 hover:bg-neutral-800;
   }
   body {
-    @apply flex h-screen w-screen flex-1 overflow-hidden;
+    @apply flex h-screen w-screen overflow-hidden bg-background-default;
   }
   li {
     @apply list-none;
@@ -66,17 +66,31 @@
 }
 @layer components {
   .bg-grid {
-    @apply bg-[linear-gradient(to_right,#80808010_1px,transparent_1px),linear-gradient(to_bottom,#80808010_1px,transparent_1px)] bg-[size:24px_24px];
+    @apply bg-[linear-gradient(to_right,#80808013_1px,transparent_1px),linear-gradient(to_bottom,#80808013_1px,transparent_1px)] bg-[size:24px_24px];
   }
   .bg-gr {
-    @apply bg-gradient-to-r from-primary-400 to-primary-600;
+    @apply bg-gradient-to-tr from-primary-400 to-primary-600;
   }
   .btn {
     @apply border-[1px] border-solid border-textDim bg-transparent px-4 py-[8px] font-mono text-text transition duration-200 hover:bg-primary-800;
   }
 }
+/* End Tailwind */
 
 /* start aside */
+@media (min-width: 55em) {
+  aside[data-visibled="true"] {
+    @apply w-0;
+  }
+  aside[data-visibled="true"]
+    *:not(.desktop-aside-toggle):not(.mobile-aside-toggle) {
+    @apply invisible;
+  }
+  aside[data-visibled="true"] ~ .chatbot .chatbox {
+    @apply px-12
+  }
+}
+
 aside .convs-conv {
   @apply flex cursor-pointer flex-col justify-between overflow-x-hidden text-nowrap bg-transparent py-[11px] pl-5 pr-[14px] hover:bg-primary-default;
 }
@@ -96,7 +110,7 @@ aside .history-holder::-webkit-scrollbar {
   @apply w-1;
 }
 aside .history-holder::-webkit-scrollbar-thumb {
-  @apply bg-background-900 opacity-10 hover:bg-background-800;
+  @apply bg-neutral-900 opacity-10 hover:bg-neutral-800;
 }
 .mobile-aside-toggle {
   @apply hidden;
@@ -108,6 +122,9 @@ aside .history-holder::-webkit-scrollbar-thumb {
 
   .mobile-aside-toggle[aria-expanded="true"] {
     @apply bg-[url("../assets/icon-close.svg")] opacity-30;
+  }
+  .desktop-aside-toggle {
+    @apply hidden;
   }
 }
 /* End aside */

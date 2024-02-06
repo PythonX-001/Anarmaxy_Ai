@@ -1,13 +1,3 @@
-//* Nav
-const aside = document.querySelector(".primary-aside");
-const asideToggle = document.querySelector(".mobile-aside-toggle");
-
-asideToggle.addEventListener("click", () => {
-  const isVisible = aside.getAttribute("data-visible") === "true";
-  aside.setAttribute("data-visible", !isVisible);
-  asideToggle.setAttribute("aria-expanded", !isVisible);
-});
-
 //* test
 let convLab = document.querySelector("aside .history .convs-conv .conv-label");
 let convDate = document.querySelector("aside .history .convs-conv .conv-date");

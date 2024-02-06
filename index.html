@@ -15,10 +15,10 @@
     <title>Your Page Title</title>
   </head>
 
-  <body>
+  <body class="open">
     <!-- Start Aside Bar -->
     <aside
-      class="primary-aside z-[100] flex h-screen w-[260px] flex-shrink-0 flex-col bg-background-default text-text duration-300 data-[visible=true]:w-[300px] data-[visible=true]:translate-x-0 max-[880px]:fixed max-[880px]:z-[1000] max-[880px]:w-[300px] max-[880px]:-translate-x-full"
+      class="primary-aside relative z-[100] flex h-screen w-[260px] flex-shrink-0 flex-col bg-background-default text-text duration-300 data-[visibleM=true]:w-[300px] data-[visibleM=true]:translate-x-0 max-[880px]:fixed max-[880px]:z-[1000] max-[880px]:w-[300px] max-[880px]:-translate-x-full"
     >
       <button
         class="mobile-aside-toggle"
@@ -27,6 +27,16 @@
       >
         <span class="sr-only">Menu</span>
       </button>
+      <!--? test -->
+      <button
+        class="desktop-aside-toggle absolute -right-3 top-[70px] z-[9999] flex aspect-square size-6 items-center justify-center border-[1px] border-solid border-background-900 bg-background-950 pb-0.5 pr-0.5 font-mono tracking-[-3px] text-text"
+        aria-controls="primary-aside"
+        aria-expanded="false"
+      >
+        <<
+        <span class="sr-only">Menu</span>
+      </button>
+      <!--? test -->
       <div
         class="s-header flex items-center justify-between px-5 py-6 pb-7 text-[20px] font-bold"
       >
@@ -42,7 +52,7 @@
       <div
         class="history-holder flex-[1_1_auto] overflow-y-hidden hover:overflow-y-scroll"
       >
-        <ul class="history h-full w-[98%]">
+        <ul class="history h-full w-full">
           <li class="convs-conv active group">
             <div class="conv-label">
               New Chat
@@ -169,7 +179,7 @@
 
     <!-- Start Main -->
     <main
-      class="chatbot bg-grid relative flex h-full flex-1 flex-col overflow-hidden bg-background-default"
+      class="chatbot overflow-y-scroll bg-grid relative flex h-full flex-1 flex-col overflow-hidden bg-background-default"
     >
       <header class="z-10 flex w-full gap-[40px] bg-background-default">
         <div class="m-0 table h-full w-full flex-[1_1_auto] border-none">
@@ -225,6 +235,7 @@
     <!-- End Main -->
 
     <!-- Your Custom Scripts -->
+    <script src="js/nav.js"></script>
     <script src="js/index.js"></script>
     <script src="js/all.min.js"></script>
   </body>
