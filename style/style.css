@@ -80,14 +80,14 @@
 /* start aside */
 @media (min-width: 55em) {
   aside[data-visibled="true"] {
-    @apply w-0;
+    @apply w-0 transition-[width] duration-300;
   }
   aside[data-visibled="true"]
     *:not(.desktop-aside-toggle):not(.mobile-aside-toggle) {
     @apply invisible;
   }
   aside[data-visibled="true"] ~ .chatbot .chatbox {
-    @apply px-12
+    @apply px-12;
   }
 }
 
@@ -111,6 +111,9 @@ aside .history-holder::-webkit-scrollbar {
 }
 aside .history-holder::-webkit-scrollbar-thumb {
   @apply bg-neutral-900 opacity-10 hover:bg-neutral-800;
+}
+.toggleOpacity *:not(.desktop-aside-toggle) {
+  @apply opacity-80 transition-opacity duration-300;
 }
 .mobile-aside-toggle {
   @apply hidden;

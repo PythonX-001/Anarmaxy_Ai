@@ -29,7 +29,7 @@
       </button>
       <!--? test -->
       <button
-        class="desktop-aside-toggle absolute -right-3 top-[70px] z-[9999] flex aspect-square size-6 items-center justify-center border-[1px] border-solid border-background-900 bg-background-950 pb-0.5 pr-0.5 font-mono tracking-[-3px] text-text"
+        class="desktop-aside-toggle absolute -right-3 top-[70px] z-[9999] flex aspect-square size-6 items-center justify-center border-[0.5px] border-solid border-background-900 bg-background-950 pb-0.5 pr-0.5 font-mono tracking-[-3px] text-text"
         aria-controls="primary-aside"
         aria-expanded="false"
       >
@@ -40,7 +40,7 @@
       <div
         class="s-header flex items-center justify-between px-5 py-6 pb-7 text-[20px] font-bold"
       >
-        <div class="name font-azeret text-base tracking-wide text-text">
+        <div class="name font-azeret text-base tracking-wide text-text whitespace-nowrap">
           Nexus Ai
           <span class="block text-xxs font-normal tracking-normal text-textDim"
             >Ai Assistant</span
@@ -179,7 +179,7 @@
 
     <!-- Start Main -->
     <main
-      class="chatbot overflow-y-scroll bg-grid relative flex h-full flex-1 flex-col overflow-hidden bg-background-default"
+      class="chatbot overflow-y-scroll bg-grid flex h-full flex-1 flex-col overflow-hidden bg-background-default"
     >
       <header class="z-10 flex w-full gap-[40px] bg-background-default">
         <div class="m-0 table h-full w-full flex-[1_1_auto] border-none">
@@ -199,7 +199,7 @@
       </header>
       <div
         id="chat-box"
-        class="chatbox container h-full overflow-y-auto overflow-x-hidden px-4"
+        class="chatbox container h-full w-full overflow-y-auto overflow-x-hidden px-4"
       ></div>
       <div
         class="typing-container z-10 flex justify-center px-[10px] py-[20px]"
