@@ -500,20 +500,6 @@ video {
   font-family: 'Inter', sans-serif;
 }
 
-::-webkit-scrollbar{
-  width: 7px;
-}
-
-::-webkit-scrollbar-thumb{
-  --tw-bg-opacity: 1;
-  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
-}
-
-::-webkit-scrollbar-thumb:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
-}
-
 body{
   display: flex;
   height: 100vh;
@@ -524,6 +510,22 @@ body{
 
 li{
   list-style-type: none;
+}
+
+/* Scroll Bar */
+
+::-webkit-scrollbar{
+  width: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb{
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+}
+
+::-webkit-scrollbar-thumb:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
 }
 
 *, ::before, ::after{
@@ -626,42 +628,6 @@ li{
   --tw-backdrop-sepia:  ;
 }
 
-.container{
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 640px){
-  .container{
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px){
-  .container{
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px){
-  .container{
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px){
-  .container{
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px){
-  .container{
-    max-width: 1536px;
-  }
-}
-
 .bg-grid{
   background-image: linear-gradient(to right,#80808013 1px,transparent 1px),linear-gradient(to bottom,#80808013 1px,transparent 1px);
   background-size: 24px 24px;
@@ -737,6 +703,10 @@ li{
   right: 0px;
 }
 
+.top-0{
+  top: 0px;
+}
+
 .top-\[70px\]{
   top: 70px;
 }
@@ -809,10 +779,6 @@ li{
   height: 1.75rem;
 }
 
-.h-8{
-  height: 2rem;
-}
-
 .h-9{
   height: 2.25rem;
 }
@@ -836,10 +802,6 @@ li{
 
 .h-screen{
   height: 100vh;
-}
-
-.w-8{
-  width: 2rem;
 }
 
 .w-9{
@@ -953,10 +915,6 @@ li{
   align-self: flex-start;
 }
 
-.overflow-hidden{
-  overflow: hidden;
-}
-
 .overflow-y-auto{
   overflow-y: auto;
 }
@@ -967,10 +925,6 @@ li{
 
 .overflow-y-hidden{
   overflow-y: hidden;
-}
-
-.overflow-y-scroll{
-  overflow-y: scroll;
 }
 
 .whitespace-nowrap{
@@ -1061,10 +1015,6 @@ li{
 
 .fill-background-700{
   fill: var(--background-700);
-}
-
-.p-0{
-  padding: 0px;
 }
 
 .px-2{
@@ -1272,10 +1222,9 @@ li{
     visibility: hidden;
   }
 
-  aside[data-visibled="true"] ~ .chatbot .chatbox{
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
+  /* aside[data-visibled="true"] ~ .chatbot .chat-display {
+    @apply px-12;
+  } */
 }
 
 aside .convs-conv{
@@ -1335,21 +1284,6 @@ aside .convs-conv.active .text-shadow{
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-aside .history-holder::-webkit-scrollbar{
-  width: 0.25rem;
-}
-
-aside .history-holder::-webkit-scrollbar-thumb{
-  --tw-bg-opacity: 1;
-  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
-  opacity: 0.1;
-}
-
-aside .history-holder::-webkit-scrollbar-thumb:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(38 38 38 / var(--tw-bg-opacity));
-}
-
 .toggleOpacity *:not(.desktop-aside-toggle){
   opacity: 0.8;
   transition-property: opacity;
@@ -1391,26 +1325,48 @@ aside .history-holder::-webkit-scrollbar-thumb:hover{
 
 /* Start main */
 
-.chatbox .chat{
-  margin-left: 0px;
-  margin-right: 0px;
+#chat-display .chat{
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   display: flex;
-  height: -moz-fit-content;
-  height: fit-content;
-  flex-direction: row;
+  flex: 1 1 0%;
   gap: 1rem;
 }
 
-.chatbox .outgoing{
+@media (min-width: 768px){
+  #chat-display .chat{
+    max-width: 48rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px){
+  #chat-display .chat{
+    max-width: 44rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+@media (min-width: 1280px){
+  #chat-display .chat{
+    max-width: 52rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+#chat-display .outgoing{
   justify-content: flex-end;
 }
 
 /* Typing area */
 
 @media (max-width: 55em) {
-  main header .table .convs-conv{
+  main .page-header .table .convs-conv{
     margin-left: 6rem;
     margin-top: 1.3rem;
     width: 100%;
@@ -1419,18 +1375,13 @@ aside .history-holder::-webkit-scrollbar-thumb:hover{
   }
 }
 
-#chat-input:valid ~ #send-btn{
+#user-input:valid ~ #send-button{
   cursor: pointer;
   opacity: 1;
 }
 
-#chat-input:valid ~ #send-btn:hover{
+#user-input:valid ~ #send-button:hover{
   fill: var(--background-600);
-}
-
-#chat-input::-webkit-scrollbar,
-.chatbot .chatbox::-webkit-scrollbar{
-  width: 5px;
 }
 
 /* End main */

@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Your website description" />
-    <meta name="author" content="Your Name" />
+    <meta name="author" content="No0ne003 & PythonX-001" />
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="style/normalize.css" />
     <link rel="stylesheet" href="style/all.min.css" />
     <link rel="stylesheet" href="output.css" />
     <link rel="stylesheet" href="style/style.css" />
 
-    <title>Your Page Title</title>
+    <title>Nexus</title>
   </head>
 
-  <body class="open">
-    <!-- Start Aside Bar -->
+  <body>
+    <!--! Start Aside Bar -->
     <aside
-      class="primary-aside relative z-[100] flex h-screen w-[260px] flex-shrink-0 flex-col bg-background-default text-text duration-300 data-[visibleM=true]:w-[300px] data-[visibleM=true]:translate-x-0 max-[880px]:fixed max-[880px]:z-[1000] max-[880px]:w-[300px] max-[880px]:-translate-x-full"
+      class="primary-aside chat-sidebar relative z-[100] flex h-screen w-[260px] flex-shrink-0 flex-col bg-background-default text-text duration-300 data-[visibleM=true]:w-[300px] data-[visibleM=true]:translate-x-0 max-[880px]:fixed max-[880px]:z-[1000] max-[880px]:w-[300px] max-[880px]:-translate-x-full"
     >
       <button
         class="mobile-aside-toggle"
@@ -40,19 +40,21 @@
       <div
         class="s-header flex items-center justify-between px-5 py-6 pb-7 text-[20px] font-bold"
       >
-        <div class="name font-azeret text-base tracking-wide text-text whitespace-nowrap">
+        <div
+          class="chatbot-name whitespace-nowrap font-azeret text-base tracking-wide text-text"
+        >
           Nexus Ai
           <span class="block text-xxs font-normal tracking-normal text-textDim"
             >Ai Assistant</span
           >
         </div>
-        <div class="s-headerLogo bg-gr h-9 w-9 rounded-main"></div>
+        <div class="header-logo bg-gr h-9 w-9 rounded-main"></div>
       </div>
 
       <div
         class="history-holder flex-[1_1_auto] overflow-y-hidden hover:overflow-y-scroll"
       >
-        <ul class="history h-full w-full">
+        <ul class="chat-history h-full w-full">
           <li class="convs-conv active group">
             <div class="conv-label">
               New Chat
@@ -174,14 +176,13 @@
         </div>
       </div>
     </aside>
+    <!--! End Aside Bar -->
 
-    <!-- End Aside Bar -->
-
-    <!-- Start Main -->
+    <!--! Start Main -->
     <main
-      class="chatbot overflow-y-scroll bg-grid flex h-full flex-1 flex-col overflow-hidden bg-background-default"
+      class="chatbot bg-grid flex h-full flex-1 flex-col overflow-x-hidden bg-background-default"
     >
-      <header class="z-10 flex w-full gap-[40px] bg-background-default">
+      <header class="page-header z-10 sticky top-0 flex w-full gap-[40px] bg-background-default">
         <div class="m-0 table h-full w-full flex-[1_1_auto] border-none">
           <ul
             class="convs-conv m-0 flex flex-col gap-[0.5rem] border-none bg-transparent px-[20px] py-[11px]"
@@ -198,8 +199,8 @@
         </div>
       </header>
       <div
-        id="chat-box"
-        class="chatbox container h-full w-full overflow-y-auto overflow-x-hidden px-4"
+        id="chat-display"
+        class="h-full w-full overflow-y-auto overflow-x-hidden px-4"
       ></div>
       <div
         class="typing-container z-10 flex justify-center px-[10px] py-[20px]"
@@ -207,13 +208,13 @@
         <div class="typing-content flex w-full max-w-[950px] items-end">
           <div class="typing-textarea relative flex w-full items-end">
             <textarea
-              id="chat-input"
+              id="user-input"
               placeholder="'/' to see commands"
               class="h-[55px] w-full resize-none border-[1px] border-border bg-background-default py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:font-mono placeholder:text-background-700"
               required
             ></textarea>
             <span
-              id="send-btn"
+              id="send-button"
               class="absolute right-0 z-10 flex h-[55px] w-[55px] items-center justify-center fill-background-700 opacity-50 duration-300"
             >
               <svg
@@ -232,11 +233,11 @@
         </div>
       </div>
     </main>
-    <!-- End Main -->
+    <!--! End Main -->
 
     <!-- Your Custom Scripts -->
-    <script src="js/nav.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/nav.js"></script>
     <script src="js/all.min.js"></script>
   </body>
 </html>

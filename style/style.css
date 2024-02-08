@@ -51,17 +51,18 @@
   * {
     @apply m-0 box-border p-0 font-inter;
   }
-  ::-webkit-scrollbar {
-    @apply w-[7px];
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-neutral-900 hover:bg-neutral-800;
-  }
   body {
     @apply flex h-screen w-screen overflow-hidden bg-background-default;
   }
   li {
     @apply list-none;
+  }
+  /* Scroll Bar */
+  ::-webkit-scrollbar {
+    @apply w-1;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-neutral-900 hover:bg-neutral-800;
   }
 }
 @layer components {
@@ -86,9 +87,9 @@
     *:not(.desktop-aside-toggle):not(.mobile-aside-toggle) {
     @apply invisible;
   }
-  aside[data-visibled="true"] ~ .chatbot .chatbox {
+  /* aside[data-visibled="true"] ~ .chatbot .chat-display {
     @apply px-12;
-  }
+  } */
 }
 
 aside .convs-conv {
@@ -105,12 +106,6 @@ aside .text-shadow {
 }
 aside .convs-conv.active .text-shadow {
   @apply from-primary-700;
-}
-aside .history-holder::-webkit-scrollbar {
-  @apply w-1;
-}
-aside .history-holder::-webkit-scrollbar-thumb {
-  @apply bg-neutral-900 opacity-10 hover:bg-neutral-800;
 }
 .toggleOpacity *:not(.desktop-aside-toggle) {
   @apply opacity-80 transition-opacity duration-300;
@@ -132,26 +127,22 @@ aside .history-holder::-webkit-scrollbar-thumb {
 }
 /* End aside */
 /* Start main */
-.chatbox .chat {
-  @apply mx-0 my-10 flex h-fit flex-row gap-4;
+#chat-display .chat {
+  @apply mx-auto my-10 flex flex-1 gap-4 md:max-w-3xl md:px-5 lg:max-w-[44rem] lg:px-1 xl:max-w-[52rem] xl:px-5;
 }
-.chatbox .outgoing {
+#chat-display .outgoing {
   @apply justify-end;
 }
 /* Typing area */
 @media (max-width: 55em) {
-  main header .table .convs-conv {
+  main .page-header .table .convs-conv {
     @apply ml-[6rem] mt-[1.3rem] w-full p-0 pb-[15px];
   }
 }
-#chat-input:valid ~ #send-btn {
+#user-input:valid ~ #send-button {
   @apply cursor-pointer opacity-100;
 }
-#chat-input:valid ~ #send-btn:hover {
+#user-input:valid ~ #send-button:hover {
   @apply fill-background-600;
-}
-#chat-input::-webkit-scrollbar,
-.chatbot .chatbox::-webkit-scrollbar {
-  @apply w-[5px];
 }
 /* End main */

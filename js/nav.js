@@ -1,7 +1,7 @@
 // Select the aside element
-const aside = document.querySelector(".primary-aside");
+const aside = document.querySelector(".chat-sidebar");
 
-//* Mobile toggle
+//! Mobile toggle
 const asideToggleMobile = document.querySelector(".mobile-aside-toggle");
 
 asideToggleMobile.addEventListener("click", () => {
@@ -16,7 +16,7 @@ asideToggleMobile.addEventListener("click", () => {
   }
 });
 
-//* Desktop toggle
+//! Desktop toggle
 const asideToggleDesktop = document.querySelector(".desktop-aside-toggle");
 
 asideToggleDesktop.addEventListener("mouseenter", () => toggleOpacity());
@@ -28,7 +28,7 @@ asideToggleDesktop.addEventListener("click", () => {
   toggleDesktopIconAndStyle();
 });
 
-//* Functions
+//! Functions
 // Function to toggle visibility and ARIA attribute
 function toggleVisibility(toggleElement, dataAttribute) {
   const isVisible = aside.getAttribute(dataAttribute) === "true";

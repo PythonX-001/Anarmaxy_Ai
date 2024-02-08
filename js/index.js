@@ -1,6 +1,6 @@
-//* test
-let convLab = document.querySelector("aside .history .convs-conv .conv-label");
-let convDate = document.querySelector("aside .history .convs-conv .conv-date");
+//! test
+let convLab = document.querySelector("aside .chat-history .convs-conv .conv-label");
+let convDate = document.querySelector("aside .chat-history .convs-conv .conv-date");
 let convLabHeader = document.querySelector(
   "main header .table .convs-conv .conv-label",
 );
@@ -10,8 +10,8 @@ let convDateHeader = document.querySelector(
 
 convLabHeader.innerHTML = convLab.innerHTML;
 
-//* Auto-Resizing Textarea
-const textarea = document.getElementById("chat-input");
+//! Auto-Resizing Textarea
+const textarea = document.getElementById("user-input");
 const initialInputHeight = textarea.scrollHeight;
 
 textarea.addEventListener("input", () => {
@@ -21,11 +21,11 @@ textarea.addEventListener("input", () => {
   textarea.style.height = `${textarea.scrollHeight + 1}px`;
 });
 
-//* Chat
+//! Chat
 document.addEventListener("DOMContentLoaded", function () {
-  const chatbox = document.querySelector(".chatbox");
-  const chatInput = document.getElementById("chat-input");
-  const sendChatBtn = document.getElementById("send-btn");
+  const chatbox = document.getElementById("chat-display");
+  const chatInput = document.getElementById("user-input");
+  const sendChatBtn = document.getElementById("send-button");
 
   const createChatLi = (message, type) => {
     const chatLi = document.createElement("div");
@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let chatContent =
       type === "outgoing"
-        ? `<div class="whitespace-pre-wrap h-fit break-words max-w-[80%] border-[1px] border-solid border-border px-[16px] py-[12px] text-text">${message}</div><span class="icon icon icon h-8 w-8 self-start bg-gr leading-8 rounded-main bg-cover"></span>`
-        : `<span class="icon h-8 w-8 self-start border-2 border-solid border-border leading-8"></span><div class="h-fit text-text max-w-full w-fit">${message}</div>`;
+        ? `<div class="whitespace-pre-wrap h-fit break-words max-w-[80%] text-base border-[1px] border-solid border-border px-[16px] py-[12px] text-text">${message}</div><span class="icon icon icon size-7 self-start bg-gr leading-8 rounded-main bg-cover"></span>`
+        : `<span class="icon size-7 self-start border-2 border-solid border-border leading-8"></span><div class="h-fit text-text max-w-full text-base w-fit whitespace-pre-wrap break-wordst">${message}</div>`;
 
     chatLi.innerHTML = chatContent;
     return chatLi;
