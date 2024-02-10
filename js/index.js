@@ -20,9 +20,61 @@ textarea.addEventListener("input", () => {
   textarea.style.height = `${initialInputHeight}px`;
   textarea.style.height = `${textarea.scrollHeight + 1}px`;
 });
+//!API CALL
+
+const sendMessageToChatbot = (message) => {
+  fetch('https://donexe-alfa-api.vercel.app/chatbot', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ message: message })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Display the bot's response in the chat
+    const botMessage = data.response;
+    handleIncomingMessage(botMessage);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    handleIncomingMessage("Sorry, I couldn't process your message. Please try again later.");
+  });
+};
 
 //! Chat
 document.addEventListener("DOMContentLoaded", function () {
+  //!API CALL
+
+const sendMessageToChatbot = (message) => {
+  fetch('https://donexe-alfa-api.vercel.app/chatbot', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ message: message })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Display the bot's response in the chat
+    const botMessage = data.response;
+    handleIncomingMessage(botMessage);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    handleIncomingMessage("Sorry, I couldn't process your message. Please try again later.");
+  });
+};
   const chatbox = document.getElementById("chat-display");
   const chatInput = document.getElementById("user-input");
   const sendChatBtn = document.getElementById("send-button");
@@ -57,14 +109,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     addMessageToChatbox(userMessage, "outgoing");
 
-    setTimeout(() => {
-      handleIncomingMessage("Thinking...");
-    }, 600);
+    // Call the function to send the message to the chatbot
+    sendMessageToChatbot(userMessage);
   };
 
-  const handleIncomingMessage = (message) => {
-    addMessageToChatbox(message, "incoming");
-  };
+
+const handleIncomingMessage = (message) => {
+  const chatLi = createChatLi(message, "incoming");
+  chatbox.appendChild(chatLi);
+  chatbox.scrollTo({
+    top: chatbox.scrollHeight,
+    left: 0,
+    behavior: "smooth",
+  });
+
+  // Add the 'incoming' class to the new message element
+  chatLi.classList.add("incoming");
+
+  // Remove the 'incoming' class after the animation has completed
+  chatLi.addEventListener("animationend", () => {
+    chatLi.classList.remove("incoming");
+  });
+};
 
   const handleEnterKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
@@ -82,3 +148,4 @@ document.addEventListener("DOMContentLoaded", function () {
   chatInput.addEventListener("keydown", handleEnterKeyPress);
   sendChatBtn.addEventListener("click", handleSendButtonClick);
 });
+

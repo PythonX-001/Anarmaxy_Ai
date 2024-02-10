@@ -146,3 +146,11 @@ aside .convs-conv.active .text-shadow {
   @apply fill-background-600;
 }
 /* End main */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.chat.incoming {
+  animation: fadeIn 0.5s ease-in-out;
+}
