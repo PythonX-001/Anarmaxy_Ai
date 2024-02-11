@@ -1,3 +1,5 @@
+const { postcss } = require('tailwindcss');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["*.html", "./js/*.js"],

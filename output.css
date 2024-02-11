@@ -628,6 +628,8 @@ li{
   --tw-backdrop-sepia:  ;
 }
 
+/* components */
+
 .bg-grid{
   background-image: linear-gradient(to right,#80808013 1px,transparent 1px),linear-gradient(to bottom,#80808013 1px,transparent 1px);
   background-size: 24px 24px;
@@ -661,6 +663,46 @@ li{
 
 .btn:hover{
   background-color: var(--primary-800);
+}
+
+/* chat */
+
+#chat-display .chat{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex: 1 1 0%;
+  gap: 1rem;
+}
+
+@media (min-width: 768px){
+  #chat-display .chat{
+    max-width: 48rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px){
+  #chat-display .chat{
+    max-width: 44rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+@media (min-width: 1280px){
+  #chat-display .chat{
+    max-width: 52rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+#chat-display .outgoing{
+  justify-content: flex-end;
 }
 
 .sr-only{
@@ -829,12 +871,12 @@ li{
   max-width: 80%;
 }
 
-.max-w-\[950px\]{
-  max-width: 950px;
+.max-w-\[90\%\]{
+  max-width: 90%;
 }
 
-.max-w-full{
-  max-width: 100%;
+.max-w-\[950px\]{
+  max-width: 950px;
 }
 
 .flex-1{
@@ -1209,24 +1251,6 @@ li{
 
 /* start aside */
 
-@media (min-width: 55em) {
-  aside[data-visibled="true"]{
-    width: 0px;
-    transition-property: width;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
-  }
-
-  aside[data-visibled="true"]
-    *:not(.desktop-aside-toggle):not(.mobile-aside-toggle){
-    visibility: hidden;
-  }
-
-  /* aside[data-visibled="true"] ~ .chatbot .chat-display {
-    @apply px-12;
-  } */
-}
-
 aside .convs-conv{
   display: flex;
   cursor: pointer;
@@ -1295,6 +1319,20 @@ aside .convs-conv.active .text-shadow{
   display: none;
 }
 
+@media (min-width: 55em) {
+  aside[data-visibled="true"]{
+    width: 0px;
+    transition-property: width;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  aside[data-visibled="true"]
+    *:not(.desktop-aside-toggle):not(.mobile-aside-toggle){
+    visibility: hidden;
+  }
+}
+
 @media (max-width: 55em) {
   .mobile-aside-toggle{
     position: absolute;
@@ -1323,47 +1361,9 @@ aside .convs-conv.active .text-shadow{
 
 /* End aside */
 
+/* ---Outer-Section--- */
+
 /* Start main */
-
-#chat-display .chat{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-  display: flex;
-  flex: 1 1 0%;
-  gap: 1rem;
-}
-
-@media (min-width: 768px){
-  #chat-display .chat{
-    max-width: 48rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-}
-
-@media (min-width: 1024px){
-  #chat-display .chat{
-    max-width: 44rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-}
-
-@media (min-width: 1280px){
-  #chat-display .chat{
-    max-width: 52rem;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-}
-
-#chat-display .outgoing{
-  justify-content: flex-end;
-}
-
-/* Typing area */
 
 @media (max-width: 55em) {
   main .page-header .table .convs-conv{
@@ -1382,6 +1382,21 @@ aside .convs-conv.active .text-shadow{
 
 #user-input:valid ~ #send-button:hover{
   fill: var(--background-600);
+}
+
+.incoming,
+.outgoing {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 1;
+  }
 }
 
 /* End main */

@@ -66,6 +66,7 @@
   }
 }
 @layer components {
+  /* components */
   .bg-grid {
     @apply bg-[linear-gradient(to_right,#80808013_1px,transparent_1px),linear-gradient(to_bottom,#80808013_1px,transparent_1px)] bg-[size:24px_24px];
   }
@@ -75,23 +76,16 @@
   .btn {
     @apply border-[1px] border-solid border-textDim bg-transparent px-4 py-[8px] font-mono text-text transition duration-200 hover:bg-primary-800;
   }
+  /* chat */
+  #chat-display .chat {
+    @apply mx-auto my-10 flex flex-1 gap-4 md:max-w-3xl md:px-5 lg:max-w-[44rem] lg:px-1 xl:max-w-[52rem] xl:px-5;
+  }
+  #chat-display .outgoing {
+    @apply justify-end;
+  }
 }
 /* End Tailwind */
-
 /* start aside */
-@media (min-width: 55em) {
-  aside[data-visibled="true"] {
-    @apply w-0 transition-[width] duration-300;
-  }
-  aside[data-visibled="true"]
-    *:not(.desktop-aside-toggle):not(.mobile-aside-toggle) {
-    @apply invisible;
-  }
-  /* aside[data-visibled="true"] ~ .chatbot .chat-display {
-    @apply px-12;
-  } */
-}
-
 aside .convs-conv {
   @apply flex cursor-pointer flex-col justify-between overflow-x-hidden text-nowrap bg-transparent py-[11px] pl-5 pr-[14px] hover:bg-primary-default;
 }
@@ -113,6 +107,15 @@ aside .convs-conv.active .text-shadow {
 .mobile-aside-toggle {
   @apply hidden;
 }
+@media (min-width: 55em) {
+  aside[data-visibled="true"] {
+    @apply w-0 transition-[width] duration-300;
+  }
+  aside[data-visibled="true"]
+    *:not(.desktop-aside-toggle):not(.mobile-aside-toggle) {
+    @apply invisible;
+  }
+}
 @media (max-width: 55em) {
   .mobile-aside-toggle {
     @apply absolute -right-16 top-8 z-[9999] block aspect-square w-8 border-none bg-transparent bg-[url("../assets/icon-hamburger.svg")] bg-no-repeat opacity-30;
@@ -126,14 +129,8 @@ aside .convs-conv.active .text-shadow {
   }
 }
 /* End aside */
+/* ---Outer-Section--- */
 /* Start main */
-#chat-display .chat {
-  @apply mx-auto my-10 flex flex-1 gap-4 md:max-w-3xl md:px-5 lg:max-w-[44rem] lg:px-1 xl:max-w-[52rem] xl:px-5;
-}
-#chat-display .outgoing {
-  @apply justify-end;
-}
-/* Typing area */
 @media (max-width: 55em) {
   main .page-header .table .convs-conv {
     @apply ml-[6rem] mt-[1.3rem] w-full p-0 pb-[15px];
@@ -145,12 +142,17 @@ aside .convs-conv.active .text-shadow {
 #user-input:valid ~ #send-button:hover {
   @apply fill-background-600;
 }
-/* End main */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.chat.incoming {
+.incoming,
+.outgoing {
   animation: fadeIn 0.5s ease-in-out;
 }
+
+@keyframes fadeIn {
+  from {
+    @apply opacity-0;
+  }
+  to {
+    @apply opacity-100;
+  }
+}
+/* End main */
