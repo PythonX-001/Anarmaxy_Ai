@@ -1,3 +1,42 @@
+const chatbox = document.getElementById("chat-display");
+const chatInput = document.getElementById("user-input");
+const sendChatBtn = document.getElementById("send-button");
+
+// Add a loading indicator to the chatbox
+const addLoadingIndicator = () => {
+  const loadingDiv = document.createElement('div');
+  loadingDiv.classList.add('chat', 'incoming', 'loading');
+
+  const loadingIcon = document.createElement('span');
+  loadingIcon.classList.add('icon', 'size-7', 'self-start', 'border-2', 'border-solid', 'border-border', 'leading-8');
+
+  const loadingMessage = document.createElement('div');
+  loadingMessage.classList.add('h-fit', 'text-text', 'max-w-[90%]', 'text-base', 'w-fit', 'whitespace-pre-wrap', 'break-wordst');
+  loadingMessage.textContent = "thinking...";
+
+  loadingDiv.appendChild(loadingIcon);
+  loadingDiv.appendChild(loadingMessage);
+
+  chatbox.appendChild(loadingDiv);
+
+  chatbox.scrollTo({
+    top: chatbox.scrollHeight,
+    left: 0,
+    behavior: "smooth",
+  });
+};
+
+const removeLoadingIndicator = () => {
+  const loadingElement = document.querySelector('.chat.incoming.loading');
+
+  if (loadingElement) {
+    loadingElement.remove();
+  }
+};
+
+
+
+
 //! API CALL
 const apiUrl = "https://donexe-alfa-api.vercel.app/chatbot";
 
@@ -27,9 +66,6 @@ const sendChatbotRequest = (message) => {
 
 //! Chat Initialization
 document.addEventListener("DOMContentLoaded", function () {
-  const chatbox = document.getElementById("chat-display");
-  const chatInput = document.getElementById("user-input");
-  const sendChatBtn = document.getElementById("send-button");
 
   const createChatLi = (message, type) => {
     // Create a chat message element
@@ -58,6 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const handleUserMessage = () => {
+    setTimeout(() => {
+      addLoadingIndicator()
+    }, 500);
     // Handle user's message input
     const userMessage = chatInput.value.trim();
     if (!userMessage) return;
@@ -68,7 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Send the user's message to the chatbot and handle the response
     sendChatbotRequest(userMessage)
-      .then(handleIncomingMessage)
+      .then((data) => {
+        removeLoadingIndicator()
+        handleIncomingMessage(data)
+      })
       .catch(handleIncomingMessage);
   };
 
@@ -80,14 +122,6 @@ document.addEventListener("DOMContentLoaded", function () {
       top: chatbox.scrollHeight,
       left: 0,
       behavior: "smooth",
-    });
-
-    // Add the 'incoming' class to the new message element for styling
-    chatLi.classList.add("incoming");
-
-    // Remove the 'incoming' class after the animation has completed
-    chatLi.addEventListener("animationend", () => {
-      chatLi.classList.remove("incoming");
     });
   };
 
