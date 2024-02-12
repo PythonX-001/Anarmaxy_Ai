@@ -83,6 +83,9 @@
   #chat-display .outgoing {
     @apply justify-end;
   }
+  #chat-display .loading {
+    animation: loadingAnimation 0.5s linear; /* Adjust the animation duration as needed */
+  }
 }
 /* End Tailwind */
 /* start aside */
@@ -147,12 +150,24 @@ aside .convs-conv.active .text-shadow {
   animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Animation */
 @keyframes fadeIn {
   from {
     @apply opacity-0;
   }
   to {
     @apply opacity-100;
+  }
+}
+@keyframes loadingAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
   }
 }
 /* End main */

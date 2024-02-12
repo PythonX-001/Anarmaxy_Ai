@@ -705,6 +705,11 @@ li{
   justify-content: flex-end;
 }
 
+#chat-display .loading {
+  animation: loadingAnimation 0.5s linear;
+  /* Adjust the animation duration as needed */
+}
+
 .sr-only{
   position: absolute;
   width: 1px;
@@ -867,6 +872,10 @@ li{
   width: 100%;
 }
 
+.max-w-\[70\%\]{
+  max-width: 70%;
+}
+
 .max-w-\[80\%\]{
   max-width: 80%;
 }
@@ -877,10 +886,6 @@ li{
 
 .max-w-\[950px\]{
   max-width: 950px;
-}
-
-.max-w-\[70\%\]{
-  max-width: 70%;
 }
 
 .flex-1{
@@ -919,17 +924,6 @@ li{
 
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-@keyframes ping{
-  75%, 100%{
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-.animate-ping{
-  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 .resize-none{
@@ -1032,24 +1026,9 @@ li{
   border-color: var(--border);
 }
 
-.border-rose-600{
-  --tw-border-opacity: 1;
-  border-color: rgb(225 29 72 / var(--tw-border-opacity));
-}
-
-.border-rose-500{
-  --tw-border-opacity: 1;
-  border-color: rgb(244 63 94 / var(--tw-border-opacity));
-}
-
 .border-rose-900{
   --tw-border-opacity: 1;
   border-color: rgb(136 19 55 / var(--tw-border-opacity));
-}
-
-.border-rose-950{
-  --tw-border-opacity: 1;
-  border-color: rgb(76 5 25 / var(--tw-border-opacity));
 }
 
 .bg-background-950{
@@ -1064,34 +1043,12 @@ li{
   background-color: var(--primary);
 }
 
-.bg-transparent{
-  background-color: transparent;
-}
-
-.bg-rose-400{
-  --tw-bg-opacity: 1;
-  background-color: rgb(251 113 133 / var(--tw-bg-opacity));
-}
-
-.bg-rose-600{
-  --tw-bg-opacity: 1;
-  background-color: rgb(225 29 72 / var(--tw-bg-opacity));
-}
-
-.bg-rose-600\/50{
-  background-color: rgb(225 29 72 / 0.5);
-}
-
-.bg-rose-500\/50{
-  background-color: rgb(244 63 94 / 0.5);
-}
-
-.bg-rose-900\/50{
-  background-color: rgb(136 19 55 / 0.5);
-}
-
 .bg-rose-950\/50{
   background-color: rgb(76 5 25 / 0.5);
+}
+
+.bg-transparent{
+  background-color: transparent;
 }
 
 .bg-gradient-to-t{
@@ -1241,11 +1198,6 @@ li{
 
 .text-xxs{
   font-size: 10px;
-}
-
-.text-sm{
-  font-size: 0.875rem;
-  line-height: 1.25rem;
 }
 
 .font-bold{
@@ -1455,12 +1407,28 @@ aside .convs-conv.active .text-shadow{
   animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Animation */
+
 @keyframes fadeIn {
   from{
     opacity: 0;
   }
 
   to{
+    opacity: 1;
+  }
+}
+
+@keyframes loadingAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
     opacity: 1;
   }
 }
