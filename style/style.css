@@ -52,7 +52,7 @@
     @apply m-0 box-border p-0 font-inter;
   }
   body {
-    @apply flex h-screen w-screen overflow-hidden bg-background-default;
+    @apply flex h-screen w-screen overflow-hidden bg-background-default text-text;
   }
   li {
     @apply list-none;
@@ -78,13 +78,22 @@
   }
   /* chat */
   #chat-display .chat {
-    @apply mx-auto my-10 flex flex-1 gap-4 md:max-w-3xl md:px-5 lg:max-w-[44rem] lg:px-1 xl:max-w-[52rem] xl:px-5;
+    @apply mx-auto flex flex-1 md:max-w-3xl md:px-5 lg:max-w-[44rem] lg:px-1 xl:max-w-[52rem] xl:px-5;
+  }
+  #chat-display .incoming {
+    @apply mt-10 mb-8 flex-col
+  }
+  #chat-display .incoming:last-child .action > div {
+    @apply visible
   }
   #chat-display .outgoing {
-    @apply justify-end;
+    @apply justify-end gap-4 my-10;
+  }
+  #chat-display .error {
+    @apply flex-row gap-4 my-10
   }
   #chat-display .loading {
-    animation: loadingAnimation 0.5s linear; /* Adjust the animation duration as needed */
+    animation: loadingAnimation 1s linear;
   }
 }
 /* End Tailwind */
@@ -163,8 +172,8 @@ aside .convs-conv.active .text-shadow {
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.9;
+  60% {
+    opacity: 1;
   }
   100% {
     opacity: 1;

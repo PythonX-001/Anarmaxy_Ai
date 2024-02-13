@@ -7,8 +7,8 @@
     <meta name="description" content="Your website description" />
     <meta name="author" content="No0ne003 & PythonX-001" />
     <!-- External Stylesheets -->
+    <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css" />
     <link rel="stylesheet" href="output.css" />
-    <link rel="stylesheet" href="style/all.min.css" />
     <link rel="stylesheet" href="style/style.css" />
 
     <title>Nexus</title>
@@ -161,9 +161,11 @@
         <div class="foot-btn inline-flex gap-3">
           <button class="btn flex size-7 items-center justify-center px-2 py-2">
             <i class="fas fa-cog size-2"></i>
+            <span class="sr-only">setting</span>
           </button>
           <button class="btn flex size-7 items-center justify-center px-2 py-2">
-            <i class="fa-solid fa-headset size-2"></i>
+            <i class="fa-solid fa-puzzle-piece size-2"></i>
+            <span class="sr-only">Support</span>
           </button>
         </div>
         <div class="n-conv">
@@ -171,6 +173,7 @@
             class="btn flex size-7 h-full items-center justify-center border-none bg-primary-default"
           >
             <i class="fa-solid fa-plus size-3"></i>
+            <span class="sr-only">new chat</span>
           </button>
         </div>
       </div>
@@ -202,7 +205,24 @@
       <div
         id="chat-display"
         class="h-full w-full overflow-y-auto overflow-x-hidden px-4"
-      ></div>
+      >
+        <!--! test area -->
+        <!--? working on copy button... -->
+        <!-- <div class="chat incoming mx-auto mt-10 mb-4 flex flex-1 flex-col md:max-w-3xl md:px-5 lg:max-w-[44rem] lg:px-1 xl:max-w-[52rem] xl:px-5 group">
+          <div class="flex items-start gap-4">
+            <span class="icon size-7 self-start border-2 border-solid border-border leading-8"></span>
+            <div id="response" class="h-fit w-fit max-w-[90%] whitespace-pre-wrap break-words text-base text-text">Yo, dude! So, you wanna know a joke? Alright, here's one: Why did the tomato turn red? Because it saw the salad dressing!</div>
+          </div>
+          <div class="action mt-1 flex justify-start gap-3 empty:hidden ml-[2.8rem]">
+            <div class="group-hover:visible invisible -ml-1 mt-0 flex justify-center self-end text-gray-400 lg:justify-start lg:self-center">
+              <button id="copyButton" class="cursor-pointer text-background-700 transition-all hover:text-background-500" data-state="">
+                <i class="clipboard-icon fa-regular fa-clipboard"></i>
+              </button>
+            </div>
+          </div>
+        </div> -->
+        <!--! test area -->
+      </div>
       <div
         class="typing-container z-10 flex justify-center px-[10px] py-[20px]"
       >
@@ -211,7 +231,7 @@
             <textarea
               id="user-input"
               placeholder="'/' to see commands"
-              class="h-[55px] w-full resize-none border-[1px] border-border bg-background-default py-[15px] pl-[20px] pr-[55px] text-base text-text outline-none placeholder:font-mono placeholder:text-background-700"
+              class="h-[55px] w-full resize-none focus:ring-0 focus-visible:ring-0 border-[1px] border-border bg-background-default py-[15px] pl-[20px] pr-[55px] font-inter text-base text-text outline-none placeholder:font-mono placeholder:text-background-700"
               required
             ></textarea>
             <span
@@ -236,10 +256,43 @@
     </main>
     <!--! End Main -->
 
-    <!-- Your Custom Scripts -->
+    <!--! js -->
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const newConvButton = document.querySelector(".n-conv button");
+        const chatHistory = document.querySelector(".chat-history");
+
+        newConvButton.addEventListener("click", function () {
+          // Create a new conversation element
+          const newConvElement = document.createElement("li");
+          newConvElement.classList.add("convs-conv", "group");
+
+          const convLabel = document.createElement("div");
+          convLabel.classList.add("conv-label");
+          convLabel.textContent = "New Chat";
+
+          const textShadow = document.createElement("div");
+          textShadow.classList.add(
+            "text-shadow",
+            "group-hover:w-20",
+            "group-hover:from-primary-default",
+          );
+
+          convLabel.appendChild(textShadow);
+          newConvElement.appendChild(convLabel);
+
+          // Insert the new conversation element at the top of the chat history
+          chatHistory.insertAdjacentElement("afterbegin", newConvElement);
+
+          // // Scroll to the bottom of the chat history
+          // chatHistory.scrollTop = chatHistory.scrollHeight;
+        });
+      });
+    </script> -->
+
+    <script src="./assets/fontawesome/js/all.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/nav.js"></script>
-    <script src="js/all.min.js"></script>
   </body>
 </html>
