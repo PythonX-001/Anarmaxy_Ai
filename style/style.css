@@ -81,16 +81,16 @@
     @apply mx-auto flex flex-1 md:max-w-3xl md:px-5 lg:max-w-[44rem] lg:px-1 xl:max-w-[52rem] xl:px-5;
   }
   #chat-display .incoming {
-    @apply mt-10 mb-8 flex-col
+    @apply mb-8 mt-10 flex-col;
   }
   #chat-display .incoming:last-child .action > div {
-    @apply visible
+    @apply visible;
   }
   #chat-display .outgoing {
-    @apply justify-end gap-4 my-10;
+    @apply my-10 justify-end gap-4;
   }
   #chat-display .error {
-    @apply flex-row gap-4 my-10
+    @apply my-10 flex-row gap-4;
   }
   #chat-display .loading {
     animation: loadingAnimation 1s linear;
@@ -121,7 +121,10 @@ aside .convs-conv.active .text-shadow {
 }
 @media (min-width: 55em) {
   aside[data-visibled="true"] {
-    @apply w-0 transition-[width] duration-300;
+    @apply w-0;
+  }
+  aside[data-visibled="false"] {
+    @apply w-[260px];
   }
   aside[data-visibled="true"]
     *:not(.desktop-aside-toggle):not(.mobile-aside-toggle) {

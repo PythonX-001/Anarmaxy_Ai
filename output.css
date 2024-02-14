@@ -700,8 +700,8 @@ li{
 }
 
 #chat-display .incoming{
-  margin-top: 2.5rem;
   margin-bottom: 2rem;
+  margin-top: 2.5rem;
   flex-direction: column;
 }
 
@@ -737,10 +737,6 @@ li{
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-.visible{
-  visibility: visible;
 }
 
 .invisible{
@@ -905,10 +901,6 @@ li{
   width: 2.25rem;
 }
 
-.w-\[260px\]{
-  width: 260px;
-}
-
 .w-\[55px\]{
   width: 55px;
 }
@@ -920,6 +912,10 @@ li{
 
 .w-full{
   width: 100%;
+}
+
+.w-\[260px\]{
+  width: 260px;
 }
 
 .max-w-\[70\%\]{
@@ -1302,6 +1298,12 @@ li{
   outline-offset: 2px;
 }
 
+.transition-\[width\]{
+  transition-property: width;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .transition-all{
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1389,9 +1391,10 @@ aside .convs-conv.active .text-shadow{
 @media (min-width: 55em) {
   aside[data-visibled="true"]{
     width: 0px;
-    transition-property: width;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+  }
+
+  aside[data-visibled="false"]{
+    width: 260px;
   }
 
   aside[data-visibled="true"]
