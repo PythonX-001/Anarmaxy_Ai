@@ -26,7 +26,6 @@
       >
         <span class="sr-only">Menu</span>
       </button>
-      <!--? test -->
       <button
         class="desktop-aside-toggle absolute -right-3 top-[70px] z-[9999] flex aspect-square size-6 items-center justify-center border-[0.5px] border-solid border-background-900 bg-background-950 pb-0.5 pr-0.5 font-mono tracking-[-3px] text-text"
         aria-controls="primary-aside"
@@ -35,7 +34,6 @@
         <<
         <span class="sr-only">Menu</span>
       </button>
-      <!--? test -->
       <div
         class="s-header flex items-center justify-between px-5 py-6 pb-7 text-[20px] font-bold"
       >
@@ -207,20 +205,60 @@
         class="h-full w-full overflow-y-auto overflow-x-hidden px-4"
       >
         <!--! test area -->
-        <!--? working on copy button... -->
-        <!-- <div class="chat incoming mx-auto mt-10 mb-4 flex flex-1 flex-col md:max-w-3xl md:px-5 lg:max-w-[44rem] lg:px-1 xl:max-w-[52rem] xl:px-5 group">
-          <div class="flex items-start gap-4">
-            <span class="icon size-7 self-start border-2 border-solid border-border leading-8"></span>
-            <div id="response" class="h-fit w-fit max-w-[90%] whitespace-pre-wrap break-words text-base text-text">Yo, dude! So, you wanna know a joke? Alright, here's one: Why did the tomato turn red? Because it saw the salad dressing!</div>
-          </div>
-          <div class="action mt-1 flex justify-start gap-3 empty:hidden ml-[2.8rem]">
-            <div class="group-hover:visible invisible -ml-1 mt-0 flex justify-center self-end text-gray-400 lg:justify-start lg:self-center">
-              <button id="copyButton" class="cursor-pointer text-background-700 transition-all hover:text-background-500" data-state="">
-                <i class="clipboard-icon fa-regular fa-clipboard"></i>
-              </button>
+        <!--? working on default text -->
+        <div id="default-screen" class="h-full w-full">
+          <div class="container flex h-full w-full px-10">
+            <div
+              id="memeBox"
+              class="box group relative flex justify-start border-solid bg-neutral-900"
+            >
+              <img
+                id="memeImage"
+                class="max-h-[40vh] md:max-h-[35vh] xl:max-h-[40vh] rounded-main"
+                src=""
+                alt=""
+              />
+              <div
+                class="label px-[0.5em] py-[0.5em] invisible absolute flex h-full w-full flex-col justify-between shadow-text transition-all duration-300 group-hover:visible"
+              >
+                <div
+                  class="links z-20 flex h-fit w-full justify-end gap-4 p-[5px] pb-[6px]"
+                >
+                  <a
+                    id="memeSetting"
+                    class="flex size-3 hover:scale-110 cursor-pointer items-center justify-center opacity-0 shadow-2xl shadow-black transition-all duration-300 group-hover:opacity-100"
+                    href=""
+                    target="_blank"
+                  >
+                    <i class="fas fa-cog text-primary-50"></i>
+                  </a>
+                  <a
+                    id="memeLink"
+                    class="size-3 cursor-pointer hover:scale-110 opacity-0 transition-all duration-300 group-hover:opacity-100"
+                    href=""
+                    target="_blank"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 14 14">
+                      <path
+                        d="M10.8101 1.96222L0.726954 12.0453L1.66171 12.9801L11.7448 2.89698L11.9344 9.4447L13.208 9.07311L13.0134 2.35278C12.9877 1.46249 12.2434 0.718185 11.3531 0.692412L4.80762 0.502924L4.43487 1.77539L10.8101 1.96222Z"
+                        stroke-width="0.542084"
+                        class="fill-primary-50 stroke-primary-50"
+                      ></path>
+                    </svg>
+                  </a>
+                </div>
+                <div
+                class="title flex h-fit w-full justify-center items-end"
+              >
+                <p
+                  id="memeTitle"
+                  class="z-20 break-words text-sm w-full font-azeret text-primary-200"
+                ></p>
+              </div>
+              </div>
             </div>
           </div>
-        </div> -->
+        </div>
         <!--! test area -->
       </div>
       <div
@@ -257,42 +295,10 @@
     <!--! End Main -->
 
     <!--! js -->
-    <!-- <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const newConvButton = document.querySelector(".n-conv button");
-        const chatHistory = document.querySelector(".chat-history");
-
-        newConvButton.addEventListener("click", function () {
-          // Create a new conversation element
-          const newConvElement = document.createElement("li");
-          newConvElement.classList.add("convs-conv", "group");
-
-          const convLabel = document.createElement("div");
-          convLabel.classList.add("conv-label");
-          convLabel.textContent = "New Chat";
-
-          const textShadow = document.createElement("div");
-          textShadow.classList.add(
-            "text-shadow",
-            "group-hover:w-20",
-            "group-hover:from-primary-default",
-          );
-
-          convLabel.appendChild(textShadow);
-          newConvElement.appendChild(convLabel);
-
-          // Insert the new conversation element at the top of the chat history
-          chatHistory.insertAdjacentElement("afterbegin", newConvElement);
-
-          // // Scroll to the bottom of the chat history
-          // chatHistory.scrollTop = chatHistory.scrollHeight;
-        });
-      });
-    </script> -->
-
     <script src="./assets/fontawesome/js/all.min.js"></script>
     <script src="js/index.js"></script>
     <script src="js/chat.js"></script>
+    <script src="js/defaultScreen.js"></script>
     <script src="js/nav.js"></script>
   </body>
 </html>

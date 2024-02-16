@@ -1,21 +1,47 @@
 document.addEventListener("DOMContentLoaded", () => {
   const chatbox = document.querySelector("#chat-display");
+  const defaultScreen = document.getElementById("default-screen");
   const chatInput = document.querySelector("#user-input");
   const sendChatBtn = document.querySelector("#send-button");
   const apiUrl = "https://donexe-alfa-api.vercel.app/chatbot";
 
   const addLoadingIndicator = () => {
-    const loadingDiv = createChatElement("div", ["chat", "incoming", "loading"]);
-    const loadingIcon = createChatElement("span", ["icon", "size-7", "self-start", "border-2", "border-solid", "border-border", "leading-8"]);
-    const responseContainer = createChatElement("div", ["h-fit", "w-fit", "max-w-[90%]", "whitespace-pre-wrap", "break-words", "text-base", "text-text"]);
-    responseContainer.textContent = "thinking...";
-    const loadingMessage = createChatElement("div", ["flex", "items-start", "gap-4"]);
+    const loadingDiv = createChatElement("div", [
+      "chat",
+      "incoming",
+      "loading",
+    ]);
+    const loadingIcon = createChatElement("span", [
+      "icon",
+      "size-7",
+      "self-start",
+      "border-2",
+      "border-solid",
+      "border-border",
+      "leading-8",
+    ]);
+    const responseContainer = createChatElement("div", [
+      "h-fit",
+      "w-fit",
+      "max-w-[90%]",
+      "whitespace-pre-wrap",
+      "break-words",
+      "text-base",
+      "text-text",
+      "chatLoader",
+    ]);
+    // responseContainer.textContent = "thinking...";
+    const loadingMessage = createChatElement("div", [
+      "flex",
+      "items-center",
+      "gap-4",
+    ]);
     loadingMessage.appendChild(loadingIcon);
     loadingMessage.appendChild(responseContainer);
     loadingDiv.appendChild(loadingMessage);
     chatbox.appendChild(loadingDiv);
     scrollToBottom();
-  };
+  }
 
   const removeLoadingIndicator = () => {
     const loadingElement = document.querySelector(".chat.incoming.loading");
@@ -34,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sendChatbotRequest = async (message) => {
     addLoadingIndicator();
+    
 
     try {
       const response = await fetch(apiUrl, {
@@ -52,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error:", error);
       return {
         type: "error",
-        content: "Oops! Something went wrong. Please try again later or provide more details. For assistance, contact support. Apologies for the inconvenience.",
+        content:
+          "Oops! Something went wrong. Please try again later or provide more details. For assistance, contact support. Apologies for the inconvenience.",
       };
     } finally {
       removeLoadingIndicator();
@@ -94,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (userMessage.length === 0) return;
 
     chatInput.value = "";
+    defaultScreen.remove();
 
     addMessageToChatbox(userMessage, "outgoing");
 
@@ -147,7 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const responseTextElement = responseContainer.querySelector("#response");
       const responseText = responseTextElement.textContent;
       const checkIcon = '<i class="success-icon fa-solid fa-check"></i>';
-      const clipboardIcon = '<i class="clipboard-icon fa-regular fa-clipboard"></i>';
+      const clipboardIcon =
+        '<i class="clipboard-icon fa-regular fa-clipboard"></i>';
 
       const setCopyButtonIcon = (icon) => {
         copyButton.innerHTML = icon;
