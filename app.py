@@ -1,8 +1,4 @@
 from flask import Flask, request, jsonify
-import json
-import requests
-import os
-from bs4 import BeautifulSoup
 
 app = Flask(__name__)
 @app.route('/')
