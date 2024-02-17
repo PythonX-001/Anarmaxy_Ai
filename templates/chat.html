@@ -3,13 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Your website description" />
     <meta name="author" content="No0ne003 & PythonX-001" />
     <!-- External Stylesheets -->
-    <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css" />
-    <link rel="stylesheet" href="output.css" />
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/fontawesome/css/all.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}" />
 
     <title>Nexus</title>
   </head>
@@ -54,7 +56,7 @@
         <ul class="chat-history h-full w-full">
           <li class="convs-conv active group">
             <div class="conv-label">
-              New Chat
+              New Chat Welcome {{ session['username'] }}
               <div
                 class="text-shadow group-hover:w-20 group-hover:from-primary-default"
               ></div>
@@ -192,7 +194,7 @@
             <li
               class="conv-label font-azeret text-xl font-bold tracking-wide text-text"
             >
-              New Chat
+              New Chat welcome {{ session['username'] }}
             </li>
             <li class="conv-date text-xs font-normal text-textDim">
               01/24/2024
@@ -200,10 +202,10 @@
           </ul>
         </div>
       </header>
-      <div
-        id="chat-display"
-        class="h-full w-full overflow-y-auto overflow-x-hidden px-4"
-      >
+      <div id="chat-display" class="h-full w-full overflow-y-auto overflow-x-hidden px-4">
+        {% for chat_li in chat_history %}
+            {{ chat_li | safe }}
+        {% endfor %}
         <!--! test area -->
         <!--? working on default text -->
         <div id="default-screen" class="h-full w-full">
@@ -295,10 +297,10 @@
     <!--! End Main -->
 
     <!--! js -->
-    <script src="./assets/fontawesome/js/all.min.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/chat.js"></script>
-    <script src="js/defaultScreen.js"></script>
-    <script src="js/nav.js"></script>
+    <script src="{{ url_for('static', filename='assets/fontawesome/js/all.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/defaultScreen.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
   </body>
 </html>

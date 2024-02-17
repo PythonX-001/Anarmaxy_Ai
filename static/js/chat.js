@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const defaultScreen = document.getElementById("default-screen");
   const chatInput = document.querySelector("#user-input");
   const sendChatBtn = document.querySelector("#send-button");
-  const apiUrl = "https://donexe-alfa-api.vercel.app/chatbot";
+  const apiUrl = "/chat";
+  
 
   const addLoadingIndicator = () => {
     const loadingDiv = createChatElement("div", [
@@ -65,8 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },        body: `user_input=${encodeURIComponent(message)}`,
       });
 
       if (!response.ok) {
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const data = await response.json();
-      return { user: message, response: data.response };
+      return { user: message, response: data.bot_response };
     } catch (error) {
       console.error("Error:", error);
       return {
