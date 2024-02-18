@@ -2,7 +2,7 @@ const { postcss } = require('tailwindcss');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["*.html", "./js/*.js"],
+  content: ["./templates/*.html", "./static/js/*.js"],
   theme: {
     container: {
       center: true,

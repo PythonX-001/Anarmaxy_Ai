@@ -153,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollToBottom();
   };
 
+  //! send message acction
   const handleEnterKeyPress = (e) => {
     if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
       chatInput.style.height = "55px";
@@ -169,7 +170,8 @@ document.addEventListener("DOMContentLoaded", () => {
   chatInput.addEventListener("keydown", handleEnterKeyPress);
   sendChatBtn.addEventListener("click", handleSendButtonClick);
 
-  //! copy button
+  //! response action
+  //? copy button
   chatbox.addEventListener("click", (event) => {
     const copyButton = event.target.closest("#copyButton");
 
@@ -195,5 +197,12 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("Error copying text:", err);
         });
     }
+  });
+
+  //! scroll to Bottom
+  chatbox.scrollTo({
+    top: chatbox.scrollHeight,
+    left: 0,
+    behavior: "auto",
   });
 });

@@ -62,7 +62,7 @@
     @apply w-1;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-neutral-900 hover:bg-neutral-800;
+    @apply bg-neutral-800 hover:bg-neutral-700;
   }
 }
 @layer components {
