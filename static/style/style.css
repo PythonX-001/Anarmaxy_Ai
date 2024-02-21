@@ -1,7 +1,5 @@
-/* fonts */
+/* Inter fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-/* space mono */
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 /* azert mono */
 @import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@300;400;500;600&display=swap");
 
@@ -52,7 +50,7 @@
     @apply m-0 box-border p-0 font-inter;
   }
   body {
-    @apply flex h-screen w-screen overflow-hidden bg-background-default text-text;
+    @apply flex h-[100svh] w-[100svw] overflow-hidden bg-background-default text-text;
   }
   li {
     @apply list-none;
@@ -67,14 +65,23 @@
 }
 @layer components {
   /* components */
+  .bg-gr {
+    @apply bg-gradient-to-br from-background-default to-neutral-900;
+  }
+  .bg-gr-primary {
+    @apply bg-gradient-to-tr from-primary-400 to-primary-600;
+  }
   .bg-grid {
     @apply bg-[linear-gradient(to_right,#80808013_1px,transparent_1px),linear-gradient(to_bottom,#80808013_1px,transparent_1px)] bg-[size:24px_24px];
   }
-  .bg-gr {
-    @apply bg-gradient-to-tr from-primary-400 to-primary-600;
-  }
   .btn {
     @apply border-[1px] border-solid border-textDim bg-transparent px-4 py-[8px] font-mono text-text transition duration-200 hover:bg-primary-800;
+  }
+  .input {
+    @apply h-[55px] w-full resize-none border-[1px] border-border bg-background-default py-[15px] pl-[20px] pr-[55px] font-inter text-base text-text outline-none placeholder:font-mono placeholder:text-background-700 focus:ring-0 focus-visible:ring-0
+  }
+  .link {
+    @apply font-mono hover:underline hover:decoration-primary-400
   }
   /* chat */
   #chat-display .chat {
@@ -194,6 +201,20 @@ aside .convs-conv.active .text-shadow {
   transition: color 0.3s linear;
 }
 
+/* Login */
+.wrapper .input-box {
+  @apply w-full h-[79px] my-[30px] mx-0
+}
+.register .wrapper .password {
+  @apply mb-6
+}
+.wrapper .input-box input:focus ~ label,
+.wrapper .input-box input:valid ~ label {
+  @apply translate-y-[-20px] translate-x-2 bg-primary-300 text-[0.9em] py-[2px] px-1
+}
+.inputAnimation ~ label {
+  @apply translate-y-[-20px] translate-x-2 bg-primary-300 text-[0.9em] py-[2px] px-1
+}
 /* loading */
 /* chat */
 .chatLoader {
@@ -228,6 +249,7 @@ aside .convs-conv.active .text-shadow {
   border: 5px solid rgba(23, 23, 23);
   padding: 0 8px;
   box-sizing: border-box;
+  z-index: 9;
   background:
     linear-gradient( theme(colors.border) 0 0) 0 0/8px 20px,
     linear-gradient( theme(colors.border) 0 0) 100% 0/8px 20px,

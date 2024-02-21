@@ -52,6 +52,7 @@ const fetchMeme = (subreddit = "") => {
       return response.json();
     })
     .then((data) => {
+      console.log(data)
       updateDetails(data.postLink, data.title, data.url);
     })
     .catch((error) => {

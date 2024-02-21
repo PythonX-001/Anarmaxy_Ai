@@ -1,5 +1,3 @@
-const { postcss } = require('tailwindcss');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./templates/*.html", "./static/js/*.js"],
@@ -52,7 +50,6 @@ module.exports = {
       },
       fontFamily: {
         inter: "'Inter', sans-serif",
-        space: "'Space Mono', monospace",
         azeret: "'Azeret Mono', monospace",
       },
     },

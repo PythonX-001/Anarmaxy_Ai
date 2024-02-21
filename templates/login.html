@@ -1,143 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Login for Anarmaxy Ai" />
+    <meta name="author" content="No0ne003 & PythonX-001" />
+    <!-- External Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='assets/fontawesome/css/all.min.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='output.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style/style.css') }}"
+    />
+
     <title>Login</title>
-    <style>
-        body {
-            background-color: #2c3532;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        form {
-            background-color: #0c0e0c;
-            padding: 40px;
-            border-radius: 10px;
-            width: 300px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            animation: fade-in 0.5s ease-in-out;
-        }
-        @media screen and (max-width: 600px) {
-            form {
-                width: 100%;
-            }
-        }
-        input, button {
-            padding: 10px;
-            margin-bottom: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #2c3532;
-            color: #ffffff;
-            transition: background-color 0.2s ease-in-out;
-        }
-        button{
-            background-color: transparent;
-        }
-        input:focus, button:focus {
-            outline: none;
-        }
-        input:hover, button:hover {
-            background-color: #344140;
-        }
-        label {
-            color: #ffffff;
-            font-size: 16px;
-        }
-        h1 {
-            color: #ffffff;
-            font-size: 32px;
-            margin-bottom: 20px;
-            animation: slide-in 0.5s ease-in-out;
-        }
-        p {
-            color: red;
-            font-size: 14px;
-            margin-top: 0;
-        }
-        /* Added effects */
-        @keyframes reveal {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes glow {
-            0% {
-                box-shadow: 0 0 10px rgba(255, 255, 255, 0);
-            }
-            50% {
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            }
-            100% {
-                box-shadow: 0 0 10px rgba(255, 255, 255, 0);
-            }
-        }
-        /* Cool buttons */
-        button {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease 0s;
-        }
-        button:hover {
-            background-position: right center;
-            color: #fff;
-        }
-        button:active {
-            transform: scale(0.95);
-        }
-    </style>
-</head>
-<body>
-    <h1>Login</h1>
-    {% if error %}
-        <p>{{ error }}</p>
-    {% endif %}
-    <form method="post" action="{{ url_for('login') }}">
-        <label for="username_email">Username or Email:</label>
-        <input type="text" id="username_email" name="username_email" required>
-        
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        
-
-        <button type="submit">Login</button>
-    </form>
-    <script>
-        // Added effects using JavaScript
-        const form = document.querySelector('form');
-        const labels = document.querySelectorAll('label');
-
-        // Reveal effect on page load
-        setTimeout(() => {
-            form.style.animation = 'none';
-            form.offsetHeight; // Trigger a reflow
-            form.style.animation = 'reveal 0.5s ease-in-out';
-        }, 100);
-
-        // Glow effect on hover
-        labels.forEach(label => {
-            const input = document.getElementById(label.htmlFor);
-            label.addEventListener('mouseenter', () => {
-                input.style.animation = 'glow 1s ease-in-out infinite';
-            });
-            label.addEventListener('mouseleave', () => {
-                input.style.animation = 'none';
-            });
-        });
-    </script>
-</body>
+  </head>
+  <body class="bg-gr">
+    <div
+      class="login bg-grid flex h-full min-h-screen w-full items-center justify-center"
+    >
+      <div class="wrapper w-[440px] px-10 py-7">
+        <form id="form" method="post" action="{{ url_for('login') }}">
+          <h1 class="text-center font-azeret text-4xl">Login</h1>
+          <!--? username or email -->
+          <div class="input-box relative">
+            <input
+              class="input caret-primary-300 focus:ring-1 focus:ring-primary-300 focus-visible:ring-1"
+              type="text"
+              id="username_email"
+              name="username_email"
+              autocomplete="off"
+              required
+            />
+            <label
+              class="pointer-events-none absolute left-0 py-[15px] pl-[20px] pr-[55px] font-mono text-background-700 transition-all duration-500"
+              for="username_email"
+              >username || Email</label
+            >
+          </div>
+          <!--? password -->
+          <div class="input-box relative">
+            <input
+              class="input caret-primary-300 focus:ring-1 focus:ring-primary-300 focus-visible:ring-1"
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+            <label
+              class="pointer-events-none absolute left-0 py-[15px] pl-[20px] pr-[55px] font-mono text-background-700 transition-all duration-500"
+              for="password"
+              >Password</label
+            >
+            <i
+              id="toggle-visibility"
+              class="fa-solid fa-eye-slash absolute right-0 h-fit cursor-pointer px-[20px] py-[17px] text-sm"
+              onclick="toggleVisibility()"
+            ></i>
+          </div>
+          <!--? Error -->
+          <div id="error" class="empty:m-0 mb-5">
+            {% if error %}
+            <p class="font-mono text-xs text-rose-800">{{ error }}</p>
+            {% endif %}
+          </div>
+          <!--? Forgot Password -->
+          <div class="forgot m-[-15px_0_15px] flex justify-end text-sm">
+            <a class="link" href="#">Forgot Password ?</a>
+          </div>
+          <!--? Login btn -->
+          <button class="btn h-[45px] w-full shadow-lg" type="submit">
+            Login
+          </button>
+          <!--? Register -->
+          <div class="register-link">
+            <p class="mt-5 text-center text-sm">
+              Dont't have an account ?
+              <a class="link" href="register">Register</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/loginRegester.js') }}"></script>
+  </body>
 </html>

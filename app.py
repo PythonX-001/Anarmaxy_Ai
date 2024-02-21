@@ -3,6 +3,7 @@ import json
 import requests
 import os
 from bs4 import BeautifulSoup
+import re
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -109,8 +110,13 @@ def register():
         if username in user_data or email in user_data.values():
             return render_template('register.html', error='Username or email already in use')
 
-        if len(password) < 8:
-            return render_template('register.html', error='Password should be at least 8 characters long')
+        # Use the same regex for password validation
+        if not re.match(r'^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$', password):
+            return render_template('register.html', error='Password must be 6-16 characters, include a digit, and a special character.')
+
+        # Use the same regex for email validation
+        if not re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', email):
+            return render_template('register.html', error='Enter a valid email address.')
 
         user_data[username] = {'email': email, 'password': password}
         save_user_data(user_data)
