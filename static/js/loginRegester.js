@@ -1,4 +1,5 @@
 //! Login
+const allPassInput = document.querySelector(".wrapper .input-box #password");
 const passInput = document.querySelector(
   ".register .wrapper .input-box #password",
 );
@@ -9,7 +10,7 @@ const form = document.querySelector("form");
 const emailErrorEl = document.getElementById("emailError");
 
 function toggleVisibility() {
-  passInput.type = passInput.type === "password" ? "text" : "password";
+  allPassInput.type = allPassInput.type === "password" ? "text" : "password";
   toggleVisibilityBtn.classList.toggle("fa-eye-slash");
   toggleVisibilityBtn.classList.toggle("fa-eye");
 }

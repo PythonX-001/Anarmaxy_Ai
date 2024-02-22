@@ -671,14 +671,6 @@ li{
   --tw-gradient-to: #171717 var(--tw-gradient-to-position);
 }
 
-.bg-gr-primary{
-  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
-  --tw-gradient-from: var(--primary-400) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: var(--primary-600) var(--tw-gradient-to-position);
-}
-
 .bg-grid{
   background-image: linear-gradient(to right,#80808013 1px,transparent 1px),linear-gradient(to bottom,#80808013 1px,transparent 1px);
   background-size: 24px 24px;
@@ -997,6 +989,10 @@ li{
   height: 13rem;
 }
 
+.h-9{
+  height: 2.25rem;
+}
+
 .h-\[14px\]{
   height: 14px;
 }
@@ -1020,10 +1016,6 @@ li{
 
 .h-screen{
   height: 100vh;
-}
-
-.h-9{
-  height: 2.25rem;
 }
 
 .max-h-\[40vh\]{
