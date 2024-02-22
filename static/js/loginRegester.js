@@ -14,7 +14,7 @@ function toggleVisibility() {
   toggleVisibilityBtn.classList.toggle("fa-eye-slash");
   toggleVisibilityBtn.classList.toggle("fa-eye");
 }
-
+//
 //! register
 //? Function
 const handlePasswordChange = () => {
