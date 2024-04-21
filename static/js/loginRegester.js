@@ -25,7 +25,7 @@ const handlePasswordChange = () => {
   } else if(passwordPattern.test(passInput.value)) {
     passErrorEl.textContent = "";
   } else {
-    passErrorEl.textContent = "Password must be 6-16 characters, include a digit and a special character."; 
+    passErrorEl.textContent = "Password must be 6-16 characters, include a digit(1,2,3...) and a special character(#,$,&,*...)."; 
   }
 }
 

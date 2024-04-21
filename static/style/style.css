@@ -251,17 +251,12 @@ aside .convs-conv.active .text-shadow {
   box-sizing: border-box;
   z-index: 9;
   background:
-    linear-gradient( theme(colors.border) 0 0) 0 0/8px 20px,
-    linear-gradient( theme(colors.border) 0 0) 100% 0/8px 20px,
-    radial-gradient(
-        farthest-side,
-        theme(colors.primary.default) 90%,
-        rgba(23, 23, 23)
-      )
-      0 5px/8px 8px content-box,
-    rgba(23, 23, 23);
-  background-repeat: no-repeat;
-  animation: l3 2s infinite linear;
+  linear-gradient(var(--colors-border), var(--colors-border)) 0 0/8px 20px,
+  linear-gradient(var(--colors-border), var(--colors-border)) 100% 0/8px 20px,
+  radial-gradient(farthest-side, var(--colors-primary-default) 90%, rgba(23, 23, 23)) 0 5px/8px 8px content-box,
+  rgba(23, 23, 23);
+background-repeat: no-repeat;
+animation: l3 2s infinite linear;
 }
 @keyframes l3 {
   25% {

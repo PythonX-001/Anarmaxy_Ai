@@ -5,7 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus - AI Assistant</title>
+    <title>Anarmaxy - AI Assistant</title>
     <style>
         body {
             background-color: #2c3532;
@@ -14,12 +14,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
         }
         .header {
-            background-color: #0c0e0c;
+            width:-webkit-fill-available;
+            background-color: #0c0e0c4a;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -48,8 +48,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 10svh;
             justify-content: center;
-            height: 60vh;
             position: relative;
             z-index: 1;
         }
@@ -60,7 +60,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
             opacity: 0.8;
             z-index: -1;
         }
@@ -79,6 +78,12 @@
             width: 2000px;
             height: 2000px;
             margin-bottom: 40px;
+        }
+        .cta-section p a{
+            padding: 10px;
+            margin: 10px;
+            border-radius: 1svh;
+            background-color: #2c3532;
         }
         @media screen and (max-width: 600px) {
             .hero-text {
@@ -216,12 +221,11 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="header-logo">Nexus</h1>
+        <h1 class="header-logo">Anarmaxy</h1>
         <nav>
             <ul class="header-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -230,16 +234,16 @@
         <p class="hero-subtext">Experience the power of freedom and intelligence</p>
     </div>
     <div class="how-to-section">
-        <h2>How to use Nexus</h2>
-        <p>Nexus is an AI assistant designed to help you with a wide range of tasks, from simple calculations to complex problem-solving. To use Nexus, follow these steps:</p>
+        <h2>How to use Anarmaxy</h2>
+        <p>Anarmaxy is an AI assistant designed to help you with a wide range of tasks, from simple calculations to complex problem-solving. To use Anarmaxy, follow these steps:</p>
         <ol>
-            <li>Download the Nexus app on your device</li>
-            <li>Launch the app and create an account</li>
-            <li>Tap the chat icon to start a conversation with Nexus</li>
-            <li>Ask your questions or provide instructions, and Nexus will assist you with the task</li>
+            <li>Login </li>
+            <li>Start chat</li>
+            <li>Enjoy</li>
+            <li>Ask your questions or provide instructions, and Anarmaxy will assist you with the task</li>
         </ol>
-        <p>For more information on Nexus' capabilities and features, visit our <a href="#">FAQ page</a>.</p>
-        <button>Learn more about Nexus</button>
+        <p>For more information on Anarmaxy' capabilities and features, visit our <a href="#">FAQ page</a>.</p>
+        <button>Learn more about Anarmaxy</button>
     </div>
     <div class="cta-section">
         <h2>Let's get started</h2>
