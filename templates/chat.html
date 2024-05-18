@@ -61,7 +61,7 @@
       <div
         class="history-holder flex-[1_1_auto] overflow-y-hidden hover:overflow-y-scroll"
       >
-        <ul class="chat-history h-full w-full">
+        <ul class="chat-history h-full w-full" id="chat-history-list">
           <li class="convs-conv active group">
             <div class="conv-label">
               New Chat Welcome {{ session['username'] }}
@@ -90,7 +90,7 @@
         </div>
         <div class="n-conv">
           <button
-            class="btn flex size-7 h-full items-center justify-center border-none bg-primary-default"
+            class="btn flex size-7 h-full items-center justify-center border-none bg-primary-default" id="n-conv"
           >
             <i class="fa-solid fa-plus size-3"></i>
             <span class="sr-only">new chat</span>

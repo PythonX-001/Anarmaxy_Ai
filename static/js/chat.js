@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const chatbox = document.querySelector("#chat-display");
   const defaultScreen = document.getElementById("default-screen");
@@ -59,22 +60,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const sendChatbotRequest = async (message) => {
+  const sendChatbotRequest = async (message, chatHistoryId) => {
     addLoadingIndicator();
-    
-
+  
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-      },        body: `user_input=${encodeURIComponent(message)}`,
+        },
+        body: `user_input=${encodeURIComponent(message)}&chat_history_id=${encodeURIComponent(chatHistoryId)}`,
       });
-
+  
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
+  
       const data = await response.json();
       return { user: message, response: data.bot_response };
     } catch (error) {
@@ -120,15 +121,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const handleUserMessage = () => {
     const userMessage = chatInput.value.trim();
-
+  
     if (userMessage.length === 0) return;
-
+  
     chatInput.value = "";
     defaultScreen.remove();
-
+  
     addMessageToChatbox(userMessage, "outgoing");
-
-    sendChatbotRequest(userMessage)
+  
+    // Get the chat_history_id from the URL query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const chatHistoryId = urlParams.get('id');
+  
+    // Send the chat_history_id along with the user message
+    sendChatbotRequest(userMessage, chatHistoryId)
       .then((data) => {
         if (data.type === "error") {
           handleErrorMessage(data.content);
@@ -205,4 +211,59 @@ document.addEventListener("DOMContentLoaded", () => {
     left: 0,
     behavior: "auto",
   });
+const createNewChatButton = document.querySelector("#n-conv");
+  createNewChatButton.addEventListener("click", () => {
+    // Send a request to the Flask backend to create a new chat history
+    fetch("/create_chat", {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        const chatHistoryId = data.chat_history_id;
+        // Redirect to the new chat history
+        window.location.href = `/chat?id=${chatHistoryId}`;
+      })
+      .catch((error) => {
+        console.error("Error creating new chat:", error);
+      });
+  });
+
+  // Function to update the sidebar with chat history names
+  const updateSidebar = () => {
+    fetch("/chat_history_names")
+      .then((response) => response.json())
+      .then((chatHistoryNames) => {
+        const chatHistoryList = document.querySelector("#chat-history-list");
+        chatHistoryList.innerHTML = ""; // Clear the current list
+  
+        // Add each chat history name to the sidebar
+        chatHistoryNames.forEach((chatHistoryName) => {
+          // Create a new list item with the chat history name
+          const listItem = document.createElement("li");
+          listItem.className = "convs-conv active group";
+          listItem.innerHTML = `
+            <div class="conv-label">
+              ${chatHistoryName}
+              <div class="text-shadow group-hover:w-20 group-hover:from-primary-default"></div>
+            </div>
+            
+          `;
+  
+          // Add click event listener to the list item
+          listItem.addEventListener("click", () => {
+            // Redirect to the chat history when clicked
+            window.location.href = `/chat?id=${chatHistoryName}`;
+          });
+  
+          chatHistoryList.appendChild(listItem);
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching chat history names:", error);
+      });
+  };
+  
+  // Call the updateSidebar function initially and whenever a new chat history is created
+  updateSidebar();
+  createNewChatButton.addEventListener("click", updateSidebar);
 });

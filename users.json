@@ -1,70 +1,95 @@
 {
   "hi": {
     "email": "salahch535@gmail.com",
-    "password": "deuxtrois"
+    "password": "deuxtrois",
+    "chat_histories": []
   },
   "bo": {
     "email": "salahch535@gmail.com",
-    "password": "hhhhhhhh"
+    "password": "hhhhhhhh",
+    "chat_histories": []
   },
   "No0neTheTester": {
     "email": "TheTester@gmail.com",
-    "password": "No0neTheTester"
+    "password": "No0neTheTester",
+    "chat_histories": []
   },
   "NoTest": {
     "email": "help@help.com",
-    "password": "NoPass!2"
+    "password": "NoPass!2",
+    "chat_histories": []
   },
   "theghost": {
     "email": "kacev82297@dovesilo.com",
-    "password": "deuxtrois23*"
+    "password": "deuxtrois23*",
+    "chat_histories": []
   },
   "testuser": {
     "email": "salahch535@gmail.com",
-    "password": "testuser*2"
+    "password": "testuser*2",
+    "chat_histories": []
   },
   "chsalahtheking": {
     "email": "salahch535@gmail.com",
-    "password": "deuxtrois23&"
+    "password": "deuxtrois23&",
+    "chat_histories": []
   },
   "dexin xill": {
     "email": "salahch535@gmail.com",
-    "password": "deuxtrois23&"
+    "password": "deuxtrois23&",
+    "chat_histories": []
   },
   "salah": {
     "email": "boukairsalah@gmail.com",
-    "password": "S@lah2005"
+    "password": "S@lah2005",
+    "chat_histories": []
   },
   "l9afez": {
     "email": "aminetouijet2006@gmail.com",
-    "password": "L9@fez2006tr"
+    "password": "L9@fez2006tr",
+    "chat_histories": []
   },
   "detosbrenda ": {
     "email": "detosbrenda@gmail.com",
-    "password": "bahae2009#"
+    "password": "bahae2009#",
+    "chat_histories": []
   },
   "The devil": {
     "email": "amin.taha.kaikani@gmail.com",
-    "password": "aroli6#"
+    "password": "aroli6#",
+    "chat_histories": []
   },
   "Dextr": {
     "email": "amin.taha.kaikani@gmail.com",
-    "password": "dxtr2#"
+    "password": "dxtr2#",
+    "chat_histories": []
   },
   "test": {
     "email": "test@gmail.com",
-    "password": "password13!"
+    "password": "password13!",
+    "chat_histories": []
   },
   "helloda": {
     "email": "justanormaltest@gmail.com",
-    "password": "what132@"
+    "password": "what132@",
+    "chat_histories": []
   },
   "Don": {
     "email": "salahch206music1rap2anime@gmail.com",
-    "password": "don123#"
+    "password": "don123#",
+    "chat_histories": []
   },
   "amen eloumariyine ": {
     "email": "anah93290@gmail.com",
-    "password": "LEEHWAK00@"
+    "password": "LEEHWAK00@",
+    "chat_histories": []
+  },
+  "thebro": {
+    "email": "kdgiunfmokih@gmail.com",
+    "password": "testuser*2",
+    "chat_histories": [
+      "35af3dfe-c72c-4ca1-892f-c6d3a773088d",
+      "ff1f2ede-240c-40d2-9e1b-384635ab19a1"
+    ]
   }
 }
