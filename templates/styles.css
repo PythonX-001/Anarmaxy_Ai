@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    @apply bg-[linear-gradient(to_right,#80808013_1px,transparent_1px),linear-gradient(to_bottom,#80808013_1px,transparent_1px)] bg-[size:24px_24px];
+
+    background-color: #000;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a.button {
+    background-color: #4e6cff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+
+.intro {
+    max-width: 50%;
+}
+
+.intro h1 {
+    font-size: 4rem;
+    color: #4e6cff;
+    background: linear-gradient(90deg, #4e6cff 0%, #cc4bfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro .tagline {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.intro .description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.intro .btn-connect {
+    display: inline-block;
+    background-color: #4e6cff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.image-section {
+    position: relative;
+    max-width: 50%;
+}
+
+.image-section img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.chat-bubble {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+}
+
+.chat-bubble .avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.chat-bubble p {
+    margin: 0;
+    font-size: 0.9rem;
+}

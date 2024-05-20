@@ -1566,6 +1566,7 @@ li{
 /* start aside */
 
 aside .convs-conv{
+  margin: 0 0 1px;
   display: flex;
   cursor: pointer;
   flex-direction: column;

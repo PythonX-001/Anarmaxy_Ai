@@ -234,7 +234,7 @@ const createNewChatButton = document.querySelector("#n-conv");
       .then((response) => response.json())
       .then((chatHistoryNames) => {
         const chatHistoryList = document.querySelector("#chat-history-list");
-        chatHistoryList.innerHTML = ""; // Clear the current list
+        //chatHistoryList.innerHTML = ""; // Clear the current list
   
         // Add each chat history name to the sidebar
         chatHistoryNames.forEach((chatHistoryName) => {
@@ -266,4 +266,5 @@ const createNewChatButton = document.querySelector("#n-conv");
   // Call the updateSidebar function initially and whenever a new chat history is created
   updateSidebar();
   createNewChatButton.addEventListener("click", updateSidebar);
+
 });

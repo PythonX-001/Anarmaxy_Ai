@@ -26,14 +26,13 @@ def save_user_data(data):
 
 # Function to load chat history from JSON file
 def load_chat_history(username, chat_history_id):
-    print(username)
-    print(chat_history_id)
+
     file_path = os.path.join('chat_history', f'{username}_{chat_history_id}.json')
     try:
         with open(file_path, 'r') as f:
             return json.load(f)
     except FileNotFoundError:
-        return []
+        return [{"role": "system", "content": "you are a helpfull assistant ,your name is Anarmaxy, you are created by two young devolopers N and D you can call 'them the Exe team' , they build you to solve and help people , answer like a freind and dont talk in formular way . you are a project that have a goal is give the people a free and secure ai chat website without taking any of user data and let the user be free in using the site.and remmember you cant generate images,and you are muslim , and dont support lgbtq community.  "}]
 
 # Function to save chat history to JSON file
 def save_chat_history(username, chat_history_id, chat_history):
@@ -53,7 +52,7 @@ def create_new_chat_history(username):
     os.makedirs('chat_history', exist_ok=True)
 
     chat_history_id = str(uuid.uuid4())
-    new_chat_history = [{"role": "system", "content": "New conversation started."}]
+    new_chat_history = [{"role": "system", "content": "you are a helpfull assistant ,your name is Anarmaxy, you are created by two young devolopers N and D you can call 'them the Exe team' , they build you to solve and help people , answer like a freind and dont talk in formular way . you are a project that have a goal is give the people a free and secure ai chat website without taking any of user data and let the user be free in using the site.and remmember you cant generate images,and you are muslim , and dont support lgbtq community.  "}]
     save_chat_history(username, chat_history_id, new_chat_history)
     user_data = load_user_data()
     if username not in user_data:
@@ -160,23 +159,32 @@ def chat():
         return redirect(url_for('home'))
 
     username = session['username']
-    chat_history_id = request.args.get('id') 
+    chat_history_id = request.args.get('id')
+    if chat_history_id is None:
+        chat_history_id = request.form.get('chat_history_id')
+ 
+    print(chat_history_id)
 
     chat_history = load_chat_history(username, chat_history_id)
-    print(chat_history)
-    print('-------------------------------------')
+    print(chat_history_id,'----3')
 
-
+    if chat_history_id is None:
+        # Create a new chat history and return the chat_history_id
+        chat_history_id = create_new_chat_history(username)
+        print('--------------------')
+        return redirect(url_for('chat', id=chat_history_id))
 
 
     if request.method == 'POST':
-
-
         user_input = request.form.get('user_input')
-        chat_history_id = request.form.get('chat_history_id')
+        print(chat_history_id,"2")
+
+
+
+
+
         chat_history = load_chat_history(username, chat_history_id)
 
-        print(chat_history)
 
 
         # Get bot response using the chatbot API
@@ -187,7 +195,6 @@ def chat():
         bot_response = get_bot_response(chat_history)
         chat_history.append({'role': 'assistant', 'content': bot_response})
         save_chat_history(username, chat_history_id, chat_history)
-        print(chat_history)
 
         return jsonify({'status': 'success', 'bot_response': bot_response})
 
