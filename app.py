@@ -134,24 +134,23 @@ def register():
 
         user_data = load_user_data()
 
-        if username in user_data or email in user_data.values():
+        if username in user_data or email in [user['email'] for user in user_data.values()]:
             return render_template('register.html', error='Username or email already in use')
 
-        # Use the same regex for password validation
         if not re.match(r'^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$', password):
             return render_template('register.html', error='Password must be 6-16 characters, include a digit, and a special character.')
 
-        # Use the same regex for email validation
         if not re.match(r'^[^\s@]+@[^\s@]+\.[^\s@]+$', email):
             return render_template('register.html', error='Enter a valid email address.')
 
-        user_data[username] = {'email': email, 'password': password}
+        user_data[username] = {'email': email, 'password': password, 'chat_histories': []}
         save_user_data(user_data)
 
         session['username'] = username
         return redirect(url_for('login'))
 
     return render_template('register.html')
+
 
 @app.route('/chat', methods=['GET','POST'])
 def chat():

@@ -87,10 +87,15 @@
   "thebro": {
     "email": "kdgiunfmokih@gmail.com",
     "password": "testuser*2",
+    "chat_histories": []
+  },
+  "nisrine": {
+    "email": "salahch535@gmail.com",
+    "password": "Deuxtrois#23",
     "chat_histories": [
-      "4f3233dd-319d-46ea-bd77-4a181542d082",
-      "60241737-1748-4c8c-a395-3c00b6702de5",
-      "9d2a8b0f-9034-4eeb-a15f-05c3cc39a139"
+      "102cbd47-3755-4c5d-b8dd-8b12c85e52ed",
+      "9374eee4-7797-4b86-9a00-e8f60e9d573e",
+      "17f43dcf-4d56-442e-a587-0711d8fe03e5"
     ]
   }
 }
