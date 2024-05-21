@@ -244,14 +244,16 @@ const createNewChatButton = document.querySelector("#n-conv");
           listItem.innerHTML = `
             <div class="conv-label">
               ${chatHistoryName}
+              <a href="id?=${chatHistoryName}">
               <div class="text-shadow group-hover:w-20 group-hover:from-primary-default"></div>
+              </a>
             </div>
             
           `;
   
           // Add click event listener to the list item
-          listItem.addEventListener("click", () => {
-            // Redirect to the chat history when clicked
+         listItem.addEventListener("click", () => {
+           //  Redirect to the chat history when clicked
             window.location.href = `/chat?id=${chatHistoryName}`;
           });
   

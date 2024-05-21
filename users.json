@@ -27,7 +27,9 @@
   "testuser": {
     "email": "salahch535@gmail.com",
     "password": "testuser*2",
-    "chat_histories": []
+    "chat_histories": [
+      "78192144-7f2d-41f5-9d14-edf94888b7c7"
+    ]
   },
   "chsalahtheking": {
     "email": "salahch535@gmail.com",
@@ -93,9 +95,7 @@
     "email": "salahch535@gmail.com",
     "password": "Deuxtrois#23",
     "chat_histories": [
-      "102cbd47-3755-4c5d-b8dd-8b12c85e52ed",
-      "9374eee4-7797-4b86-9a00-e8f60e9d573e",
-      "17f43dcf-4d56-442e-a587-0711d8fe03e5"
+      "a02a3892-5adf-479f-a9fe-1457fc0a2423"
     ]
   }
 }
