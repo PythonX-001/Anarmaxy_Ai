@@ -272,6 +272,83 @@ main {
   margin-left: -14px;
 }
 /*! Mouse to scroll */
+/*! About Section */
+#learn-more {
+  padding: 80px;
+  text-align: center;
+  background-color: #0c0e0c; 
+  color: #aab2aa; 
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-container {
+  max-width: 800px;
+  text-align: left;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  color: #aab2aa; /* Main text color */
+  margin-bottom: 20px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #aab2aa; /* Main text color */
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.secondary-highlight {
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 1024px) {
+  #learn-more {
+    padding: 60px 20px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .text {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  #learn-more {
+    padding: 40px 10px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}
+
+/*! End about section */
 
 .card-list {
   padding-top: 30px;
@@ -354,83 +431,7 @@ main {
   }
 }
 
-/*! About Section */
-#learn-more {
-  padding: 80px;
-  text-align: center;
-  background-color: #0c0e0c; 
-  color: #aab2aa; 
-}
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.about-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.inner-container {
-  max-width: 800px;
-  text-align: left;
-}
-
-.title {
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 1.2;
-  color: #aab2aa; /* Main text color */
-  margin-bottom: 20px;
-}
-
-.text {
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 1.6;
-  color: #aab2aa; /* Main text color */
-}
-
-.highlight {
-  font-weight: bold;
-}
-
-.secondary-highlight {
-  font-weight: 400;
-  text-decoration: underline;
-}
-
-@media only screen and (max-width: 1024px) {
-  #learn-more {
-    padding: 60px 20px;
-  }
-
-  .title {
-    font-size: 36px;
-  }
-
-  .text {
-    font-size: 18px;
-  }
-}
-
-@media only screen and (max-width: 766px) {
-  #learn-more {
-    padding: 40px 10px;
-  }
-
-  .title {
-    font-size: 28px;
-  }
-
-  .text {
-    font-size: 16px;
-  }
-}
-
-/*! End about section */
 /* Benefits Section */
 #benefits {
   text-align: center;
