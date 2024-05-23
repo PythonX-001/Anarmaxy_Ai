@@ -1,200 +1,240 @@
 <html>
-<head>
-  <title>AI Landing Page</title>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link
-  rel="stylesheet"
-  href="{{ url_for('static', filename='style/home-styles.css') }}"
-/>
+  <head>
+    <title>AI Landing Page</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Cardo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style/home-styles.css') }}"
+    />
+  </head>
+  <body class="bg-gr">
+    <div class="bg-grid">
+      <header class="main_h">
+        <div class="header-container">
+          <a class="logo" href="#">Pexus</a>
 
-</head>
-<body>
-  <!-- Header Section -->
-	<header class="main_h">
-
-    <div class="row">
-        <a class="logo" href="#">Pexus</a>
-
-        <div class="mobile-toggle">
+          <div class="mobile-toggle">
             <span></span>
             <span></span>
             <span></span>
-        </div>
+          </div>
 
-        <nav>
+          <nav>
             <ul>
-              <li><a href=".intro">Intro</a></li>
-                <li><a href="#learn-more">About Ai</a></li>
-                <li><a href="#benefits">Why Us</a></li>
-                <li><a href="#cta">So what</a></li>
-                <li><a href="{{ url_for('register') }}" class="cta-button"style="font-size:12;padding: 3px 10px;">Get Started</a></li>
+              <li><a href=".hero">Intro</a></li>
+              <li><a href="#learn-more">About Ai</a></li>
+              <li><a href="#benefits">Why Us</a></li>
+              <li><a href="#cta">So what</a></li>
+              <li class="cta-button2">
+                <a href="{{ url_for('register') }}">Get Started</a>
+              </li>
             </ul>
-        </nav>
-
-    </div> <!-- / row -->
-
-</header>
-<main>
-    <section class="intro">
-        <h1>Pexus</h1>
-        <p class="tagline">Unleash the Power of AI, Protect Your Data</p>
-        <p class="description">"Discuss to start writing, planning, learning, and more with Nexus AI"</p>
-        <a href="{{ url_for('register') }}" class="cta-button">Get Started</a>
-    </section>
-    <section class="image-section">
-        <img src="{{ url_for('static', filename='image.jpg') }}" alt="Gorges du Verdon">
-        <div class="overlay">
-            <div class="chat-bubble">
-                <img src="{{ url_for('static', filename='/avatar.jpg') }}" alt="User Avatar" class="avatar">
-                <p>Fais-moi un planning de voyage pour 3 jours en couple dans les Gorges du Verdon. J'aime les randonnées et la nature !</p>
-            </div>
+          </nav>
         </div>
-    </section>
-    <div class="mouse">
-        <span></span>
-    </div>
-</main>
+      </header>
+      <main>
+        <section class="hero">
+          <h1>Pexus: Your Moroccan AI Companion</h1>
 
-  <!-- About Section -->
-  <section id="learn-more">
-    <div class="container">
-        <div class="about-section">
-            <div class="inner-container">
-              <h1 style="font-weight: 700;
-              font-size: 64px;
-              line-height: 76px;">About Ai</h1>
-              <p class="text" style="       display: flex;
-              flex-direction: column;
-              justify-content: center;
-              font-weight: 500;
-              font-size: 45px;
-              line-height: 1.5;
-             ">
-              
-            <span>the <span style="color: #475a54;">freedom</span> of AI with our innovative and trustworthy solution.</span> <span> Designed for <span style="color: #475a54;">those who value privacy</span>,</span> our AI ensures your data stays secure and confidential. Enjoy all the benefits of cutting-edge technology<span style="color: #475a54;"> without compromising your personal information. </span><span style="color: #9aaea6;">Embrace the power of AI without the worry—completely free. Discover a new level of user freedom and privacy today.</span>
-            </p>
-          
+          <p class="description">
+            Connect with Pexus AI for writing, planning, and learning. Experience intelligent assistance while keeping your data safe and sound.
+          </p>
+          <a href="{{ url_for('register') }}" class="cta-button">Join Now</a>
+        </section>               
+        <section class="image-section">
+          <img
+            src="{{ url_for('static', filename='image.jpg') }}"
+            alt="Gorges du Verdon"
+          />
+          <div class="overlay">
+            <div class="chat-bubble">
+              <img
+                src="{{ url_for('static', filename='/avatar.jpg') }}"
+                alt="User Avatar"
+                class="avatar"
+              />
+              <p>
+                Fais-moi un planning de voyage pour 3 jours en couple dans les
+                Gorges du Verdon. J'aime les randonnées et la nature !
+              </p>
             </div>
           </div>
+        </section>
+        <div class="mouse">
+          <span></span>
+        </div>
+      </main>
+
+      <!-- About Section -->
+      <section id="learn-more">
+        <div class="container">
+          <div class="about-section">
+            <div class="inner-container">
+              <h1 style="font-weight: 700; font-size: 64px; line-height: 76px">
+                About Ai
+              </h1>
+              <p
+                class="text"
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  font-weight: 500;
+                  font-size: 45px;
+                  line-height: 1.5;
+                "
+              >
+                <span
+                  >the <span style="color: #475a54">freedom</span> of AI with
+                  our innovative and trustworthy solution.</span
+                >
+                <span>
+                  Designed for
+                  <span style="color: #475a54">those who value privacy</span
+                  >,</span
+                >
+                our AI ensures your data stays secure and confidential. Enjoy
+                all the benefits of cutting-edge technology<span
+                  style="color: #475a54"
+                >
+                  without compromising your personal information. </span
+                ><span style="color: #9aaea6"
+                  >Embrace the power of AI without the worry—completely free.
+                  Discover a new level of user freedom and privacy today.</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section id="benefits">
+        <div class="container">
+          <h2 style="font-weight: 700; font-size: 64px; line-height: 76px">
+            Why Choose Us
+          </h2>
+          <div class="card-list">
+            <div class="card" id="card1">
+              <p class="title">Unmatched Privacy Protection</p>
+              <p>
+                We prioritize your data security, ensuring your personal
+                information remains confidential.
+              </p>
+            </div>
+            <div class="card" id="card2">
+              <p class="title">User-Centric Freedom</p>
+              <p>
+                Our AI is designed for users who value freedom and privacy,
+                providing a secure and unrestricted experience.
+              </p>
+            </div>
+            <div class="card" id="card3">
+              <p class="title">Innovative and Trustworthy</p>
+              <p>
+                Leveraging cutting-edge technology, we offer a reliable AI
+                solution that you can trust.
+              </p>
+            </div>
+            <div class="card" id="card4">
+              <p class="title">Completely Free</p>
+              <p>
+                Enjoy all the benefits of our advanced AI without any cost,
+                making it accessible to everyone.
+              </p>
+            </div>
+            <div class="card" id="card5">
+              <p class="title">Dedicated to Your Security</p>
+              <p>
+                Our commitment to privacy means you can use our AI with
+                confidence, knowing your data is always protected.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call-to-Action Section -->
+      <section id="cta">
+        <div class="container">
+          <h2>Ready to Unlock Your Potential?</h2>
+          <p>Join Nexus AI today and embark on an exciting journey!</p>
+          <a href="{{ url_for('register') }}" class="cta-button">Get Started</a>
+        </div>
+      </section>
+
+      <!-- Footer Section -->
+      <footer>
+        <p>&copy; 2024 Pexus AI. All rights reserved.</p>
+      </footer>
     </div>
-  </section>
+    <!-- Header Section -->
 
-  <!-- Benefits Section -->
-  <section id="benefits">
-    <div class="container">
-      <h2  style="font-weight: 700;
-      font-size: 64px;
-      line-height: 76px;">Why Choose Us</h2>
-      <div class="card-list">
-        <div class="card" id="card1">
-          <p class="title">Unmatched Privacy Protection</p>
-          <p>We prioritize your data security, ensuring your personal information remains confidential.</p>
-          
-        </div>
-        <div class="card" id="card2">
-          <p class="title">User-Centric Freedom</p>
-          <p>Our AI is designed for users who value freedom and privacy, providing a secure and unrestricted experience.</p>
-        </div>
-        <div class="card" id="card3">
-          <p class="title">Innovative and Trustworthy</p>
-          <p>Leveraging cutting-edge technology, we offer a reliable AI solution that you can trust.</p>
-        </div>
-        <div class="card" id="card4">
-            <p class="title">Completely Free</p>
-            <p>Enjoy all the benefits of our advanced AI without any cost, making it accessible to everyone.</p>
-        </div>
-          <div class="card" id="card5">
-            <p class="title">Dedicated to Your Security</p>
-            <p>Our commitment to privacy means you can use our AI with confidence, knowing your data is always protected.</p>
-        </div>
-      </div>
+    <script>
+      // Sticky Header
+      $(window).scroll(function () {
+        if ($(window).scrollTop() > 100) {
+          $(".main_h").addClass("sticky");
+        } else {
+          $(".main_h").removeClass("sticky");
+        }
+      });
 
+      // Mobile Navigation
+      $(".mobile-toggle").click(function () {
+        if ($(".main_h").hasClass("open-nav")) {
+          $(".main_h").removeClass("open-nav");
+        } else {
+          $(".main_h").addClass("open-nav");
+        }
+      });
 
-    </div>
-  </section>
+      $(".main_h li a").click(function () {
+        if ($(".main_h").hasClass("open-nav")) {
+          $(".navigation").removeClass("open-nav");
+          $(".main_h").removeClass("open-nav");
+        }
+      });
 
+      // Navigation Scroll - ljepo radi materem
+      $("nav a").click(function (event) {
+        var id = $(this).attr("href");
+        var offset = 70;
+        var target = $(id).offset().top - offset;
+        $("html, body").animate(
+          {
+            scrollTop: target,
+          },
+          500,
+        );
+        event.preventDefault();
+      });
+      //fade cards
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = ["#card1", "#card2", "#card3", "#card4", "#card5"];
+        const options = {
+          threshold: 1.0, // This means the observer will trigger when the element is fully visible
+        };
 
-
-  <!-- Call-to-Action Section -->
-  <section id="cta">
-    <div class="container">
-      <h2>Ready to Unlock Your Potential?</h2>
-      <p>Join Nexus AI  today and embark on an exciting journey!</p>
-      <a href="{{ url_for('register') }}" class="cta-button">Get Started</a>
-    </div>
-  </section>
-
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2024 Pexus AI. All rights reserved.</p>
-  </footer>
-
-  <script>
-
-    // Sticky Header
-$(window).scroll(function() {
-
-if ($(window).scrollTop() > 100) {
-    $('.main_h').addClass('sticky');
-} else {
-    $('.main_h').removeClass('sticky');
-}
-});
-
-// Mobile Navigation
-$('.mobile-toggle').click(function() {
-if ($('.main_h').hasClass('open-nav')) {
-    $('.main_h').removeClass('open-nav');
-} else {
-    $('.main_h').addClass('open-nav');
-}
-});
-
-$('.main_h li a').click(function() {
-if ($('.main_h').hasClass('open-nav')) {
-    $('.navigation').removeClass('open-nav');
-    $('.main_h').removeClass('open-nav');
-}
-});
-
-// Navigation Scroll - ljepo radi materem
-$('nav a').click(function(event) {
-var id = $(this).attr("href");
-var offset = 70;
-var target = $(id).offset().top - offset;
-$('html, body').animate({
-    scrollTop: target
-}, 500);
-event.preventDefault();
-});
-//fade cards
-document.addEventListener("DOMContentLoaded", function() {
-    const cards = ['#card1', '#card2', '#card3', '#card4', '#card5'];
-    const options = {
-        threshold: 1.0 // This means the observer will trigger when the element is fully visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                observer.unobserve(entry.target); // Stop observing once it's visible
+              entry.target.style.opacity = "1";
+              observer.unobserve(entry.target); // Stop observing once it's visible
             }
+          });
+        }, options);
+
+        cards.forEach((cardSelector) => {
+          const card = document.querySelector(cardSelector);
+          observer.observe(card);
         });
-    }, options);
-
-    cards.forEach(cardSelector => {
-        const card = document.querySelector(cardSelector);
-        observer.observe(card);
-    });
-});
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>
-
-
-
-
-  
-
