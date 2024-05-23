@@ -39,14 +39,14 @@
       </header>
       <main>
         <section class="hero">
-          <h1>Pexus: Your Moroccan AI Companion</h1>
+          <h1 id="hero-text">Pexus: Your Moroccan AI Companion</h1>
 
           <p class="description">
             Connect with Pexus AI for writing, planning, and learning.
             Experience intelligent assistance while keeping your data safe and
             sound.
           </p>
-          <a href="{{ url_for('register') }}" class="cta-button">Join Now</a>
+          <a href="{{ url_for('register') }}" class="cta-button cta-button-hero">Join Now</a>
         </section>
         <section class="image-section">
           <img
@@ -79,63 +79,53 @@
             <div class="inner-container">
               <h1 class="title">About Pexus AI</h1>
               <p class="text">
-                Experience the <span class="highlight">freedom</span> of AI with our innovative and trustworthy solution.
-                Designed for <span class="highlight">those who value privacy</span>, our AI ensures your data stays secure and confidential.
-                Enjoy all the benefits of cutting-edge technology <span class="highlight">without compromising your personal information</span>.
-                <span class="secondary-highlight">Embrace the power of AI without the worry—completely free.</span>
+                Experience the <span class="highlight">freedom</span> of AI with
+                our innovative and trustworthy solution. Designed for
+                <span class="highlight">those who value privacy</span>, our AI
+                ensures your data stays secure and confidential. Enjoy all the
+                benefits of cutting-edge technology
+                <span class="highlight"
+                  >without compromising your personal information</span
+                >.
+                <span class="secondary-highlight"
+                  >Embrace the power of AI without the worry—completely
+                  free.</span
+                >
                 Discover a new level of user freedom and privacy today.
               </p>
             </div>
           </div>
         </div>
       </section>
-      
 
       <!-- Benefits Section -->
       <section id="benefits">
         <div class="container">
-          <h2 style="font-weight: 700; font-size: 64px; line-height: 76px">
-            Why Choose Us
-          </h2>
+          <h2 class="section-title">Why Choose Us</h2>
           <div class="card-list">
             <div class="card" id="card1">
-              <p class="title">Unmatched Privacy Protection</p>
-              <p>
-                We prioritize your data security, ensuring your personal
-                information remains confidential.
-              </p>
+              <p class="card-title">Unmatched Privacy Protection</p>
+              <p>We prioritize your data security, ensuring your personal information remains confidential.</p>
             </div>
             <div class="card" id="card2">
-              <p class="title">User-Centric Freedom</p>
-              <p>
-                Our AI is designed for users who value freedom and privacy,
-                providing a secure and unrestricted experience.
-              </p>
+              <p class="card-title">User-Centric Freedom</p>
+              <p>Our AI is designed for users who value freedom and privacy, providing a secure and unrestricted experience.</p>
             </div>
             <div class="card" id="card3">
-              <p class="title">Innovative and Trustworthy</p>
-              <p>
-                Leveraging cutting-edge technology, we offer a reliable AI
-                solution that you can trust.
-              </p>
+              <p class="card-title">Innovative and Trustworthy</p>
+              <p>Leveraging cutting-edge technology, we offer a reliable AI solution that you can trust.</p>
             </div>
             <div class="card" id="card4">
-              <p class="title">Completely Free</p>
-              <p>
-                Enjoy all the benefits of our advanced AI without any cost,
-                making it accessible to everyone.
-              </p>
+              <p class="card-title">Completely Free</p>
+              <p>Enjoy all the benefits of our advanced AI without any cost, making it accessible to everyone.</p>
             </div>
             <div class="card" id="card5">
-              <p class="title">Dedicated to Your Security</p>
-              <p>
-                Our commitment to privacy means you can use our AI with
-                confidence, knowing your data is always protected.
-              </p>
+              <p class="card-title">Dedicated to Your Security</p>
+              <p>Our commitment to privacy means you can use our AI with confidence, knowing your data is always protected.</p>
             </div>
           </div>
         </div>
-      </section>
+      </section>      
 
       <!-- Call-to-Action Section -->
       <section id="cta">
@@ -194,7 +184,7 @@
       });
       //fade cards
       document.addEventListener("DOMContentLoaded", function () {
-        const cards = ["#card1", "#card2", "#card3", "#card4", "#card5"];
+        const cards = ["#card1", "#card2", "#card3", "#card4", "#card5", '#hero-text', '.description', '.cta-button-hero'];
         const options = {
           threshold: 1.0, // This means the observer will trigger when the element is fully visible
         };
