@@ -58,9 +58,9 @@ body {
   text-decoration: none;
 }
 
-nav {
+/*nav {
   width: 50%;
-}
+}*/
 
 nav ul {
   display: flex;
@@ -360,6 +360,15 @@ main {
 
   .text {
     font-size: 16px;
+  }
+    main {
+    padding: 10vh 0 10vh;
+    height: auto;
+    flex-direction: column;
+  }
+  .mouse{
+    bottom: -5svh;
+    position: relative;
   }
 }
 

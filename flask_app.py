@@ -5,6 +5,7 @@ import os
 from bs4 import BeautifulSoup
 import re
 import uuid
+client = Groq(api_key="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",)
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -65,9 +66,17 @@ def create_new_chat_history(username):
 
 # API endpoint for chatbot
 def get_bot_response(user_input):
-    api_url = 'https://donexe-alfa-api.vercel.app/chatbot'
-    response = requests.post(api_url, json={'message': user_input})
-    return response.json()['response']
+    chat_completion = client.chat.completions.create(
+    model="gemma-7b-it",
+    messages=user_input,
+    temperature=1,
+    max_tokens=8192,
+    top_p=1,
+    stream=False,
+    stop=None,
+    )
+    content = chat_completion.choices[0].message.content
+    return content
 
 #Converting js to html
 
