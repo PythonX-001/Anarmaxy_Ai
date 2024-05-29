@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Your website description" />
     <meta name="author" content="No0ne003 & PythonX-001" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- External Stylesheets -->
@@ -114,7 +116,7 @@
             <li
               class="conv-label font-azeret text-xl font-bold tracking-wide text-text"
             >
-              New Chat welcome {{ session['username'] }}
+              Welcome {{ session['username'] }}
             </li>
             <li class="conv-date text-xs font-normal text-textDim">
               01/24/2024
@@ -218,7 +220,27 @@
     <!--! js -->
     
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          document.querySelectorAll('.conv-label').forEach(function(div) {
+              // Remove the inner elements temporarily
+              const innerElements = Array.from(div.children);
+              innerElements.forEach(el => el.remove());
 
+              // Check if there's any text left
+              const textContent = div.textContent.trim();
+
+              // Restore the inner elements
+              innerElements.forEach(el => div.appendChild(el));
+
+              // If the text content is empty, hide the div
+              if (textContent === '') {
+                  div.style.display = 'none';
+              }
+          });
+      });
+  </script>
+    
     <script src="{{ url_for('static', filename='assets/fontawesome/js/all.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
     <script src="{{ url_for('static', filename='js/chat.js') }}"></script>

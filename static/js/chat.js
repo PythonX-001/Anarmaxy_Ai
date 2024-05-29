@@ -144,6 +144,10 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((data) => {
         handleErrorMessage(data.content);
+      })
+      .finally(() => {
+        // Update the sidebar after the chat session
+        updateSidebar();
       });
   };
 
@@ -228,45 +232,47 @@ const createNewChatButton = document.querySelector("#n-conv");
       });
   });
 
-  // Function to update the sidebar with chat history names
-  const updateSidebar = () => {
-    fetch("/chat_history_names")
+// Function to update the sidebar with chat history names
+const updateSidebar = () => {
+  fetch("/chat_history_names")
       .then((response) => response.json())
       .then((chatHistoryNames) => {
-        const chatHistoryList = document.querySelector("#chat-history-list");
-        //chatHistoryList.innerHTML = ""; // Clear the current list
-  
-        // Add each chat history name to the sidebar
-        chatHistoryNames.forEach((chatHistoryName) => {
-          // Create a new list item with the chat history name
-          const listItem = document.createElement("li");
-          listItem.className = "convs-conv active group";
-          listItem.innerHTML = `
-            <div class="conv-label">
-              ${chatHistoryName}
-              <a href="id?=${chatHistoryName}">
-              <div class="text-shadow group-hover:w-20 group-hover:from-primary-default"></div>
-              </a>
-            </div>
-            
-          `;
-  
-          // Add click event listener to the list item
-         listItem.addEventListener("click", () => {
-           //  Redirect to the chat history when clicked
-            window.location.href = `/chat?id=${chatHistoryName}`;
+          const chatHistoryList = document.querySelector("#chat-history-list");
+          // Clear the current list
+          chatHistoryList.innerHTML = "";
+
+          // Add each chat history name to the sidebar
+          chatHistoryNames.forEach((chatHistory) => {
+              // Create a new list item with the chat history name
+              const listItem = document.createElement("li");
+              listItem.className = "convs-conv active group";
+              listItem.innerHTML = `
+                  <div class="conv-label">
+                      ${chatHistory.title}
+                      <a href="/chat?id=${chatHistory.id}">
+                          <div class="text-shadow group-hover:w-20 group-hover:from-primary-default"></div>
+                      </a>
+                  </div>
+              `;
+
+              // Add click event listener to the list item
+              listItem.addEventListener("click", () => {
+                  // Redirect to the chat history when clicked
+                  window.location.href = `/chat?id=${chatHistory.id}`;
+              });
+
+              chatHistoryList.appendChild(listItem);
           });
-  
-          chatHistoryList.appendChild(listItem);
-        });
       })
       .catch((error) => {
-        console.error("Error fetching chat history names:", error);
+          console.error("Error fetching chat history names:", error);
       });
-  };
-  
+};
+
+
   // Call the updateSidebar function initially and whenever a new chat history is created
   updateSidebar();
   createNewChatButton.addEventListener("click", updateSidebar);
 
 });
+

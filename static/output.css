@@ -1597,6 +1597,11 @@ aside .conv-label{
   color: var(--textDim);
 }
 
+.conv-label:empty {
+  display: none;
+}
+
+
 @media (min-width: 768px){
   aside{
     display: none;
